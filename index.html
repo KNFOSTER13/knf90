@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Kimberly Nicole Foster's 90 in 90: A 90-day sprint through ideas, images, and inquiry.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kimberly Nicole Foster's 90 in 90</title>
+    <link rel="preload" as="image" href="https://knfoster13.github.io/knf90/images/knf90-header-cropped.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,9 +49,10 @@
         }
 
         body {
-            background-color: var(--bg);
+            background-image: linear-gradient(to bottom, #2c0838, #1b0628);
             color: var(--cream);
             font-family: 'Inter', sans-serif;
+            min-height: 100vh;
         }
 
         .font-display {
@@ -74,7 +77,7 @@
 
         /* Luminous gradient button */
         .btn-luminous {
-            background: linear-gradient(135deg, #fffade, #e8d5b5, #cb98e1);
+            background: linear-gradient(135deg, #FFFDF5, #e8d5b5, #cb98e1);
             color: #330948;
             border-radius: 9999px; /* pill shape */
             box-shadow:
@@ -119,32 +122,185 @@
              -webkit-backdrop-filter: blur(12px);
              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: #FFF5F0;
+            border-radius: var(--radius);
+            padding: 56px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+            position: relative;
+            color: #1B0628;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #1B0628;
+            opacity: 0.5;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+            background: rgba(0,0,0,0.05);
+        }
+
+        .modal h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+
+        .modal-subtitle {
+            font-size: 18px;
+            opacity: 0.7;
+            margin-bottom: 32px;
+        }
+
+        .modal-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 24px;
+        }
+
+        .modal-column h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .modal-column p {
+            margin-bottom: 16px;
+            opacity: 0.7;
+            font-size: 15px;
+        }
+
+        .modal-column input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(0,0,0,0.15);
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 8px;
+        }
+
+        .modal-column input:focus {
+            outline: none;
+            border-color: rgba(0,0,0,0.3);
+            box-shadow: 0 0 0 3px rgba(27, 6, 40, 0.1);
+        }
+        
+        .btn.primary {
+            background: linear-gradient(135deg, var(--blush), var(--lilac));
+            color: var(--header);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 1rem;
+            width: 100%;
+            margin-top: 8px;
+            padding: 12px;
+        }
+        
+        .btn.primary:hover {
+            transform: scale(1.03);
+        }
+
+        .modal-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 24px 0;
+            opacity: 0.3;
+        }
+
+        .modal-divider::before,
+        .modal-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(0,0,0,0.2);
+        }
+        
+        .sparkle {
+            font-size: 1.2rem;
+            color: var(--header);
+        }
+
+        .modal-footer {
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .modal {
+                padding: 32px;
+            }
+            
+            .modal h2 {
+                font-size: 28px;
+            }
+            
+            .modal-columns {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Sticky Header -->
-    <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 header-glass" style="height: 96px;">
+    <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 header-glass h-20">
         <div class="container mx-auto px-4 h-full">
             <div class="flex justify-between items-center h-full">
                 <!-- Left: Logo -->
                 <div class="flex-shrink-0">
-                    <img src="https://knfoster13.github.io/knf90/images/knf90-logo-gradient-1.png" alt="KNF90 Logo" class="h-10">
+                    <img src="https://knfoster13.github.io/knf90/images/knf90-logo-gradient-1.png" alt="KNF90 Logo" class="h-12">
                 </div>
-                <!-- Center: Metrics -->
-                <div class="hidden md:flex flex-col items-center">
-                     <div class="flex space-x-6 text-sm font-semibold uppercase tracking-widest text-cream/90">
-                        <span>12 DAYS</span>
-                        <span>38 ENTRIES</span>
-                        <span>12 STREAK</span>
-                    </div>
-                     <div class="w-full bg-cream/10 rounded-full h-1 mt-2">
-                        <div class="bg-gradient-to-r from-grad-start via-grad-mid to-grad-end h-1 rounded-full" style="width: 13.33%"></div>
-                    </div>
+
+                <!-- Center: Date Range -->
+                <div class="hidden md:block text-center text-xs font-semibold uppercase tracking-wider text-cream/70">
+                    OCTOBER 13 — JANUARY 9, 2026 ✦ 90 DAYS OF PRACTICE
                 </div>
+
                 <!-- Right: CTA -->
                 <div class="flex-shrink-0">
-                    <button class="btn btn-luminous hidden sm:block" onclick="toggleModal()">Join the Sprint</button>
+                    <button class="btn btn-luminous hidden sm:block uppercase" onclick="openModal()">Join the Sprint ✦</button>
                 </div>
             </div>
         </div>
@@ -152,26 +308,26 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="relative text-center flex flex-col items-center justify-center py-20 lg:py-32 overflow-hidden" style="min-height: calc(90vh - 80px);">
+        <section class="relative text-center flex flex-col items-center justify-center pt-12 pb-20 lg:pt-16 lg:pb-32 overflow-hidden" style="min-height: calc(90vh - 80px);">
              
             <div class="container mx-auto px-4 z-20 relative">
                 <!-- Hero Image as Title -->
-                <img src="https://knfoster13.github.io/knf90/images/knf90-header-cropped.png" alt="KNF 90 in 90" class="w-full max-w-2xl mx-auto mb-6">
+                <img src="https://knfoster13.github.io/knf90/images/knf90-header-cropped.png" alt="KNF 90 in 90" class="w-full max-w-2xl mx-auto mb-6" loading="eager">
 
-                <p class="font-sans text-lg md:text-xl max-w-2xl mx-auto mt-4 text-cream/80 uppercase" style="color: #E5C7A2;">A 90-Day Sprint Through Ideas, Images, & Inquiry</p>
-                <p class="text-sm font-semibold uppercase tracking-widest mt-4 text-cream/70">BY KIMBERLY NICOLE FOSTER</p>
+                <p class="font-sans text-lg md:text-xl max-w-2xl mx-auto mt-4 text-cream/80 uppercase" style="color: oklch(95.4% 0.038 75.164);">A <strong class="font-bold">90-Day</strong> Sprint Through Ideas, Images, & Inquiry</p>
+                <p class="text-base font-bold uppercase tracking-widest mt-2" style="color: #FFF4E3;">BY KIMBERLY NICOLE FOSTER</p>
                 
                 <div class="flex justify-center space-x-4 mt-8">
-                    <button class="btn btn-luminous" onclick="toggleModal()">Join the Sprint</button>
+                    <button class="btn btn-luminous uppercase" onclick="openModal()">Join the Sprint ✦</button>
                     <button class="btn-ghost">View This Week's Entries</button>
                 </div>
 
                 <!-- Weekly Theme -->
                 <div class="mt-16 lg:mt-24 max-w-3xl mx-auto">
-                    <p class="text-sm font-semibold uppercase tracking-widest" style="color: var(--gold);">Weekly Theme</p>
+                    <p id="weekly-theme-label" class="text-sm font-semibold uppercase tracking-widest" style="color: oklch(95.4% 0.038 75.164);">Week One Theme</p>
                     <div class="w-24 h-px mx-auto my-4" style="background: linear-gradient(90deg, transparent, var(--gold), transparent);"></div>
-                    <h2 class="font-display text-4xl md:text-5xl text-cream">Narratives, Myths & Lies</h2>
-                    <p class="mt-4 text-lg text-cream/80">Exploring the stories we tell to survive, sell, and sanctify.</p>
+                    <h2 id="weekly-theme-title" class="font-display text-6xl md:text-7xl leading-tight" style="color: #FEDBD5;">Narratives<br>Myths & Lies</h2>
+                    <p id="weekly-theme-description" class="mt-4 text-lg text-cream/80">Exploring the stories we tell to survive, sell, and sanctify.</p>
                 </div>
             </div>
         </section>
@@ -278,62 +434,121 @@
     </footer>
 
     <!-- Join Modal -->
-    <div id="join-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden" style="background-color: rgba(0,0,0,0.5);">
-         <div id="modal-overlay" class="absolute inset-0"></div>
-        <div id="modal-panel" class="relative bg-cream text-header p-8 md:p-12 rounded-lg shadow-2xl w-full max-w-2xl transform transition-transform duration-300 scale-95">
-            <button class="absolute top-4 right-4 text-header/50 hover:text-header" onclick="toggleModal()">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            <h2 class="font-display text-3xl md:text-4xl mb-4 text-center">Join the Sprint. Stay in the Flow.</h2>
-            <p class="text-center mb-8 text-header/70">Get updates via newsletter or text alerts. No spam, just sparks.</p>
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                 <div class="text-center">
-                    <h3 class="font-bold mb-2">Newsletter</h3>
-                    <p class="text-sm mb-4 text-header/60">Receive weekly digests and special announcements.</p>
-                    <button class="w-full py-2 px-4 rounded-lg bg-header text-cream font-semibold">Subscribe</button>
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2>Join the Sprint. Stay in the Flow.</h2>
+            <p class="modal-subtitle">Get daily drops and weekly themes delivered to your inbox and phone.</p>
+            
+            <div class="modal-columns">
+                <div class="modal-column">
+                    <h3>Newsletter</h3>
+                    <p>Daily digests and weekly reflections via email.</p>
+                    <input type="email" placeholder="Your email address">
+                    <button class="btn primary">Subscribe</button>
                 </div>
-                 <div class="text-center">
-                    <h3 class="font-bold mb-2">Text Alerts</h3>
-                     <p class="text-sm mb-4 text-header/60">Get notified when new entries are published.</p>
-                    <button class="w-full py-2 px-4 rounded-lg bg-header text-cream font-semibold">Sign Up</button>
+                
+                <div class="modal-column">
+                    <h3>Text Alerts</h3>
+                    <p>Instant notifications for new entries and updates.</p>
+                    <input type="tel" placeholder="Your phone number">
+                    <button class="btn primary">Get Alerts</button>
                 </div>
+            </div>
+            
+            <div class="modal-divider">
+                <span class="sparkle">✦</span>
+            </div>
+            
+            <div class="modal-footer">
+                ✦ No spam. Just sparks.
             </div>
         </div>
     </div>
 
 
     <script>
-        // Modal functionality
-        const modal = document.getElementById('join-modal');
-        const modalOverlay = document.getElementById('modal-overlay');
-        const modalPanel = document.getElementById('modal-panel');
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Weekly Theme Logic ---
+            const weeklyThemes = [
+                { week: 1, title: "Narratives<br>Myths & Lies", description: "Exploring the stories we tell to survive, sell, and sanctify." },
+                { week: 2, title: "The Body<br>The Archive", description: "On memory, physicality, and the records we keep." },
+                { week: 3, title: "Ritual<br>Repetition", description: "Finding meaning in the patterns of daily practice." },
+                { week: 4, title: "Public<br>Private", description: "Navigating the boundaries between personal and shared experience." },
+                { week: 5, title: "Silence<br>The Unseen", description: "What is not said, not shown, and what it reveals." },
+                { week: 6, "title": "Influence<br>Intertext", "description": "A dialogue with the ideas and images that shape us." },
+                { week: 7, "title": "Place<br>Displacement", "description": "How geography and environment inform our inner worlds." },
+                { week: 8, "title": "The 'Real'<br>The Hyperreal", "description": "Questioning authenticity in a world of copies." },
+                { week: 9, "title": "Abundance<br>Scarcity", "description": "Creative constraints and the generation of ideas." },
+                { week: 10, "title": "The End<br>The After", "description": "On conclusions, aftermaths, and what lingers." },
+                { week: 11, "title": "Synthesis<br>Reflection", "description": "Looking back, connecting the threads of the journey." },
+                { week: 12, "title": "Future<br>Forward", "description": "Integrating the practice into what comes next." },
+                { week: 13, title: "Beginnings<br>Intentions", description: "Setting the foundation for 90 days of creative practice." } // Moved to end as an example
+            ];
 
-        function toggleModal() {
-            if (modal.classList.contains('hidden')) {
-                modal.classList.remove('hidden');
-                setTimeout(() => {
-                    modalPanel.classList.remove('scale-95');
-                }, 10);
-            } else {
-                modalPanel.classList.add('scale-95');
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                }, 300);
+            const sprintStartDate = new Date('2025-10-13T00:00:00');
+            const now = new Date();
+            
+            // If it's before the start date, show week 1
+            if (now < sprintStartDate) {
+                updateTheme(weeklyThemes[0]);
+                return;
+            }
+
+            const diffTime = Math.abs(now - sprintStartDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            let currentWeek = Math.floor((diffDays -1) / 7) + 1;
+            
+            // Cap at the last week
+            if (currentWeek > weeklyThemes.length) {
+                currentWeek = weeklyThemes.length;
+            }
+
+            const activeTheme = weeklyThemes.find(theme => theme.week === currentWeek);
+            if (activeTheme) {
+                updateTheme(activeTheme);
+            }
+        });
+
+        function updateTheme(theme) {
+            const weekNumberToText = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen"];
+            const label = document.getElementById('weekly-theme-label');
+            const title = document.getElementById('weekly-theme-title');
+            const description = document.getElementById('weekly-theme-description');
+            
+            if (label) label.textContent = `Week ${weekNumberToText[theme.week - 1]} Theme`;
+            if (title) title.innerHTML = theme.title;
+            if (description) description.textContent = theme.description;
+        }
+
+        // --- Modal functionality ---
+        const modalOverlay = document.getElementById('modalOverlay');
+
+        function openModal() {
+            if (modalOverlay) {
+                modalOverlay.classList.add('active');
+            }
+        }
+
+        function closeModal() {
+            if (modalOverlay) {
+                modalOverlay.classList.remove('active');
             }
         }
         
-        modalOverlay.addEventListener('click', toggleModal);
+        // Allows closing by clicking on the dark background
+        modalOverlay.addEventListener('click', function(event) {
+            if (event.target === modalOverlay) {
+                closeModal();
+            }
+        });
         
         window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                toggleModal();
+            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                closeModal();
             }
         });
     </script>
 </body>
 </html>
-
-
 
