@@ -106,7 +106,7 @@
         }
 
         .header-glass {
-             background: linear-gradient(to bottom, rgba(27, 6, 40, 0.95), rgba(27, 6, 40, 0.85));
+             background: linear-gradient(to bottom, rgba(27, 6, 40, 0.9), rgba(27, 6, 40, 0.6));
              backdrop-filter: blur(8px);
              -webkit-backdrop-filter: blur(8px);
              box-shadow: 0 2px 10px rgba(0,0,0,0.25);
@@ -167,7 +167,7 @@
 
                 <!-- Center: Date Range -->
                 <div class="hidden md:block text-center text-xs font-semibold uppercase tracking-wider text-cream/70">
-                    OCTOBER 13 — JANUARY 9, 2026 ✦ 90 DAYS OF PRACTICE
+                    OCTOBER 15 — JANUARY 13, 2026 ✦ 90 DAYS OF PRACTICE
                 </div>
 
                 <!-- Right: CTA -->
@@ -223,8 +223,9 @@
 
                 <!-- Weekly Theme -->
                 <div class="mt-16 lg:mt-24 max-w-3xl mx-auto fade-in" style="animation-delay: 600ms;">
-                    <p id="weekly-theme-label" class="text-sm font-semibold uppercase tracking-widest" style="color: var(--accent-peach);">This Week's Theme</p>
-                    <h2 id="weekly-theme-title" class="font-display text-6xl md:text-7xl leading-tight mt-4" style="color: var(--accent-rose);">Narratives<br>Myths & Lies</h2>
+                    <p id="weekly-theme-label" class="text-sm font-semibold uppercase tracking-widest" style="color: var(--accent-peach);">Week One Theme</p>
+                    <div class="w-24 h-px mx-auto my-4" style="background: linear-gradient(90deg, transparent, var(--gold), transparent);"></div>
+                    <h2 id="weekly-theme-title" class="font-display text-6xl md:text-7xl leading-tight" style="color: var(--accent-rose);">Narratives<br>Myths & Lies</h2>
                     <p id="weekly-theme-description" class="mt-4 text-lg text-cream/80">Exploring the stories we tell to survive, sell, and sanctify.</p>
                 </div>
             </div>
@@ -432,10 +433,9 @@
             });
 
             // --- Countdown Timer Logic ---
-            const countdownDate = new Date("2025-10-13T15:13:00").getTime();
-            const timerInterval = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = countdownDate - now;
+            const countdownDate = new Date("2025-10-15T15:13:00").getTime();
+            const timerInterval = setInterval(() => {
+                const distance = countdownDate - new Date().getTime();
                 const daysEl = document.getElementById("days");
                 if (distance < 0) {
                     clearInterval(timerInterval);
@@ -452,6 +452,14 @@
                     document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
                 }
             }, 1000);
+
+            // Swipe Gestures for Cards
+            const cards = document.querySelectorAll('.entry-card');
+            cards.forEach(card => {
+                card.addEventListener('touchend', e => {
+                    card.style.transform = '';
+                });
+            });
         });
 
         const weeklyThemes = [
@@ -469,7 +477,7 @@
             { week: 12, "title": "Future<br>Forward", "description": "Integrating the practice into what comes next." },
             { week: 13, title: "Beginnings<br>Intentions", description: "Setting the foundation for 90 days of creative practice." }
         ];
-        const sprintStartDate = new Date('2025-10-13T00:00:00');
+        const sprintStartDate = new Date('2025-10-15T00:00:00');
         if (new Date() < sprintStartDate) { updateTheme(weeklyThemes[0]); } else { 
             const now = new Date();
             const diffTime = Math.abs(now - sprintStartDate);
@@ -488,8 +496,7 @@
             const label = document.getElementById('weekly-theme-label');
             const title = document.getElementById('weekly-theme-title');
             const description = document.getElementById('weekly-theme-description');
-            
-            if (label) label.textContent = `This Week's Theme`;
+            if (label) label.textContent = `Week One Theme`;
             if (title) title.innerHTML = theme.title;
             if (description) description.textContent = theme.description;
         }
@@ -551,6 +558,4 @@
     </script>
 </body>
 </html>
-
-
 
