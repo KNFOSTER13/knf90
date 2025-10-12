@@ -106,7 +106,7 @@
         }
 
         .header-glass {
-             background: linear-gradient(to bottom, rgba(27, 6, 40, 0.9), rgba(27, 6, 40, 0.6));
+             background: linear-gradient(to bottom, rgba(27, 6, 40, 0.95), rgba(27, 6, 40, 0.85));
              backdrop-filter: blur(8px);
              -webkit-backdrop-filter: blur(8px);
              box-shadow: 0 2px 10px rgba(0,0,0,0.25);
@@ -223,9 +223,8 @@
 
                 <!-- Weekly Theme -->
                 <div class="mt-16 lg:mt-24 max-w-3xl mx-auto fade-in" style="animation-delay: 600ms;">
-                    <p id="weekly-theme-label" class="text-sm font-semibold uppercase tracking-widest" style="color: var(--accent-peach);">Week One Theme</p>
-                    <div class="w-24 h-px mx-auto my-4" style="background: linear-gradient(90deg, transparent, var(--gold), transparent);"></div>
-                    <h2 id="weekly-theme-title" class="font-display text-6xl md:text-7xl leading-tight" style="color: var(--accent-rose);">Narratives<br>Myths & Lies</h2>
+                    <p id="weekly-theme-label" class="text-sm font-semibold uppercase tracking-widest" style="color: var(--accent-peach);">This Week's Theme</p>
+                    <h2 id="weekly-theme-title" class="font-display text-6xl md:text-7xl leading-tight mt-4" style="color: var(--accent-rose);">Narratives<br>Myths & Lies</h2>
                     <p id="weekly-theme-description" class="mt-4 text-lg text-cream/80">Exploring the stories we tell to survive, sell, and sanctify.</p>
                 </div>
             </div>
@@ -267,85 +266,86 @@
             </div>
         </section>
 
-        <!-- Recent Entries Section -->
+        <!-- From the Archive Section -->
         <section class="py-20 reveal-on-scroll">
             <div class="container mx-auto px-4">
-                 <div class="text-center mb-16">
+                 <div class="text-center mb-12">
                      <h2 class="font-display text-4xl md:text-5xl text-cream">From the Archive</h2>
                      <p class="mt-4 text-lg text-cream/80 max-w-2xl mx-auto">A selection of recent entries from the 90-day sprint.</p>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Filter Bar -->
+                <div id="filter-bar" class="flex justify-center space-x-2 md:space-x-4 mb-12">
+                    <button class="filter-btn active" onclick="filterEntries('all')">All</button>
+                    <button class="filter-btn" onclick="filterEntries('video')">Video Essays</button>
+                    <button class="filter-btn" onclick="filterEntries('audio')">Audio Notes</button>
+                    <button class="filter-btn" onclick="filterEntries('livestream')">Livestreams</button>
+                </div>
+
+                <div id="entries-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <!-- Entry Card 1 -->
-                    <div class="entry-card bg-cream text-header rounded-lg p-6 flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="flex-grow">
-                            <div class="font-mono text-xs uppercase text-header/50 tracking-widest flex justify-between mb-2">
+                    <!-- Entry Card 1 (Image) -->
+                    <div class="entry-card" data-type="video">
+                        <a href="#" class="entry-card-link block bg-cream text-header rounded-lg p-6 pb-0 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                            <img src="https://placehold.co/600x400/1B0628/FFF8F2?text=KNF90" alt="Placeholder image for an entry card" class="w-full h-48 object-cover rounded-md mb-6">
+                            <div class="font-mono text-xs uppercase text-header/50 tracking-widest flex justify-between">
                                 <span>DAY 012</span>
                                 <span>VIDEO ESSAY</span>
                             </div>
-                            <h3 class="font-display text-3xl text-header mb-3">The Myth of Authenticity</h3>
-                            <p class="text-header/80 text-sm leading-relaxed mb-4">An exploration of performance and the curated self in the age of social media, questioning what it means to be 'real'.</p>
-                        </div>
-                        <div class="flex-shrink-0">
-                            <div class="border-t border-header/10 pt-4 mt-4">
-                                <button class="marginalia-toggle font-mono text-xs uppercase tracking-widest text-header/60 hover:text-header transition-colors" onclick="toggleMarginalia(this)">
-                                    ‡ Show Marginalia
-                                </button>
-                                <div class="marginalia-content hidden mt-4 text-sm text-header/90">
-                                    <ul class="space-y-2">
-                                        <li><strong>Reading:</strong> <a href="#" class="underline hover:text-grad-mid">"The Presentation of Self in Everyday Life" by Erving Goffman</a></li>
-                                        <li><strong>Influence:</strong> <a href="#" class="underline hover:text-grad-mid">ContraPoints on YouTube</a></li>
-                                    </ul>
-                                </div>
+                            <h3 class="font-display text-3xl text-header my-3 leading-tight">This is an Example of a Much Longer Title That Can Now Wrap Gracefully</h3>
+                        </a>
+                        <div class="bg-cream/80 text-header px-6 pb-6 pt-4 rounded-b-lg">
+                            <button class="marginalia-toggle font-mono text-xs uppercase tracking-widest text-header/60 hover:text-header transition-colors" onclick="toggleMarginalia(this)">
+                                ‡ Show Marginalia
+                            </button>
+                            <div class="marginalia-content hidden mt-4 text-sm text-header/90">
+                                <ul class="space-y-2">
+                                    <li><strong>Reading:</strong> <a href="#" class="underline hover:text-grad-mid">"The Presentation of Self in Everyday Life"</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Entry Card 2 -->
-                     <div class="entry-card bg-cream text-header rounded-lg p-6 flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="flex-grow">
-                            <div class="font-mono text-xs uppercase text-header/50 tracking-widest flex justify-between mb-2">
+                    <!-- Entry Card 2 (Text-only) -->
+                     <div class="entry-card" data-type="audio">
+                        <a href="#" class="entry-card-link block bg-cream text-header rounded-lg p-6 pb-0 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                            <div class="font-mono text-xs uppercase text-header/50 tracking-widest flex justify-between">
                                 <span>DAY 011</span>
                                 <span>AUDIO NOTE</span>
                             </div>
-                            <h3 class="font-display text-3xl text-header mb-3">Unreliable Narrators</h3>
-                            <p class="text-header/80 text-sm leading-relaxed mb-4">A short reflection on the fallibility of memory and how we reconstruct the past to suit the stories we tell about ourselves.</p>
-                        </div>
-                         <div class="flex-shrink-0">
-                            <div class="border-t border-header/10 pt-4 mt-4">
-                                <button class="marginalia-toggle font-mono text-xs uppercase tracking-widest text-header/60 hover:text-header transition-colors" onclick="toggleMarginalia(this)">
-                                    ‡ Show Marginalia
-                                </button>
-                                <div class="marginalia-content hidden mt-4 text-sm text-header/90">
-                                     <ul class="space-y-2">
-                                        <li><strong>Source:</strong> <a href="#" class="underline hover:text-grad-mid">Joan Didion's "The White Album"</a></li>
-                                    </ul>
-                                </div>
+                            <h3 class="font-display text-3xl text-header my-3 leading-tight">Unreliable Narrators</h3>
+                            <p class="text-header/80 text-sm leading-relaxed">A short reflection on the fallibility of memory and how we reconstruct the past to suit the stories we tell about ourselves.</p>
+                        </a>
+                         <div class="bg-cream/80 text-header px-6 pb-6 pt-4 rounded-b-lg">
+                            <button class="marginalia-toggle font-mono text-xs uppercase tracking-widest text-header/60 hover:text-header transition-colors" onclick="toggleMarginalia(this)">
+                                ‡ Show Marginalia
+                            </button>
+                            <div class="marginalia-content hidden mt-4 text-sm text-header/90">
+                                 <ul class="space-y-2">
+                                    <li><strong>Source:</strong> <a href="#" class="underline hover:text-grad-mid">Joan Didion's "The White Album"</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Entry Card 3 -->
-                    <div class="entry-card bg-cream text-header rounded-lg p-6 flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                        <div class="flex-grow">
-                            <div class="font-mono text-xs uppercase text-header/50 tracking-widest flex justify-between mb-2">
+                    <!-- Entry Card 3 (Text-only) -->
+                    <div class="entry-card" data-type="livestream">
+                        <a href="#" class="entry-card-link block bg-cream text-header rounded-lg p-6 pb-0 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                            <div class="font-mono text-xs uppercase text-header/50 tracking-widest flex justify-between">
                                 <span>DAY 010</span>
                                 <span>LIVESTREAM</span>
                             </div>
-                            <h3 class="font-display text-3xl text-header mb-3">Memory & The Archive</h3>
-                            <p class="text-header/80 text-sm leading-relaxed mb-4">A discussion on what we choose to record and what is lost to time, exploring the archive as both a tool and a weapon.</p>
-                        </div>
-                         <div class="flex-shrink-0">
-                            <div class="border-t border-header/10 pt-4 mt-4">
-                                 <button class="marginalia-toggle font-mono text-xs uppercase tracking-widest text-header/60 hover:text-header transition-colors" onclick="toggleMarginalia(this)">
-                                    ‡ Show Marginalia
-                                </button>
-                                <div class="marginalia-content hidden mt-4 text-sm text-header/90">
-                                    <ul class="space-y-2">
-                                        <li><strong>Reading:</strong> <a href="#" class="underline hover:text-grad-mid">"In the Dust of This Planet" by Eugene Thacker</a></li>
-                                        <li><strong>Influence:</strong> <a href="#" class="underline hover:text-grad-mid">Adam Curtis Documentaries</a></li>
-                                    </ul>
-                                </div>
+                            <h3 class="font-display text-3xl text-header my-3 leading-tight">Memory & The Archive</h3>
+                            <p class="text-header/80 text-sm leading-relaxed">A discussion on what we choose to record and what is lost to time.</p>
+                        </a>
+                         <div class="bg-cream/80 text-header px-6 pb-6 pt-4 rounded-b-lg">
+                             <button class="marginalia-toggle font-mono text-xs uppercase tracking-widest text-header/60 hover:text-header transition-colors" onclick="toggleMarginalia(this)">
+                                ‡ Show Marginalia
+                            </button>
+                            <div class="marginalia-content hidden mt-4 text-sm text-header/90">
+                                <ul class="space-y-2">
+                                    <li><strong>Reading:</strong> <a href="#" class="underline hover:text-grad-mid">"In the Dust of This Planet"</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -374,7 +374,7 @@
     </footer>
 
     <!-- Join Modal -->
-    <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-overlay hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 items-center justify-center p-4" id="modalOverlay">
         <div class="modal bg-cream text-header rounded-lg shadow-2xl p-8 md:p-12 max-w-2xl w-full relative" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalSubtitle">
             <button class="modal-close absolute top-4 right-4 text-header/50 hover:text-header transition-colors" onclick="closeModal()">
                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -452,9 +452,6 @@
                     document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
                 }
             }, 1000);
-
-            // --- Weekly Theme Logic ---
-            // ... (omitted for brevity, no changes)
         });
 
         const weeklyThemes = [
@@ -473,14 +470,26 @@
             { week: 13, title: "Beginnings<br>Intentions", description: "Setting the foundation for 90 days of creative practice." }
         ];
         const sprintStartDate = new Date('2025-10-13T00:00:00');
-        if (new Date() < sprintStartDate) { updateTheme(weeklyThemes[0]); } else { /* ... existing logic ... */ }
+        if (new Date() < sprintStartDate) { updateTheme(weeklyThemes[0]); } else { 
+            const now = new Date();
+            const diffTime = Math.abs(now - sprintStartDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            let currentWeek = Math.floor((diffDays -1) / 7) + 1;
+            if (currentWeek > weeklyThemes.length) {
+                currentWeek = weeklyThemes.length;
+            }
+            const activeTheme = weeklyThemes.find(theme => theme.week === currentWeek);
+            if (activeTheme) {
+                updateTheme(activeTheme);
+            }
+        }
 
         function updateTheme(theme) {
-            const weekNumberToText = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen"];
             const label = document.getElementById('weekly-theme-label');
             const title = document.getElementById('weekly-theme-title');
             const description = document.getElementById('weekly-theme-description');
-            if (label) label.textContent = `Week ${weekNumberToText[theme.week - 1]} Theme`;
+            
+            if (label) label.textContent = `This Week's Theme`;
             if (title) title.innerHTML = theme.title;
             if (description) description.textContent = theme.description;
         }
@@ -491,17 +500,20 @@
         function openModal(triggerElement) {
             if (modalOverlay) {
                 lastActiveElement = triggerElement;
-                modalOverlay.style.display = 'flex';
+                modalOverlay.classList.remove('hidden');
+                modalOverlay.classList.add('flex');
             }
         }
         function closeModal() {
             if (modalOverlay) {
-                modalOverlay.style.display = 'none';
+                modalOverlay.classList.add('hidden');
+                modalOverlay.classList.remove('flex');
+
                 if (lastActiveElement) { lastActiveElement.focus(); }
             }
         }
         modalOverlay.addEventListener('click', function(event) { if (event.target === modalOverlay) { closeModal(); } });
-        window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modalOverlay.style.display === 'flex') { closeModal(); } });
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modalOverlay.classList.contains('hidden')) { closeModal(); } });
 
         // --- Marginalia Toggle ---
         function toggleMarginalia(button) {
@@ -514,7 +526,31 @@
                 button.innerHTML = '‡ Show Marginalia';
             }
         }
+
+        // --- Filter Functionality ---
+        function filterEntries(filter) {
+            const entries = document.querySelectorAll('#entries-grid .entry-card');
+            const buttons = document.querySelectorAll('#filter-bar .filter-btn');
+
+            buttons.forEach(button => {
+                if (button.innerText.toLowerCase().includes(filter) || (filter === 'all' && button.innerText.toLowerCase() === 'all')) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+
+            entries.forEach(entry => {
+                if (filter === 'all' || entry.dataset.type === filter) {
+                    entry.style.display = 'block';
+                } else {
+                    entry.style.display = 'none';
+                }
+            });
+        }
     </script>
 </body>
 </html>
+
+
 
