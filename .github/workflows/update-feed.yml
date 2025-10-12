@@ -1,9 +1,21 @@
 name: Update KNF90 Feed
 
 on:
+  # 1️⃣ Manual runs
+  workflow_dispatch:
+
+  # 2️⃣ Automatic hourly runs
   schedule:
-    - cron: "0 * * * *"    # every hour, on the hour
-  workflow_dispatch:       # lets you trigger manually too
+    - cron: "0 * * * *"  # every hour, on the hour
+
+  # 3️⃣ Instant rebuilds on new pushes
+  push:
+    branches:
+      - main
+    # Optional filter — triggers only when these change:
+    paths:
+      - "scripts/**"
+      - ".github/workflows/**"
 
 jobs:
   build:
