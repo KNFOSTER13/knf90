@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Karla:wght@400;700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-dark-purple: #1B0628;
@@ -20,7 +20,8 @@
         body {
             background-color: var(--bg-dark-purple);
             color: var(--text-warm-white);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Karla', sans-serif;
+            text-transform: uppercase;
         }
         
         .bg-radial-gradient {
@@ -75,6 +76,13 @@
             background-color: rgba(92, 23, 77, 0.3);
             border: 1px solid rgba(92, 23, 77, 0.6);
             transition: background-color 0.3s ease, border-color 0.3s ease;
+            display: flex; /* Ensure flex for content distribution */
+            justify-content: space-between; /* Space out time and title */
+            align-items: center;
+            padding: 0.75rem 1.25rem; /* Reduced padding */
+            border-radius: 0.5rem;
+            text-decoration: none; /* Remove underline from links */
+            color: inherit; /* Inherit text color */
         }
         
         .program-item:hover {
@@ -128,36 +136,32 @@
     <main class="relative z-10 container mx-auto text-center flex flex-col items-center max-w-2xl w-full">
         
         <header class="w-full mb-8 px-4 animate-fade-up-in">
-            <img src="https://knfoster13.github.io/knf90/images/wdim-header-2.png" alt="What Did I Miss? Header" class="w-full max-w-lg mx-auto">
+            <img src="https://knfoster13.github.io/knf90/images/wdim-header-glow.webp" alt="What Did I Miss? Header" class="w-full max-w-lg mx-auto">
         </header>
 
-        <!-- Program -->
-        <section class="w-full my-8 text-center">
+        <!-- Program --><section class="w-full my-8 text-center">
             <h2 class="font-display text-4xl mb-2">Program</h2>
             <p class="text-lg text-cream/80 mb-6">An Orderly Hot Take Dump</p>
-            <div class="space-y-3 w-full">
-                <div class="program-item flex items-center justify-between p-4 rounded-lg">
+            <div class="space-y-3 w-full max-w-md mx-auto"> <!-- Added max-w-md and mx-auto for width reduction --><a href="#" class="program-item">
                     <span class="font-mono text-warm-white/80">8:00 PM</span>
                     <span class="font-semibold">Beyoncé’s Surprise Album</span>
-                </div>
-                <div class="program-item flex items-center justify-between p-4 rounded-lg">
+                </a>
+                <a href="#" class="program-item">
                     <span class="font-mono text-warm-white/80">8:30 PM</span>
                     <span class="font-semibold">Kendrick’s Hottest Verse</span>
-                </div>
-                <div class="program-item flex items-center justify-between p-4 rounded-lg">
+                </a>
+                <a href="#" class="program-item">
                     <span class="font-mono text-warm-white/80">9:00 PM</span>
                     <span class="font-semibold">Women in Coaching</span>
-                </div>
+                </a>
             </div>
         </section>
 
-        <!-- KNF90 Launch Countdown -->
-        <div class="w-full my-12 text-center">
+        <!-- KNF90 Launch Countdown --><div class="w-full my-12 text-center">
             <a href="https://knf.kim/90" target="_blank" rel="noopener noreferrer" class="inline-block mb-4 transition-opacity hover:opacity-80">
-                <img src="https://knfoster13.github.io/knf90/images/knf90-logo-glow-gradient.png" alt="KNF90 Logo" class="h-12 w-auto">
+                <img src="https://knfoster13.github.io/knf90/images/knf90-logo-glow-gradient.webp" alt="KNF90 Logo" class="h-12 w-auto">
             </a>
-            <p class="text-warm-white/80 mb-6">A new 90-day creative sprint begins in:</p>
-            <div id="countdown-container" class="grid grid-cols-4 gap-4 max-w-sm mx-auto">
+            <p class="text-warm-white/80 mb-6">Kimberly's 90-Day creative sprint begins in:</p> <!-- Changed text here --><div id="countdown-container" class="grid grid-cols-4 gap-4 max-w-sm mx-auto">
                 <div class="time-unit">
                     <div id="days" class="time-value">00</div>
                     <div class="time-label">Days</div>
@@ -178,8 +182,7 @@
         </div>
 
 
-        <!-- Action Buttons -->
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 w-full mb-12">
+        <!-- Action Buttons --><div class="flex flex-col sm:flex-row justify-center items-center gap-4 w-full mb-12">
             <a href="#" class="btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2"/><path d="M6 12h12"/><path d="m15 9 3 3-3 3"/><path d="M22 12h-2"/></svg>
                 <span>Get Tickets</span>
@@ -194,8 +197,7 @@
             </a>
         </div>
 
-        <!-- Footer -->
-        <footer class="w-full mt-12">
+        <!-- Footer --><footer class="w-full mt-12">
             <a href="https://knf.kim/90" target="_blank" rel="noopener noreferrer" class="join-link">What's next? Get a preview of KNF90 &rarr;</a>
             <div class="flex justify-center items-center gap-6 mt-8">
                 <a href="#" class="text-warm-white/70 hover:text-warm-white"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17Z"/><path d="m10 15 5-3-5-3z"/></svg></a>
@@ -208,7 +210,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Set countdown target time for KNF90 Launch
-            const targetDate = new Date("2025-10-15T15:13:00").getTime();
+            const targetDate = new Date("2025-10-18T15:13:00").getTime();
 
             const timerInterval = setInterval(() => {
                 const now = new Date().getTime();
