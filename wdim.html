@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Did I Miss? - The Return of Kimberly Nicole Foster</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark-purple: #1B0628;
+            --text-warm-white: #FFF0E1;
+            --btn-color: #5c174d;
+            --btn-hover: #7d2e68;
+            --accent-lavender: #C6B6F7;
+        }
+
+        body {
+            background-color: var(--bg-dark-purple);
+            color: var(--text-warm-white);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .bg-radial-gradient {
+             background: radial-gradient(circle at top, rgba(92, 23, 77, 0.4) 0%, transparent 50%);
+        }
+
+        .font-display {
+            font-family: 'DM Serif Display', serif;
+        }
+        
+        .font-mono {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Animation for header reveal */
+        @keyframes fadeUpIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-up-in {
+            animation: fadeUpIn 1s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .btn {
+            background-color: var(--btn-color);
+            color: var(--text-warm-white);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem; /* 12px */
+            padding: 0.75rem 1.5rem; /* 12px 24px */
+            border-radius: 0.5rem; /* 8px */
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: var(--btn-hover);
+            transform: translateY(-2px);
+        }
+
+        .program-item {
+            background-color: rgba(92, 23, 77, 0.3);
+            border: 1px solid rgba(92, 23, 77, 0.6);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .program-item:hover {
+            background-color: rgba(92, 23, 77, 0.5);
+            border-color: rgba(125, 46, 104, 0.8);
+        }
+
+        /* New Countdown Styles */
+        #countdown-container .time-unit {
+            text-align: center;
+        }
+        #countdown-container .time-value {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 2.25rem; /* 36px */
+            line-height: 2.5rem; /* 40px */
+            font-weight: 500;
+        }
+        #countdown-container .time-label {
+            font-size: 0.75rem; /* 12px */
+            line-height: 1rem; /* 16px */
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-warm-white);
+            opacity: 0.7;
+        }
+
+        .join-link {
+            display: inline-block;
+            background-color: var(--btn-color);
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1.125rem; /* 18px */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .join-link:hover {
+            background-color: var(--btn-hover);
+            transform: translateY(-2px);
+        }
+        
+        .logo-font {
+            font-family: 'DM Serif Display', serif;
+            letter-spacing: -1px;
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen items-center justify-center p-6">
+    <div class="absolute inset-0 bg-radial-gradient"></div>
+
+    <main class="relative z-10 container mx-auto text-center flex flex-col items-center max-w-2xl w-full">
+        
+        <header class="w-full mb-8 px-4 animate-fade-up-in">
+            <img src="https://knfoster13.github.io/knf90/images/wdim-header-2.png" alt="What Did I Miss? Header" class="w-full max-w-lg mx-auto">
+        </header>
+
+        <!-- Program -->
+        <section class="w-full my-8 text-center">
+            <h2 class="font-display text-4xl mb-2">Program</h2>
+            <p class="text-lg text-cream/80 mb-6">An Orderly Hot Take Dump</p>
+            <div class="space-y-3 w-full">
+                <div class="program-item flex items-center justify-between p-4 rounded-lg">
+                    <span class="font-mono text-warm-white/80">8:00 PM</span>
+                    <span class="font-semibold">Beyoncé’s Surprise Album</span>
+                </div>
+                <div class="program-item flex items-center justify-between p-4 rounded-lg">
+                    <span class="font-mono text-warm-white/80">8:30 PM</span>
+                    <span class="font-semibold">Kendrick’s Hottest Verse</span>
+                </div>
+                <div class="program-item flex items-center justify-between p-4 rounded-lg">
+                    <span class="font-mono text-warm-white/80">9:00 PM</span>
+                    <span class="font-semibold">Women in Coaching</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- KNF90 Launch Countdown -->
+        <div class="w-full my-12 text-center">
+            <a href="https://knf.kim/90" target="_blank" rel="noopener noreferrer" class="inline-block mb-4 transition-opacity hover:opacity-80">
+                <img src="https://knfoster13.github.io/knf90/images/knf90-logo-glow-gradient.png" alt="KNF90 Logo" class="h-12 w-auto">
+            </a>
+            <p class="text-warm-white/80 mb-6">A new 90-day creative sprint begins in:</p>
+            <div id="countdown-container" class="grid grid-cols-4 gap-4 max-w-sm mx-auto">
+                <div class="time-unit">
+                    <div id="days" class="time-value">00</div>
+                    <div class="time-label">Days</div>
+                </div>
+                <div class="time-unit">
+                    <div id="hours" class="time-value">00</div>
+                    <div class="time-label">Hours</div>
+                </div>
+                <div class="time-unit">
+                    <div id="minutes" class="time-value">00</div>
+                    <div class="time-label">Minutes</div>
+                </div>
+                <div class="time-unit">
+                    <div id="seconds" class="time-value">00</div>
+                    <div class="time-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 w-full mb-12">
+            <a href="#" class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2"/><path d="M6 12h12"/><path d="m15 9 3 3-3 3"/><path d="M22 12h-2"/></svg>
+                <span>Get Tickets</span>
+            </a>
+            <a href="#" class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.62 20.81c-.34.12-.9.38-1.15.42-.22.03-.44.04-.67.04-.28 0-.55-.01-.83-.04a5.04 5.04 0 0 1-1.27-.31c-.31-.1-.6-.24-.87-.4-.44-.27-.83-.6-1.17-1-.34-.4-.62-.86-.81-1.37-.19-.51-.29-1.05-.29-1.61 0-.56.1-1.1.29-1.61.19-.51.47-1 .8-1.4.34-.4.73-.73 1.18-1 .27-.16.56-.3.87-.4.42-.16.85-.26 1.3-.32.28-.04.56-.06.84-.07.23 0 .46.01.69.04.24.04.8.28 1.15.42 2.92 1.19 4.28 4.61 3.58 7.62-.57 2.45-3.1 4.1-5.69 4.14z"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                <span>Join Membership</span>
+            </a>
+            <a href="#" class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                <span>Shop Merch</span>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="w-full mt-12">
+            <a href="https://knf.kim/90" target="_blank" rel="noopener noreferrer" class="join-link">What's next? Get a preview of KNF90 &rarr;</a>
+            <div class="flex justify-center items-center gap-6 mt-8">
+                <a href="#" class="text-warm-white/70 hover:text-warm-white"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17Z"/><path d="m10 15 5-3-5-3z"/></svg></a>
+                <a href="#" class="text-warm-white/70 hover:text-warm-white"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+                <a href="#" class="text-warm-white/70 hover:text-warm-white"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3C2.57 3 1 4.57 1 6.5v11C1 19.43 2.57 21 4.5 21h4.21c.47 0 .86-.34.98-.8l.68-2.7c.1-.41-.16-.83-.54-1.01l-1.12-.52c-.3-.14-.42-.51-.28-.81l1.37-2.88c.14-.3.51-.42.81-.28l1.12.52c.38.18.8.18 1.18 0l1.12-.52c.3-.14.67-.02.81.28l1.37 2.88c.14.3-.02.67-.28.81l-1.12.52c-.38.18-.64.6-.54 1.01l.68 2.7c.12.46.51.8.98.8h4.21c1.93 0 3.5-1.57 3.5-3.5v-11C23 4.57 21.43 3 19.5 3z"/></svg></a>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set countdown target time for KNF90 Launch
+            const targetDate = new Date("2025-10-15T15:13:00").getTime();
+
+            const timerInterval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+                const countdownContainer = document.getElementById("countdown-container");
+
+                if (distance < 0) {
+                    clearInterval(timerInterval);
+                    if (countdownContainer) {
+                        countdownContainer.innerHTML = "<div class='text-2xl font-semibold'>Launched!</div>";
+                    }
+                    return;
+                }
+
+                // Time calculations
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Update elements
+                const daysEl = document.getElementById("days");
+                const hoursEl = document.getElementById("hours");
+                const minutesEl = document.getElementById("minutes");
+                const secondsEl = document.getElementById("seconds");
+
+                if(daysEl) daysEl.innerText = days.toString().padStart(2, '0');
+                if(hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
+                if(minutesEl) minutesEl.innerText = minutes.toString().padStart(2, '0');
+                if(secondsEl) secondsEl.innerText = seconds.toString().padStart(2, '0');
+
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
+
