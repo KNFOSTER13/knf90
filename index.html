@@ -31,7 +31,7 @@
 
             /* Gradients */
             --grad-start: #FFD9C0;
-            --grad-mid: #003a66; /* Changed from #C6B6F7 */
+            --grad-mid: #C6B6F7;
             --grad-end: #EED5A5;
             --grad: linear-gradient(90deg, var(--grad-start), var(--grad-mid), var(--grad-end));
 
@@ -71,7 +71,7 @@
             z-index: -1;
             pointer-events: none;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(0, 58, 102, 0.1) 0%, transparent 50%), /* Changed from lilac */
+                radial-gradient(circle at 20% 50%, rgba(198, 182, 247, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(255, 217, 192, 0.05) 0%, transparent 50%),
                 radial-gradient(circle at 40% 20%, rgba(238, 213, 165, 0.05) 0%, transparent 50%);
             transform: translate3d(0, 0, 0);
@@ -106,18 +106,18 @@
         }
         
         .filter-btn.active {
-            background: rgba(0, 58, 102, 0.2); /* Changed from lilac */
+            background: rgba(198, 182, 247, 0.2);
             border-color: var(--grad-mid);
             color: var(--cream);
         }
         
         /* Luminous gradient button */
         .btn-luminous {
-            background: linear-gradient(135deg, #FFFDF5, #e8d5b5, #003a66); /* Changed from #cb98e1 */
-            color: #FFF8F2; /* Changed for better contrast */
+            background: linear-gradient(135deg, #FFFDF5, #e8d5b5, #cb98e1);
+            color: #330948;
             border-radius: 9999px;
             box-shadow:
-                0 4px 15px rgba(0, 58, 102, 0.2), /* Changed from lilac */
+                0 4px 15px rgba(203, 152, 225, 0.15),
                 0 0 20px rgba(255, 250, 222, 0.2),
                 inset 0 1px 2px rgba(248, 233, 212, 0.5);
             font-weight: 700;
@@ -133,10 +133,10 @@
         
         /* Glassmorphic Outline Button */
         .btn-glass {
-            background: rgba(0, 58, 102, 0.2); /* transparent version of #003a66 */
+            background: rgba(255, 248, 242, 0.1);
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
-            border: 1px solid #003a66;
+            border: 1px solid rgba(255, 248, 242, 0.2);
             color: var(--cream);
             font-family: 'Instrument Serif', serif;
             font-size: 1.25rem;
@@ -148,7 +148,7 @@
         }
 
         .btn-glass:hover {
-            box-shadow: 0 0 20px rgba(0, 58, 102, 0.6);
+            box-shadow: 0 0 20px rgba(198, 182, 247, 0.4);
             transform: translateY(-2px);
         }
 
@@ -171,8 +171,8 @@
 
         /* Animations */
         @keyframes pulse {
-            from { box-shadow: 0 0 20px rgba(255,250,222,0.25), 0 4px 15px rgba(0, 58, 102, 0.2), inset 0 1px 2px rgba(248, 233, 212, 0.5); } /* Changed from lilac */
-            to { box-shadow: 0 0 35px rgba(255,250,222,0.45), 0 4px 15px rgba(0, 58, 102, 0.2), inset 0 1px 2px rgba(248, 233, 212, 0.5); } /* Changed from lilac */
+            from { box-shadow: 0 0 20px rgba(255,250,222,0.25), 0 4px 15px rgba(203, 152, 225, 0.15), inset 0 1px 2px rgba(248, 233, 212, 0.5); }
+            to { box-shadow: 0 0 35px rgba(255,250,222,0.45), 0 4px 15px rgba(203, 152, 225, 0.15), inset 0 1px 2px rgba(248, 233, 212, 0.5); }
         }
         
         .reveal-on-scroll {
@@ -285,21 +285,21 @@
                 <div class="grid md:grid-cols-3 gap-8 md:gap-12">
                     <div class="text-center">
                         <div class="flex justify-center items-center mb-4">
-                            <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4L36.416 19.584L52 24L36.416 28.416L32 44L27.584 28.416L12 24L27.584 19.584L32 4Z" stroke="url(#paint0_linear_101_2)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="paint0_linear_101_2" x1="12" y1="24" x2="52" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#003a66"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
+                            <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4L36.416 19.584L52 24L36.416 28.416L32 44L27.584 28.416L12 24L27.584 19.584L32 4Z" stroke="url(#paint0_linear_101_2)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="paint0_linear_101_2" x1="12" y1="24" x2="52" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
                         </div>
                         <h3 class="font-display text-2xl mb-2" style="color: var(--grad-start)">Join the Community</h3>
                         <p class="text-cream/80">Follow along daily and engage with the work. Sign up for updates to become part of a community of inquiry.</p>
                     </div>
                     <div class="text-center">
                         <div class="flex justify-center items-center mb-4">
-                            <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M52 4H12C9.79086 4 8 5.79086 8 8V56C8 58.2091 9.79086 60 12 60H52C54.2091 60 56 58.2091 56 56V8C56 5.79086 54.2091 4 52 4Z" stroke="url(#paint1_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 40L26 30L38 42" stroke="url(#paint2_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 40L38 34L56 52" stroke="url(#paint3_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 24C45.1046 24 46 23.1046 46 22C46 20.8954 45.1046 20 44 20C42.8954 20 42 20.8954 42 22C42 23.1046 42.8954 24 44 24Z" stroke="url(#paint4_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="paint1_linear_101_3" x1="8" y1="32" x2="56" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#003a66"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint2_linear_101_3" x1="16" y1="36" x2="38" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#003a66"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint3_linear_101_3" x1="32" y1="43" x2="56" y2="43" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#003a66"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint4_linear_101_3" x1="42" y1="22" x2="46" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#003a66"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
+                            <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M52 4H12C9.79086 4 8 5.79086 8 8V56C8 58.2091 9.79086 60 12 60H52C54.2091 60 56 58.2091 56 56V8C56 5.79086 54.2091 4 52 4Z" stroke="url(#paint1_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 40L26 30L38 42" stroke="url(#paint2_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 40L38 34L56 52" stroke="url(#paint3_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 24C45.1046 24 46 23.1046 46 22C46 20.8954 45.1046 20 44 20C42.8954 20 42 20.8954 42 22C42 23.1046 42.8954 24 44 24Z" stroke="url(#paint4_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="paint1_linear_101_3" x1="8" y1="32" x2="56" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint2_linear_101_3" x1="16" y1="36" x2="38" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint3_linear_101_3" x1="32" y1="43" x2="56" y2="43" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint4_linear_101_3" x1="42" y1="22" x2="46" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
                         </div>
                         <h3 class="font-display text-2xl mb-2" style="color: var(--grad-mid)">Create Alongside</h3>
                         <p class="text-cream/80">Use the weekly themes as inspiration for your own work. This is a space for experimentation, not perfection.</p>
                     </div>
                     <div class="text-center">
                          <div class="flex justify-center items-center mb-4">
-                             <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M48 24V52H16" stroke="url(#paint5_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M56 16V44H24" stroke="url(#paint6_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 8V36H40V8H8Z" stroke="url(#paint7_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="paint5_linear_101_4" x1="16" y1="38" x2="48" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#003a66"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint6_linear_101_4" x1="24" y1="30" x2="56" y2="30" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#003a66"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint7_linear_101_4" x1="8" y1="22" x2="40" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#003a66"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
+                             <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M48 24V52H16" stroke="url(#paint5_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M56 16V44H24" stroke="url(#paint6_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 8V36H40V8H8Z" stroke="url(#paint7_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="paint5_linear_101_4" x1="16" y1="38" x2="48" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint6_linear_101_4" x1="24" y1="30" x2="56" y2="30" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint7_linear_101_4" x1="8" y1="22" x2="40" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
                          </div>
                         <h3 class="font-display text-2xl mb-2" style="color: var(--grad-end)">Reflect & Record</h3>
                         <p class="text-cream/80">Discover new perspectives through marginalia, commentary, and reflections. The archive is a living document.</p>
