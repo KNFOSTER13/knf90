@@ -16,6 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Add reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         :root {
             /* Brand colors */
@@ -130,6 +132,20 @@
         .icon-container:hover {
             transform: translateY(-5px);
             filter: drop-shadow(0 0 15px var(--grad-mid)); 
+        }
+
+        /* 3. Luminous Button Style */
+        .btn-luminous {
+            background: linear-gradient(135deg, #FFFDF5, #e8d5b5, #cb98e1);
+            color: #330948; border-radius: 9999px;
+            box-shadow: 0 4px 15px rgba(203, 152, 225, 0.15), 0 0 20px rgba(255, 250, 222, 0.2), inset 0 1px 2px rgba(248, 233, 212, 0.5);
+            font-weight: 700; border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 0.75rem 1.75rem;
+        }
+        .btn-luminous:hover:not(:disabled) {
+            transform: scale(1.05) translateY(-2px);
+            animation: pulse 1.2s ease-in-out infinite alternate;
         }
 
         /* 4. Modal Animation */
@@ -336,30 +352,46 @@
             <button class="modal-close absolute top-4 right-4 text-header/50 hover:text-header transition-colors" onclick="closeModal()">
                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
-            <form action="#" method="POST" class="text-center">
-                <h2 id="modalTitle" class="font-display text-4xl">Join the Sprint.</h2>
-                <p id="modalSubtitle" class="text-header/70 mt-2">Stay in the flow. Get daily drops and weekly reflections.</p>
             
-                <div class="mt-8 grid md:grid-cols-2 gap-8">
-                    <div class="modal-column">
-                        <h3 class="font-display text-xl mb-2 text-left">Newsletter</h3>
-                        <label for="email" class="sr-only">Your email address</label>
-                        <input id="email" name="email" class="w-full bg-header/5 p-3 rounded-md border border-header/10 focus:ring-2 focus:ring-grad-mid focus:border-grad-mid outline-none" type="email" placeholder="Your email address" required>
-                        <button type="submit" class="w-full mt-3 bg-header text-cream font-semibold p-3 rounded-md hover:bg-opacity-90 transition-all transform hover:scale-105">Subscribe</button>
+            <div id="form-container">
+                <form id="google-sheets-form" class="text-center">
+                    <h2 id="modalTitle" class="font-display text-4xl">Join the Sprint.</h2>
+                    <p id="modalSubtitle" class="text-header/70 mt-2">Stay in the flow. Get daily drops and weekly reflections.</p>
+                
+                    <div class="mt-8 space-y-4">
+                        <div>
+                            <label for="email" class="sr-only">Your email address</label>
+                            <input id="email" name="email" class="w-full bg-header/5 p-3 rounded-md border border-header/10 focus:ring-2 focus:ring-grad-mid focus:border-grad-mid outline-none" type="email" placeholder="Your email address" required>
+                        </div>
+                        <div>
+                            <label for="tel" class="sr-only">Your phone number</label>
+                            <input id="tel" name="phone" class="w-full bg-header/5 p-3 rounded-md border border-header/10 focus:ring-2 focus:ring-grad-mid focus:border-grad-mid outline-none" type="tel" placeholder="Your phone number (optional)">
+                        </div>
                     </div>
                     
-                    <div class="modal-column">
-                        <h3 class="font-display text-xl mb-2 text-left">Text Alerts</h3>
-                        <label for="tel" class="sr-only">Your phone number</label>
-                        <input id="tel" name="phone" class="w-full bg-header/5 p-3 rounded-md border border-header/10 focus:ring-2 focus:ring-grad-mid focus:border-grad-mid outline-none" type="tel" placeholder="Your phone number">
-                        <button type="submit" class="w-full mt-3 bg-header text-cream font-semibold p-3 rounded-md hover:bg-opacity-90 transition-all transform hover:scale-105">Get Alerts</button>
+                    <!-- Add reCAPTCHA element here -->
+                    <div class="flex justify-center my-4">
+                        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div>
                     </div>
-                </div>
-            
-                <div class="text-center mt-8 text-xs text-header/50">
-                    ✦ No spam. Only sparks of thought.
-                </div>
-            </form>
+
+                    <p id="form-error" class="text-red-600 text-sm hidden h-5 mb-2"></p>
+                    
+                    <button type="submit" class="w-full bg-header text-cream font-semibold p-3 rounded-md hover:bg-opacity-90 transition-all transform hover:scale-105">Subscribe</button>
+
+                    <div class="text-center mt-6 text-xs text-header/50">
+                        ✦ No spam. Only sparks of thought.
+                    </div>
+                </form>
+            </div>
+
+            <div id="success-message" class="hidden text-center">
+                <h2 class="font-display text-4xl">Thank You!</h2>
+                <p class="text-header/70 mt-2">Your submission has been received. Welcome to the sprint!</p>
+            </div>
+            <div id="error-message" class="hidden text-center">
+                <h2 class="font-display text-4xl">Oops!</h2>
+                <p class="text-header/70 mt-2">Something went wrong. Please try again.</p>
+            </div>
         </div>
     </div>
 
@@ -434,6 +466,10 @@
                     document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
                 }
             }, 1000);
+
+            // --- Google Sheets Form Submission ---
+            const form = document.getElementById('google-sheets-form');
+            form.addEventListener('submit', handleFormSubmit);
         });
 
         const weeklyThemes = [
@@ -487,6 +523,15 @@
                 lastActiveElement = triggerElement;
                 modalOverlay.classList.remove('hidden');
                 modalOverlay.classList.add('flex');
+                // Reset form on open
+                document.getElementById('form-container').classList.remove('hidden');
+                document.getElementById('success-message').classList.add('hidden');
+                document.getElementById('error-message').classList.add('hidden');
+                document.getElementById('form-error').classList.add('hidden');
+                document.getElementById('google-sheets-form').reset();
+                if (typeof grecaptcha !== 'undefined') {
+                    grecaptcha.reset();
+                }
             }
         }
         
@@ -511,8 +556,63 @@
                 closeModal(); 
             } 
         });
+
+        // --- Updated Function to Handle Google Apps Script Submission ---
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            const submitButton = form.querySelector('button[type="submit"]');
+            const errorElement = document.getElementById('form-error');
+
+            // --- Client-side validation ---
+            errorElement.textContent = '';
+            errorElement.classList.add('hidden');
+
+            const email = formData.get('email');
+            if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+                errorElement.textContent = 'Please enter a valid email address.';
+                errorElement.classList.remove('hidden');
+                return;
+            }
+
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (!recaptchaResponse) {
+                errorElement.textContent = 'Please complete the reCAPTCHA.';
+                errorElement.classList.remove('hidden');
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwwssyesGyda11CzapioPkCOiYMOxVisyhyAASjeK4z5kLqnicPvmfANC8jx6pE7hGA/exec';
+
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+
+                if (result.result === "success") {
+                    document.getElementById('form-container').classList.add('hidden');
+                    document.getElementById('success-message').classList.remove('hidden');
+                    setTimeout(() => closeModal(), 3000);
+                } else {
+                    throw new Error(result.message || 'Submission failed. Please try again.');
+                }
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                document.getElementById('form-container').classList.add('hidden');
+                document.getElementById('error-message').classList.remove('hidden');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Subscribe';
+            }
+        }
     </script>
 </body>
 </html>
-
 
