@@ -2,33 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Kimberly Nicole Foster's 90 in 90</title>
     <meta name="description" content="Kimberly Nicole Foster's 90 in 90: A 90-day sprint through ideas, images, and inquiry.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://knf.kim/90/">
-
-    <!-- Open Graph & SEO -->
     <meta property="og:title" content="Kimberly's Creative Sprint (KNF90)">
-    <meta property="og:description" content="90 days of practice, inquiry, and imagination.">
+    <meta property="og:description" content="A 90-day sprint through ideas, images, and inquiry.">
     <meta property="og:image" content="https://knfoster13.github.io/knf90/images/knf90-header-square.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://knf.kim/90/">
-    <meta property="og:site_name" content="KNF90">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Kimberly Nicole Foster’s Creative Sprint">
-    <meta name="twitter:description" content="90 days of practice, inquiry, and imagination.">
-    <meta name="twitter:image" content="https://knfoster13.github.io/knf90/images/knf90-header-square.png">
-
-    <!-- Preload & Preconnect -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kimberly Nicole Foster's 90 in 90</title>
     <link rel="preload" as="image" href="https://knfoster13.github.io/knf90/images/knf90-header-cropped.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
     <style>
         :root {
             /* Brand colors */
@@ -45,16 +31,13 @@
 
             /* Gradients */
             --grad-start: #FFD9C0;
-            --grad-mid: #C6B6F7;
+            --grad-mid: #003a66; /* Changed from #C6B6F7 */
             --grad-end: #EED5A5;
             --grad: linear-gradient(90deg, var(--grad-start), var(--grad-mid), var(--grad-end));
 
             /* Radii & shadows */
             --radius: 16px;
             --radius-sm: 10px;
-
-            /* Transitions */
-            --ease: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         body {
@@ -66,6 +49,7 @@
             overflow-x: hidden;
         }
         
+        /* Fixed: Better background implementation */
         body::before {
             content: '';
             position: fixed;
@@ -87,105 +71,155 @@
             z-index: -1;
             pointer-events: none;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(198, 182, 247, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 20% 50%, rgba(0, 58, 102, 0.1) 0%, transparent 50%), /* Changed from lilac */
                 radial-gradient(circle at 80% 80%, rgba(255, 217, 192, 0.05) 0%, transparent 50%),
                 radial-gradient(circle at 40% 20%, rgba(238, 213, 165, 0.05) 0%, transparent 50%);
             transform: translate3d(0, 0, 0);
             will-change: transform;
         }
 
-        .font-display { font-family: 'DM Serif Display', serif; font-style: italic; }
-        .font-mono { font-family: 'Roboto Mono', monospace; }
-        
-        /* Buttons & Interactive Elements */
-        .filter-btn, .btn-luminous, .btn-glass {
-            transition: all 0.3s var(--ease);
+        .font-display {
+            font-family: 'DM Serif Display', serif;
+            font-style: italic;
         }
         
-        /* Accessibility: Focus Outline */
-        :focus-visible {
-            outline: 2px solid var(--grad-mid);
-            outline-offset: 3px;
-            border-radius: 4px; /* Optional: makes it look nicer on rounded elements */
+        .font-mono {
+            font-family: 'Roboto Mono', monospace;
         }
         
+        /* Filter buttons */
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 248, 242, 0.2);
+            color: var(--cream);
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .filter-btn:hover {
+            background: rgba(255, 248, 242, 0.1);
+            border-color: rgba(255, 248, 242, 0.3);
+        }
+        
+        .filter-btn.active {
+            background: rgba(0, 58, 102, 0.2); /* Changed from lilac */
+            border-color: var(--grad-mid);
+            color: var(--cream);
+        }
+        
+        /* Luminous gradient button */
+        .btn-luminous {
+            background: linear-gradient(135deg, #FFFDF5, #e8d5b5, #003a66); /* Changed from #cb98e1 */
+            color: #FFF8F2; /* Changed for better contrast */
+            border-radius: 9999px;
+            box-shadow:
+                0 4px 15px rgba(0, 58, 102, 0.2), /* Changed from lilac */
+                0 0 20px rgba(255, 250, 222, 0.2),
+                inset 0 1px 2px rgba(248, 233, 212, 0.5);
+            font-weight: 700;
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 0.75rem 1.75rem;
+        }
+
         .btn-luminous:hover:not(:disabled) {
             transform: scale(1.05) translateY(-2px);
             animation: pulse 1.2s ease-in-out infinite alternate;
         }
         
+        /* Glassmorphic Outline Button */
         .btn-glass {
-            background: rgba(255, 248, 242, 0.1);
+            background: rgba(0, 58, 102, 0.2); /* transparent version of #003a66 */
             backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 248, 242, 0.2);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid #003a66;
+            color: var(--cream);
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.25rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-radius: 999px;
             padding: 0.75rem 2.5rem;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
 
         .btn-glass:hover {
-            box-shadow: 0 0 20px rgba(198, 182, 247, 0.4);
+            box-shadow: 0 0 20px rgba(0, 58, 102, 0.6);
             transform: translateY(-2px);
         }
 
         .header-glass {
             background: linear-gradient(to bottom, rgba(27, 6, 40, 0.95), rgba(27, 6, 40, 0.8));
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 2px 15px rgba(0,0,0,0.3);
-            transition: all 0.3s var(--ease);
+            transition: all 0.3s ease;
         }
         
-        #countdown-timer .font-display { font-variant-numeric: tabular-nums; }
-        #countdown-timer .opacity-70 { opacity: 0.6; }
+        #countdown-timer .font-display {
+            font-family: 'DM Serif Display', serif;
+            font-variant-numeric: tabular-nums;
+        }
+        
+        #countdown-timer .opacity-70 {
+            opacity: 0.6;
+        }
 
         /* Animations */
         @keyframes pulse {
-            from { box-shadow: 0 0 20px rgba(255,250,222,0.25), 0 4px 15px rgba(203, 152, 225, 0.15), inset 0 1px 2px rgba(248, 233, 212, 0.5); }
-            to { box-shadow: 0 0 35px rgba(255,250,222,0.45), 0 4px 15px rgba(203, 152, 225, 0.15), inset 0 1px 2px rgba(248, 233, 212, 0.5); }
+            from { box-shadow: 0 0 20px rgba(255,250,222,0.25), 0 4px 15px rgba(0, 58, 102, 0.2), inset 0 1px 2px rgba(248, 233, 212, 0.5); } /* Changed from lilac */
+            to { box-shadow: 0 0 35px rgba(255,250,222,0.45), 0 4px 15px rgba(0, 58, 102, 0.2), inset 0 1px 2px rgba(248, 233, 212, 0.5); } /* Changed from lilac */
         }
         
         .reveal-on-scroll {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        .reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
         
         .fade-in {
             opacity: 0; 
             transform: translateY(20px); 
-            animation: fadeUp 1s forwards var(--ease); 
+            animation: fadeUp 1s forwards; 
         }
 
-        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-
-        /* Scroll Cue */
-        #scroll-cue {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            animation: fadeInOut 3s 1.5s infinite;
-        }
-        @keyframes fadeInOut {
-            0%, 100% { opacity: 0; transform: translateX(-50%) translateY(10px); }
-            50% { opacity: 0.7; transform: translateX(-50%) translateY(0); }
+        @keyframes fadeUp { 
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            } 
         }
         
+        /* Section backgrounds */
+        .section-alt {
+            background: linear-gradient(to bottom, rgba(255, 248, 242, 0.02), rgba(255, 248, 242, 0.05), rgba(255, 248, 242, 0.02));
+            position: relative;
+        }
     </style>
 </head>
 <body class="antialiased">
     <div id="parallax-bg"></div>
 
-    <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 header-glass h-20" role="banner">
+    <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 header-glass h-20">
         <div class="container mx-auto px-4 h-full">
             <div class="flex justify-between items-center h-full">
                 <div class="flex-shrink-0">
-                    <img src="https://knfoster13.github.io/knf90/images/knf90-logo-gradient-1.webp" alt="Gradient KNF90 logo with a star" class="h-12" width="48" height="48">
+                    <img src="https://knfoster13.github.io/knf90/images/knf90-logo-gradient-1.png" alt="Gradient KNF90 logo with a star" class="h-12">
                 </div>
+
                 <div class="hidden md:block text-center text-xs font-semibold uppercase tracking-wider text-cream/70">
                     OCTOBER 18 — JANUARY 15, 2026 ✦ 90 DAYS OF PRACTICE
                 </div>
+
                 <div class="flex-shrink-0">
                     <button id="header-join-btn" class="btn-luminous hidden sm:block uppercase" onclick="openModal(this)">Join the Sprint ✦</button>
                 </div>
@@ -193,17 +227,15 @@
         </div>
     </header>
 
-    <main id="main-content">
-        <section id="hero" class="relative text-center flex flex-col items-center justify-center pt-12 pb-20 lg:pt-16 lg:pb-32 overflow-hidden" style="min-height: calc(90vh - 80px);" aria-labelledby="hero-title">
-            <div id="hero-content" class="container mx-auto px-4 z-20 relative">
+    <main>
+        <section class="relative text-center flex flex-col items-center justify-center pt-12 pb-20 lg:pt-16 lg:pb-32 overflow-hidden" style="min-height: calc(90vh - 80px);">
+             
+            <div class="container mx-auto px-4 z-20 relative">
                 <div class="fade-in" style="animation-delay: 100ms;">
-                    <picture>
-                        <source srcset="https://knfoster13.github.io/knf90/images/knf90-header-cropped-mobile.png" media="(max-width: 600px)">
-                        <img src="https://knfoster13.github.io/knf90/images/knf90-header-cropped.png" alt="Stylized text reading 90 in 90" class="w-full max-w-2xl mx-auto mb-6" loading="eager" width="800" height="250">
-                    </picture>
+                    <img src="https://knfoster13.github.io/knf90/images/knf90-header-cropped.png" alt="Stylized text reading 90 in 90" class="w-full max-w-2xl mx-auto mb-6" loading="eager">
                 </div>
 
-                <h1 id="hero-title" class="font-sans text-lg md:text-xl max-w-2xl mx-auto mt-4 text-cream/80 uppercase fade-in" style="color: var(--accent-peach); animation-delay: 200ms;">A <strong class="font-bold">90-Day</strong> Sprint Through Ideas, Images, & Inquiry</h1>
+                <p class="font-sans text-lg md:text-xl max-w-2xl mx-auto mt-4 text-cream/80 uppercase fade-in" style="color: var(--accent-peach); animation-delay: 200ms;">A <strong class="font-bold">90-Day</strong> Sprint Through Ideas, Images, & Inquiry</p>
                 <p class="text-base font-bold uppercase tracking-widest mt-2 fade-in" style="color: var(--cream); animation-delay: 300ms;">BY KIMBERLY NICOLE FOSTER</p>
                 
                 <div class="flex justify-center items-center space-x-4 mt-8 fade-in" style="animation-delay: 400ms;">
@@ -212,39 +244,75 @@
                 </div>
 
                 <div id="countdown-timer" class="fade-in my-12 text-cream" style="animation-delay: 500ms;">
-                    <!-- Timer content remains the same -->
+                    <div class="flex justify-center items-center space-x-4 md:space-x-8">
+                        <div class="text-center">
+                            <div id="days" class="font-display text-4xl md:text-6xl">00</div>
+                            <div class="text-xs uppercase tracking-widest opacity-70">Days</div>
+                        </div>
+                        <div class="font-display text-4xl md:text-6xl opacity-50">:</div>
+                        <div class="text-center">
+                            <div id="hours" class="font-display text-4xl md:text-6xl">00</div>
+                            <div class="text-xs uppercase tracking-widest opacity-70">Hours</div>
+                        </div>
+                        <div class="font-display text-4xl md:text-6xl opacity-50">:</div>
+                        <div class="text-center">
+                            <div id="minutes" class="font-display text-4xl md:text-6xl">00</div>
+                            <div class="text-xs uppercase tracking-widest opacity-70">Minutes</div>
+                        </div>
+                        <div class="font-display text-4xl md:text-6xl opacity-50">:</div>
+                        <div class="text-center">
+                            <div id="seconds" class="font-display text-4xl md:text-6xl">00</div>
+                            <div class="text-xs uppercase tracking-widest opacity-70">Seconds</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="mt-16 lg:mt-24 max-w-3xl mx-auto fade-in" style="animation-delay: 600ms;">
-                    <!-- Weekly theme content remains the same -->
+                    <p id="weekly-theme-label" class="text-lg uppercase tracking-widest" style="color: var(--accent-peach); font-family: 'Instrument Serif', serif;">This Week's Theme</p>
+                    <div class="w-48 h-1 mx-auto my-4" style="background: linear-gradient(90deg, transparent, var(--grad-mid), transparent); opacity: 0.6;"></div>
+                    <h2 id="weekly-theme-title" class="font-display text-7xl md:text-8xl leading-tight" style="color: var(--accent-rose);">Narratives,<br>Myths, & Lives.</h2>
+                    <p id="weekly-theme-description" class="mt-4 text-lg text-cream/80">Exploring the stories we tell to survive, sell, and sanctify.</p>
                 </div>
-            </div>
-            <div id="scroll-cue">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 19V5M12 19L7 14M12 19L17 14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
         </section>
 
-        <section id="practice" class="py-20 section-alt reveal-on-scroll" aria-labelledby="practice-title">
+        <section class="py-20 section-alt reveal-on-scroll">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
-                     <h2 id="practice-title" class="font-display text-4xl md:text-5xl text-cream">A 90-Day Creative Practice</h2>
+                     <h2 class="font-display text-4xl md:text-5xl text-cream">A 90-Day Creative Practice</h2>
                      <p class="mt-4 text-lg text-cream/80 max-w-3xl mx-auto">This is a space for experimentation, not perfection. A commitment to showing up, day after day, to explore the connections between ideas, images, and inquiry.</p>
                 </div>
-                <!-- Grid content remains the same -->
+                <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+                    <div class="text-center">
+                        <div class="flex justify-center items-center mb-4">
+                            <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4L36.416 19.584L52 24L36.416 28.416L32 44L27.584 28.416L12 24L27.584 19.584L32 4Z" stroke="url(#paint0_linear_101_2)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="paint0_linear_101_2" x1="12" y1="24" x2="52" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#003a66"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
+                        </div>
+                        <h3 class="font-display text-2xl mb-2" style="color: var(--grad-start)">Join the Community</h3>
+                        <p class="text-cream/80">Follow along daily and engage with the work. Sign up for updates to become part of a community of inquiry.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="flex justify-center items-center mb-4">
+                            <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M52 4H12C9.79086 4 8 5.79086 8 8V56C8 58.2091 9.79086 60 12 60H52C54.2091 60 56 58.2091 56 56V8C56 5.79086 54.2091 4 52 4Z" stroke="url(#paint1_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 40L26 30L38 42" stroke="url(#paint2_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 40L38 34L56 52" stroke="url(#paint3_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 24C45.1046 24 46 23.1046 46 22C46 20.8954 45.1046 20 44 20C42.8954 20 42 20.8954 42 22C42 23.1046 42.8954 24 44 24Z" stroke="url(#paint4_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="paint1_linear_101_3" x1="8" y1="32" x2="56" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#003a66"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint2_linear_101_3" x1="16" y1="36" x2="38" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#003a66"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint3_linear_101_3" x1="32" y1="43" x2="56" y2="43" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#003a66"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint4_linear_101_3" x1="42" y1="22" x2="46" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#003a66"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
+                        </div>
+                        <h3 class="font-display text-2xl mb-2" style="color: var(--grad-mid)">Create Alongside</h3>
+                        <p class="text-cream/80">Use the weekly themes as inspiration for your own work. This is a space for experimentation, not perfection.</p>
+                    </div>
+                    <div class="text-center">
+                         <div class="flex justify-center items-center mb-4">
+                             <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M48 24V52H16" stroke="url(#paint5_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M56 16V44H24" stroke="url(#paint6_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 8V36H40V8H8Z" stroke="url(#paint7_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="paint5_linear_101_4" x1="16" y1="38" x2="48" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#003a66"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint6_linear_101_4" x1="24" y1="30" x2="56" y2="30" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#003a66"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint7_linear_101_4" x1="8" y1="22" x2="40" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#003a66"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
+                         </div>
+                        <h3 class="font-display text-2xl mb-2" style="color: var(--grad-end)">Reflect & Record</h3>
+                        <p class="text-cream/80">Discover new perspectives through marginalia, commentary, and reflections. The archive is a living document.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- From the Archive Section (Commented Out) -->
-        <!--
-        <section id="archive" class="pt-20 pb-24 reveal-on-scroll" aria-labelledby="archive-title">
-            ...
-        </section>
-        -->
-    </main>
+        </main>
 
-    <footer class="relative pt-24 pb-12" style="background: linear-gradient(to bottom, transparent, var(--bg-darker) 30%, var(--bg-darkest));" role="contentinfo">
+    <footer class="relative pt-24 pb-12" style="background: linear-gradient(to bottom, transparent, var(--bg-darker) 30%, var(--bg-darkest));">
         <div class="container mx-auto px-4 text-center text-cream/70">
-            <img src="https://knfoster13.github.io/knf90/images/knf90-logo-gradient-1.webp" alt="Gradient KNF90 logo with a star" class="h-8 mx-auto mb-6" loading="lazy" width="32" height="32">
+            <img src="https://knfoster13.github.io/knf90/images/knf90-logo-gradient-1.png" alt="Gradient KNF90 logo with a star" class="h-8 mx-auto mb-6" loading="lazy">
             <div class="flex justify-center space-x-6 text-sm mb-6">
                 <a href="#" class="hover:text-cream transition-colors">About</a>
                 <a href="#" class="hover:text-cream transition-colors">Archive</a>
@@ -257,16 +325,206 @@
 
     <div class="modal-overlay hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 items-center justify-center p-4" id="modalOverlay">
         <div class="modal bg-cream text-header rounded-lg shadow-2xl p-8 md:p-12 max-w-2xl w-full relative" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalSubtitle">
-            <button class="modal-close absolute top-4 right-4 text-header/50 hover:text-header transition-colors" onclick="closeModal()" aria-label="Close dialog">
+            <button class="modal-close absolute top-4 right-4 text-header/50 hover:text-header transition-colors" onclick="closeModal()">
                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <div class="text-center">
-                <!-- Modal content remains the same -->
+                <h2 id="modalTitle" class="font-display text-4xl">Join the Sprint.</h2>
+                <p id="modalSubtitle" class="text-header/70 mt-2">Stay in the flow. Get daily drops and weekly reflections.</p>
+            </div>
+            
+            <div class="mt-8 grid md:grid-cols-2 gap-8">
+                <div class="modal-column">
+                    <h3 class="font-display text-xl mb-2">Newsletter</h3>
+                    <input class="w-full bg-header/5 p-3 rounded-md border border-header/10 focus:ring-2 focus:ring-grad-mid focus:border-grad-mid outline-none" type="email" placeholder="Your email address">
+                    <button class="w-full mt-3 bg-header text-cream font-semibold p-3 rounded-md hover:bg-opacity-90 transition-all transform hover:scale-105">Subscribe</button>
+                </div>
+                
+                <div class="modal-column">
+                    <h3 class="font-display text-xl mb-2">Text Alerts</h3>
+                    <input class="w-full bg-header/5 p-3 rounded-md border border-header/10 focus:ring-2 focus:ring-grad-mid focus:border-grad-mid outline-none" type="tel" placeholder="Your phone number">
+                    <button class="w-full mt-3 bg-header text-cream font-semibold p-3 rounded-md hover:bg-opacity-90 transition-all transform hover:scale-105">Get Alerts</button>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 text-xs text-header/50">
+                ✦ No spam. Only sparks of thought.
             </div>
         </div>
     </div>
 
-    <script src="knf90/js/main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Enhanced Parallax Effect ---
+            const parallaxBg = document.getElementById('parallax-bg');
+            let ticking = false;
+            
+            function updateParallax() {
+                const scrolled = window.pageYOffset;
+                const speed = 0.5;
+                const yPos = -(scrolled * speed);
+                
+                if(parallaxBg) {
+                    parallaxBg.style.transform = `translateY(${yPos}px) translateZ(0)`;
+                }
+                ticking = false;
+            }
+            
+            function requestTick() {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            }
+            
+            window.addEventListener('scroll', requestTick);
+
+            // --- Reveal on Scroll ---
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
+
+            // --- Countdown Timer Logic ---
+            const countdownDate = new Date("2025-10-18T15:13:00").getTime();
+            const timerInterval = setInterval(() => {
+                const distance = countdownDate - new Date().getTime();
+                const daysEl = document.getElementById("days");
+                if (distance < 0) {
+                    clearInterval(timerInterval);
+                    const countdownTimerEl = document.getElementById("countdown-timer");
+                    if (countdownTimerEl) {
+                        countdownTimerEl.innerHTML = "<div class='font-display text-4xl text-cream'>The Sprint has Begun!</div>";
+                    }
+                    return;
+                }
+                if (daysEl) {
+                    daysEl.innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                    document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                    document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                    document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+                }
+            }, 1000);
+        });
+
+        const weeklyThemes = [
+            { week: 1, title: "Narratives,<br>Myths, & Lives.", description: "Exploring the stories we tell to survive, sell, and sanctify." },
+            { week: 2, title: "The Body<br>The Archive", description: "On memory, physicality, and the records we keep." },
+            { week: 3, title: "Ritual<br>Repetition", description: "Finding meaning in the patterns of daily practice." },
+            { week: 4, title: "Public<br>Private", description: "Navigating the boundaries between personal and shared experience." },
+            { week: 5, title: "Silence<br>The Unseen", description: "What is not said, not shown, and what it reveals." },
+            { week: 6, "title": "Influence<br>Intertext", "description": "A dialogue with the ideas and images that shape us." },
+            { week: 7, "title": "Place<br>Displacement", "description": "How geography and environment inform our inner worlds." },
+            { week: 8, "title": "The 'Real'<br>The Hyperreal", "description": "Questioning authenticity in a world of copies." },
+            { week: 9, "title": "Abundance<br>Scarcity", "description": "Creative constraints and the generation of ideas." },
+            { week: 10, "title": "The End<br>The After", "description": "On conclusions, aftermaths, and what lingers." },
+            { week: 11, "title": "Synthesis<br>Reflection", "description": "Looking back, connecting the threads of the journey." },
+            { week: 12, "title": "Future<br>Forward", "description": "Integrating the practice into what comes next." },
+            { week: 13, title: "Beginnings<br>Intentions", description: "Setting the foundation for 90 days of creative practice." }
+        ];
+        
+        const sprintStartDate = new Date('2025-10-18T00:00:00');
+        if (new Date() < sprintStartDate) { 
+            updateTheme(weeklyThemes[0]); 
+        } else { 
+            const now = new Date();
+            const diffTime = Math.abs(now - sprintStartDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            let currentWeek = Math.floor((diffDays -1) / 7) + 1;
+            if (currentWeek > weeklyThemes.length) {
+                currentWeek = weeklyThemes.length;
+            }
+            const activeTheme = weeklyThemes.find(theme => theme.week === currentWeek);
+            if (activeTheme) {
+                updateTheme(activeTheme);
+            }
+        }
+
+        function updateTheme(theme) {
+            const label = document.getElementById('weekly-theme-label');
+            const title = document.getElementById('weekly-theme-title');
+            const description = document.getElementById('weekly-theme-description');
+            if (label) label.textContent = `This Week's Theme`;
+            if (title) title.innerHTML = theme.title;
+            if (description) description.textContent = theme.description;
+        }
+
+        // --- Modal functionality ---
+        const modalOverlay = document.getElementById('modalOverlay');
+        let lastActiveElement;
+        
+        function openModal(triggerElement) {
+            if (modalOverlay) {
+                lastActiveElement = triggerElement;
+                modalOverlay.classList.remove('hidden');
+                modalOverlay.classList.add('flex');
+            }
+        }
+        
+        function closeModal() {
+            if (modalOverlay) {
+                modalOverlay.classList.add('hidden');
+                modalOverlay.classList.remove('flex');
+                if (lastActiveElement) { 
+                    lastActiveElement.focus(); 
+                }
+            }
+        }
+        
+        modalOverlay.addEventListener('click', function(event) { 
+            if (event.target === modalOverlay) { 
+                closeModal(); 
+            } 
+        });
+        
+        window.addEventListener('keydown', (e) => { 
+            if (e.key === 'Escape' && !modalOverlay.classList.contains('hidden')) { 
+                closeModal(); 
+            } 
+        });
+
+        // --- Marginalia Toggle ---
+        function toggleMarginalia(button) {
+            const content = button.nextElementSibling;
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                button.innerHTML = '‡ Hide Marginalia';
+            } else {
+                content.classList.add('hidden');
+                button.innerHTML = '‡ Show Marginalia';
+            }
+        }
+
+        // --- Filter Functionality ---
+        function filterEntries(filter) {
+            const entries = document.querySelectorAll('#entries-grid .entry-card');
+            const buttons = document.querySelectorAll('#filter-bar .filter-btn');
+
+            buttons.forEach(button => {
+                if (button.innerText.toLowerCase().includes(filter) || (filter === 'all' && button.innerText.toLowerCase() === 'all')) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+
+            entries.forEach(entry => {
+                if (filter === 'all' || entry.dataset.type === filter) {
+                    entry.style.display = 'block';
+                } else {
+                    entry.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
-
