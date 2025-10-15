@@ -10,14 +10,11 @@
     <meta property="og:url" content="https://knf.kim/90/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kimberly Nicole Foster's 90 in 90</title>
-    <link rel="preload" as="image" href="https://knfoster13.github.io/knf90/images/knf90-header-cropped.webp">
-    <link rel="icon" href="https://knfoster13.github.io/knf90/images/knf90-header-square.png" type="image/png">
+    <link rel="preload" as="image" href="https://knfoster13.github.io/knf90/images/knf90-header-cropped.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Add reCAPTCHA script -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         :root {
             /* Brand colors */
@@ -52,6 +49,7 @@
             overflow-x: hidden;
         }
         
+        /* Fixed: Better background implementation - BRIGHTENED */
         body::before {
             content: '';
             position: fixed;
@@ -88,7 +86,76 @@
         .font-mono {
             font-family: 'Roboto Mono', monospace;
         }
+
+        .font-serif {
+            font-family: 'Instrument Serif', serif;
+        }
         
+        /* Filter buttons */
+        .filter-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 248, 242, 0.2);
+            color: var(--cream);
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .filter-btn:hover {
+            background: rgba(255, 248, 242, 0.1);
+            border-color: rgba(255, 248, 242, 0.3);
+        }
+        
+        .filter-btn.active {
+            background: rgba(198, 182, 247, 0.2);
+            border-color: var(--grad-mid);
+            color: var(--cream);
+        }
+        
+        /* Luminous gradient button */
+        .btn-luminous {
+            background: linear-gradient(135deg, #FFFDF5, #e8d5b5, #cb98e1);
+            color: #330948;
+            border-radius: 9999px;
+            box-shadow:
+                0 4px 15px rgba(203, 152, 225, 0.15),
+                0 0 20px rgba(255, 250, 222, 0.2),
+                inset 0 1px 2px rgba(248, 233, 212, 0.5);
+            font-weight: 700;
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 0.75rem 1.75rem;
+        }
+
+        .btn-luminous:hover:not(:disabled) {
+            transform: scale(1.05) translateY(-2px);
+            animation: pulse 1.2s ease-in-out infinite alternate;
+        }
+        
+        /* Glassmorphic Outline Button */
+        .btn-glass {
+            background: rgba(255, 248, 242, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 248, 242, 0.2);
+            color: var(--cream);
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.25rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            padding: 0.75rem 2.5rem;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-glass:hover {
+            box-shadow: 0 0 20px rgba(198, 182, 247, 0.4);
+            transform: translateY(-2px);
+        }
+
         .header-glass {
             background: linear-gradient(to bottom, rgba(27, 6, 40, 0.95), rgba(27, 6, 40, 0.8));
             backdrop-filter: blur(10px);
@@ -105,51 +172,6 @@
         #countdown-timer .opacity-70 {
             opacity: 0.6;
         }
-
-        /* --- AESTHETIC IMPROVEMENTS --- */
-
-        /* 1. Animated Gradient Text */
-        .animated-gradient-text {
-            background: linear-gradient(90deg, var(--grad-start), var(--grad-mid), var(--grad-end), var(--grad-start));
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-            animation: gradient-flow 10s ease-in-out infinite;
-        }
-
-        @keyframes gradient-flow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* 2. Icon Glow Effect */
-        .icon-container {
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-        .icon-container:hover {
-            transform: translateY(-5px);
-            filter: drop-shadow(0 0 15px var(--grad-mid)); 
-        }
-
-        /* 4. Modal Animation */
-        @keyframes modal-appear {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        .modal-animated {
-            animation: modal-appear 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        /* --- END AESTHETIC IMPROVEMENTS --- */
 
         /* Animations */
         @keyframes pulse {
@@ -171,8 +193,7 @@
         .fade-in {
             opacity: 0; 
             transform: translateY(20px); 
-            animation: fadeUp 1s forwards;
-            will-change: transform;
+            animation: fadeUp 1s forwards; 
         }
 
         @keyframes fadeUp { 
@@ -182,25 +203,10 @@
             } 
         }
         
+        /* Section backgrounds */
         .section-alt {
             background: linear-gradient(to bottom, rgba(255, 248, 242, 0.02), rgba(255, 248, 242, 0.05), rgba(255, 248, 242, 0.02));
             position: relative;
-        }
-        .spinner {
-            border: 2px solid #f3f3f3;
-            border-top: 2px solid #330948;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            animation: spin 1s linear infinite;
-            display: inline-block;
-            vertical-align: middle;
-            margin-left: 10px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -209,24 +215,24 @@
 
     <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 header-glass h-20">
         <div class="container mx-auto px-4 h-full">
-            <div class="flex justify-center sm:justify-between items-center h-full">
-                <div class="flex-shrink-0">
-                    <picture>
-                        <source srcset="https://knfoster13.github.io/knf90/images/knf90-logo-gradient-1.webp" type="image/webp">
-                        <img src="https://knfoster13.github.io/knf90/images/knf90-logo-gradient-1.png" alt="Gradient KNF90 logo with a star" class="h-12">
-                    </picture>
+            <div class="flex justify-between items-center h-full relative">
+                <!-- Logo - centered on mobile, left-aligned on desktop -->
+                <div class="flex-shrink-0 absolute left-1/2 transform -translate-x-1/2 sm:relative sm:left-0 sm:transform-none">
+                    <img src="https://knfoster13.github.io/knf90/images/knf90-logo-gradient-1.png" alt="Gradient KNF90 logo with a star" class="h-12">
                 </div>
 
+                <!-- Date range - hidden on mobile, visible on desktop -->
                 <div class="hidden md:block text-center text-xs font-semibold uppercase tracking-wider text-cream/70">
                     OCTOBER 18 — JANUARY 15, 2026 ✦ 90 DAYS OF PRACTICE
                 </div>
 
-                <div class="flex-shrink-0 hidden sm:block">
+                <!-- Join button - hidden on mobile, visible on desktop -->
+                <div class="flex-shrink-0">
                     <button
-                      id="header-join-btn"
-                      class="uppercase font-serif text-[1.1rem] tracking-wide text-[#2C0838] bg-[#E7D88C] px-6 py-2.5 rounded-full font-semibold hover:bg-[#f0e2a1] transition-all transform hover:-translate-y-[1px] shadow-md hover:shadow-lg"
-                      onclick="openModal(this)">
-                      Join the Sprint ✦
+                        id="header-join-btn"
+                        class="uppercase font-serif text-[1.1rem] tracking-wide text-[#2C0838] bg-[#E7D88C] px-6 py-2.5 rounded-full font-semibold hover:bg-[#f0e2a1] transition-all transform hover:-translate-y-[1px] shadow-md hover:shadow-lg hidden sm:block"
+                        onclick="openModal(this)">
+                        Join the Sprint ✦
                     </button>
                 </div>
             </div>
@@ -237,11 +243,8 @@
         <section class="relative text-center flex flex-col items-center justify-center pt-12 pb-20 lg:pt-16 lg:pb-32 overflow-hidden" style="min-height: calc(90vh - 80px);">
              
             <div class="container mx-auto px-4 z-20 relative">
-                <div id="hero-image-container" class="fade-in" style="animation-delay: 100ms;">
-                    <picture>
-                        <source srcset="https://knfoster13.github.io/knf90/images/knf90-header-cropped.webp" type="image/webp">
-                        <img src="https://knfoster13.github.io/knf90/images/knf90-header-cropped.png" alt="Stylized text reading 90 in 90" class="w-full max-w-2xl mx-auto mb-6" loading="eager">
-                    </picture>
+                <div class="fade-in" style="animation-delay: 100ms;">
+                    <img src="https://knfoster13.github.io/knf90/images/knf90-header-cropped.png" alt="Stylized text reading 90 in 90" class="w-full max-w-2xl mx-auto mb-6" loading="eager">
                 </div>
 
                 <p class="font-sans text-lg md:text-xl max-w-2xl mx-auto mt-4 text-cream/80 uppercase fade-in" style="color: var(--accent-peach); animation-delay: 200ms;">A <strong class="font-bold">90-Day</strong> Sprint Through Ideas, Images, & Inquiry</p>
@@ -250,9 +253,10 @@
                 <div class="flex justify-center items-center space-x-4 mt-8 fade-in" style="animation-delay: 400ms;">
                     <button id="hero-join-btn" class="btn-luminous uppercase" onclick="openModal(this)">Join the Sprint ✦</button>
                     <a
-                      href="manifesto.html"
-                      class="uppercase font-serif text-[1.1rem] tracking-wide text-[#FFF8F2] bg-[#00464F] px-6 py-2.5 rounded-full font-semibold hover:bg-[#00666F] transition-all transform hover:-translate-y-[1px] shadow-md hover:shadow-lg">
-                      Manifesto</a>
+                        href="manifesto.html"
+                        class="uppercase font-serif text-[1.1rem] tracking-wide text-[#FFF8F2] bg-[#00464F] px-6 py-2.5 rounded-full font-semibold hover:bg-[#00666F] transition-all transform hover:-translate-y-[1px] shadow-md hover:shadow-lg">
+                        Manifesto
+                    </a>
                 </div>
 
                 <div id="countdown-timer" class="fade-in my-12 text-cream" style="animation-delay: 500ms;">
@@ -282,47 +286,47 @@
                 <div class="mt-16 lg:mt-24 max-w-3xl mx-auto fade-in" style="animation-delay: 600ms;">
                     <p id="weekly-theme-label" class="text-lg uppercase tracking-widest" style="color: var(--accent-peach); font-family: 'Instrument Serif', serif;">This Week's Theme</p>
                     <div class="w-48 h-1 mx-auto my-4" style="background: linear-gradient(90deg, transparent, var(--grad-mid), transparent); opacity: 0.6;"></div>
-                    <h2 id="weekly-theme-title" class="font-display text-7xl md:text-8xl leading-tight animated-gradient-text">Narrative,<br>Myths, & Lies.</h2>
+                    <h2 id="weekly-theme-title" class="font-display text-7xl md:text-8xl leading-tight" style="color: var(--accent-rose);">Narratives,<br>Myths, & Lives.</h2>
                     <p id="weekly-theme-description" class="mt-4 text-lg text-cream/80">Exploring the stories we tell to survive, sell, and sanctify.</p>
                 </div>
             </div>
         </section>
 
         <section class="py-24 bg-[#FFF8F2] text-[#2C0838] text-center">
-          <div class="container mx-auto px-6 max-w-3xl">
-            <p class="font-serif text-xl leading-relaxed">
-              “The Creative Sprint isn’t about perfection or polish; it’s about rhythm and rigor.
-              Each week I’ll build a collection of work around a spark while mapping my citations
-              and inspirations. By the end of this journey, you'll see not just what I think,
-              but how I think.”
-            </p>
-          </div>
+            <div class="container mx-auto px-6 max-w-3xl">
+                <p class="font-serif text-xl leading-relaxed">
+                    "The Creative Sprint isn't about perfection or polish; it's about rhythm and rigor.
+                    Each week I'll build a collection of work around a spark while mapping my citations
+                    and inspirations. By the end of this journey, you'll see not just what I think,
+                    but how I think."
+                </p>
+            </div>
         </section>
 
-        <section class="py-20 section-alt">
+        <section class="py-20 section-alt reveal-on-scroll">
             <div class="container mx-auto px-4">
-                <div class="text-center mb-16 reveal-on-scroll">
-                     <h2 class="font-display text-4xl md:text-5xl text-cream">An Experiment in Making</h2>
+                <div class="text-center mb-16">
+                     <h2 class="font-display text-4xl md:text-5xl text-cream">A 90-Day Creative Practice</h2>
                      <p class="mt-4 text-lg text-cream/80 max-w-3xl mx-auto">This is a space for experimentation, not perfection. A commitment to showing up, day after day, to explore the connections between ideas, images, and inquiry.</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8 md:gap-12">
-                    <div class="text-center reveal-on-scroll icon-container" style="transition-delay: 100ms;">
+                    <div class="text-center">
                         <div class="flex justify-center items-center mb-4">
-                            <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M32 4L36.416 19.584L52 24L36.416 28.416L32 44L27.584 28.416L12 24L27.584 19.584L32 4Z" stroke="url(#paint0_linear_101_2)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="paint0_linear_101_2" x1="12" y1="24" x2="52" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
+                            <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4L36.416 19.584L52 24L36.416 28.416L32 44L27.584 28.416L12 24L27.584 19.584L32 4Z" stroke="url(#paint0_linear_101_2)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="paint0_linear_101_2" x1="12" y1="24" x2="52" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
                         </div>
                         <h3 class="font-display text-2xl mb-2" style="color: var(--grad-start)">Join the Community</h3>
-                        <p class="text-cream/80">Follow along daily and engage with the. Sign up for updates to become part of a community of inquiry.</p>
+                        <p class="text-cream/80">Follow along daily and engage with the work. Sign up for updates to become part of a community of inquiry.</p>
                     </div>
-                    <div class="text-center reveal-on-scroll icon-container" style="transition-delay: 250ms;">
+                    <div class="text-center">
                         <div class="flex justify-center items-center mb-4">
-                            <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M52 4H12C9.79086 4 8 5.79086 8 8V56C8 58.2091 9.79086 60 12 60H52C54.2091 60 56 58.2091 56 56V8C56 5.79086 54.2091 4 52 4Z" stroke="url(#paint1_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 40L26 30L38 42" stroke="url(#paint2_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 40L38 34L56 52" stroke="url(#paint3_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 24C45.1046 24 46 23.1046 46 22C46 20.8954 45.1046 20 44 20C42.8954 20 42 20.8954 42 22C42 23.1046 42.8954 24 44 24Z" stroke="url(#paint4_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="paint1_linear_101_3" x1="8" y1="32" x2="56" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint2_linear_101_3" x1="16" y1="36" x2="38" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint3_linear_101_3" x1="32" y1="43" x2="56" y2="43" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint4_linear_101_3" x1="42" y1="22" x2="46" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
+                            <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M52 4H12C9.79086 4 8 5.79086 8 8V56C8 58.2091 9.79086 60 12 60H52C54.2091 60 56 58.2091 56 56V8C56 5.79086 54.2091 4 52 4Z" stroke="url(#paint1_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 40L26 30L38 42" stroke="url(#paint2_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 40L38 34L56 52" stroke="url(#paint3_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 24C45.1046 24 46 23.1046 46 22C46 20.8954 45.1046 20 44 20C42.8954 20 42 20.8954 42 22C42 23.1046 42.8954 24 44 24Z" stroke="url(#paint4_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="paint1_linear_101_3" x1="8" y1="32" x2="56" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint2_linear_101_3" x1="16" y1="36" x2="38" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint3_linear_101_3" x1="32" y1="43" x2="56" y2="43" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint4_linear_101_3" x1="42" y1="22" x2="46" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
                         </div>
                         <h3 class="font-display text-2xl mb-2" style="color: var(--grad-mid)">Create Alongside</h3>
                         <p class="text-cream/80">Use the weekly themes as inspiration for your own work. This is a space for experimentation, not perfection.</p>
                     </div>
-                    <div class="text-center reveal-on-scroll icon-container" style="transition-delay: 400ms;">
+                    <div class="text-center">
                          <div class="flex justify-center items-center mb-4">
-                             <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M48 24V52H16" stroke="url(#paint5_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M56 16V44H24" stroke="url(#paint6_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 8V36H40V8H8Z" stroke="url(#paint7_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="paint5_linear_101_4" x1="16" y1="38" x2="48" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint6_linear_101_4" x1="24" y1="30" x2="56" y2="30" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint7_linear_101_4" x1="8" y1="22" x2="40" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
+                             <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M48 24V52H16" stroke="url(#paint5_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M56 16V44H24" stroke="url(#paint6_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 8V36H40V8H8Z" stroke="url(#paint7_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="paint5_linear_101_4" x1="16" y1="38" x2="48" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint6_linear_101_4" x1="24" y1="30" x2="56" y2="30" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint7_linear_101_4" x1="8" y1="22" x2="40" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
                          </div>
                         <h3 class="font-display text-2xl mb-2" style="color: var(--grad-end)">Reflect & Record</h3>
                         <p class="text-cream/80">Discover new perspectives through marginalia, commentary, and reflections. The archive is a living document.</p>
@@ -335,10 +339,7 @@
 
     <footer class="relative pt-24 pb-12" style="background: linear-gradient(to bottom, transparent, var(--bg-darker) 30%, var(--bg-darkest));">
         <div class="container mx-auto px-4 text-center text-cream/70">
-            <picture>
-                <source srcset="https://knfoster13.github.io/knf90/images/knf90-logo-gradient-1.webp" type="image/webp">
-                <img src="https://knfoster13.github.io/knf90/images/knf90-logo-gradient-1.png" alt="Gradient KNF90 logo with a star" class="h-8 mx-auto mb-6" loading="lazy">
-            </picture>
+            <img src="https://knfoster13.github.io/knf90/images/knf90-logo-gradient-1.png" alt="Gradient KNF90 logo with a star" class="h-8 mx-auto mb-6" loading="lazy">
             <div class="flex justify-center space-x-6 text-sm mb-6">
                 <a href="#" class="hover:text-cream transition-colors">About</a>
                 <a href="#" class="hover:text-cream transition-colors">Archive</a>
@@ -350,84 +351,55 @@
     </footer>
 
     <div class="modal-overlay hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 items-center justify-center p-4" id="modalOverlay">
-        <div class="modal modal-animated bg-cream text-header rounded-lg shadow-2xl p-8 md:p-12 max-w-2xl w-full relative" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalSubtitle">
+        <div class="modal bg-cream text-header rounded-lg shadow-2xl p-8 md:p-12 max-w-2xl w-full relative" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalSubtitle">
             <button class="modal-close absolute top-4 right-4 text-header/50 hover:text-header transition-colors" onclick="closeModal()">
                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
+            <div class="text-center">
+                <h2 id="modalTitle" class="font-display text-4xl">Join the Sprint.</h2>
+                <p id="modalSubtitle" class="text-header/70 mt-2">Stay in the flow. Get daily drops and weekly reflections.</p>
+            </div>
             
-            <div id="form-container">
-                <form id="google-sheets-form" class="text-center">
-                    <h2 id="modalTitle" class="font-display text-4xl">Join the Sprint.</h2>
-                    <p id="modalSubtitle" class="text-header/70 mt-2">Stay in the flow. Get daily drops and weekly reflections.</p>
+            <div class="mt-8 grid md:grid-cols-2 gap-8">
+                <div class="modal-column">
+                    <h3 class="font-display text-xl mb-2">Newsletter</h3>
+                    <input class="w-full bg-header/5 p-3 rounded-md border border-header/10 focus:ring-2 focus:ring-grad-mid focus:border-grad-mid outline-none" type="email" placeholder="Your email address">
+                    <button class="w-full mt-3 bg-header text-cream font-semibold p-3 rounded-md hover:bg-opacity-90 transition-all transform hover:scale-105">Subscribe</button>
+                </div>
                 
-                    <div class="mt-8 space-y-4">
-                        <div>
-                            <label for="email" class="sr-only">Your email address</label>
-                            <input id="email" name="email" class="w-full bg-header/5 p-3 rounded-md border border-header/10 focus:ring-2 focus:ring-grad-mid focus:border-grad-mid outline-none" type="email" placeholder="Your email address" required>
-                        </div>
-                        <div>
-                            <label for="tel" class="sr-only">Your phone number</label>
-                            <input id="tel" name="phone" class="w-full bg-header/5 p-3 rounded-md border border-header/10 focus:ring-2 focus:ring-grad-mid focus:border-grad-mid outline-none" type="tel" placeholder="Your phone number (optional)">
-                        </div>
-                    </div>
-                    
-                    <div class="flex justify-center my-4">
-                        <div class="g-recaptcha" data-sitekey="6Lern-orAAAAAL1gRUTtf0rxz0CXmwSLKdJqUYol"></div>
-                    </div>
-
-                    <p id="form-error" class="text-red-600 text-sm hidden h-5 mb-2"></p>
-                    
-                    <button type="submit" class="w-full bg-header text-cream font-semibold p-3 rounded-md hover:bg-opacity-90 transition-all transform hover:scale-105 flex justify-center items-center">
-                        <span class="button-text">Subscribe</span>
-                    </button>
-
-                    <div class="text-center mt-6 text-xs text-header/50">
-                        ✦ No spam. Only sparks of thought.
-                    </div>
-                </form>
+                <div class="modal-column">
+                    <h3 class="font-display text-xl mb-2">Text Alerts</h3>
+                    <input class="w-full bg-header/5 p-3 rounded-md border border-header/10 focus:ring-2 focus:ring-grad-mid focus:border-grad-mid outline-none" type="tel" placeholder="Your phone number">
+                    <button class="w-full mt-3 bg-header text-cream font-semibold p-3 rounded-md hover:bg-opacity-90 transition-all transform hover:scale-105">Get Alerts</button>
+                </div>
             </div>
-
-            <div id="success-message" class="hidden text-center">
-                <h2 class="font-display text-4xl">Thank You!</h2>
-                <p class="text-header/70 mt-2">Your submission has been received. Welcome to the sprint!</p>
-            </div>
-            <div id="error-message" class="hidden text-center">
-                <h2 class="font-display text-4xl">Oops!</h2>
-                <p class="text-header/70 mt-2">Something went wrong. Please try again.</p>
+            
+            <div class="text-center mt-8 text-xs text-header/50">
+                ✦ No spam. Only sparks of thought.
             </div>
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- Parallax & Scroll Effects ---
+            // --- Enhanced Parallax Effect ---
             const parallaxBg = document.getElementById('parallax-bg');
-            const heroImageContainer = document.getElementById('hero-image-container');
             let ticking = false;
             
-            function handleScroll() {
+            function updateParallax() {
                 const scrolled = window.pageYOffset;
+                const speed = 0.5;
+                const yPos = -(scrolled * speed);
                 
-                // Parallax for background nebulae
-                const bgSpeed = 0.5;
-                const bgYPos = -(scrolled * bgSpeed);
                 if(parallaxBg) {
-                    parallaxBg.style.transform = `translateY(${bgYPos}px) translateZ(0)`;
+                    parallaxBg.style.transform = `translateY(${yPos}px) translateZ(0)`;
                 }
-
-                // Parallax for hero "90 in 90" image
-                if (heroImageContainer && scrolled < window.innerHeight) {
-                    const heroSpeed = 0.3;
-                    const heroYPos = -(scrolled * heroSpeed);
-                    heroImageContainer.style.transform = `translateY(${heroYPos}px)`;
-                }
-
                 ticking = false;
             }
             
             function requestTick() {
                 if (!ticking) {
-                    window.requestAnimationFrame(handleScroll);
+                    window.requestAnimationFrame(updateParallax);
                     ticking = true;
                 }
             }
@@ -469,14 +441,10 @@
                     document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
                 }
             }, 1000);
-
-            // --- Google Sheets Form Submission ---
-            const form = document.getElementById('google-sheets-form');
-            form.addEventListener('submit', handleFormSubmit);
         });
 
         const weeklyThemes = [
-            { week: 1, title: "Narrative,<br>Myths, & Lies.", description: "Exploring the stories we tell to survive, sell, and sanctify." },
+            { week: 1, title: "Narratives,<br>Myths, & Lives.", description: "Exploring the stories we tell to survive, sell, and sanctify." },
             { week: 2, title: "The Body<br>The Archive", description: "On memory, physicality, and the records we keep." },
             { week: 3, title: "Ritual<br>Repetition", description: "Finding meaning in the patterns of daily practice." },
             { week: 4, title: "Public<br>Private", description: "Navigating the boundaries between personal and shared experience." },
@@ -526,15 +494,6 @@
                 lastActiveElement = triggerElement;
                 modalOverlay.classList.remove('hidden');
                 modalOverlay.classList.add('flex');
-                // Reset form on open
-                document.getElementById('form-container').classList.remove('hidden');
-                document.getElementById('success-message').classList.add('hidden');
-                document.getElementById('error-message').classList.add('hidden');
-                document.getElementById('form-error').classList.add('hidden');
-                document.getElementById('google-sheets-form').reset();
-                if (typeof grecaptcha !== 'undefined') {
-                    grecaptcha.reset();
-                }
             }
         }
         
@@ -560,82 +519,133 @@
             } 
         });
 
-        // --- Updated Function to Handle Google Apps Script Submission ---
-        async function handleFormSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const submitButton = form.querySelector('button[type="submit"]');
-            const buttonText = submitButton.querySelector('.button-text');
-            const errorElement = document.getElementById('form-error');
-
-            // Clear previous errors
-            errorElement.textContent = '';
-            errorElement.classList.add('hidden');
-
-            // Get form values
+        // --- Google Sheets Form Handler ---
+        // IMPORTANT: Replace this with your actual Google Apps Script Web App URL
+        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+        
+        async function handleSignup(type) {
             const email = document.getElementById('email').value;
             const phone = document.getElementById('tel').value;
-
-            // Validation
-            if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
-                errorElement.textContent = 'Please enter a valid email address.';
-                errorElement.classList.remove('hidden');
-                return;
-            }
-
-            const recaptchaResponse = grecaptcha.getResponse();
-            if (!recaptchaResponse) {
-                errorElement.textContent = 'Please complete the reCAPTCHA.';
-                errorElement.classList.remove('hidden');
-                return;
-            }
-
-            // Show loading state
-            submitButton.disabled = true;
-            buttonText.textContent = 'Submitting';
-            const spinner = document.createElement('div');
-            spinner.className = 'spinner';
-            submitButton.appendChild(spinner);
-
-            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwwssyesGyda11CzapioPkCOiYMOxVisyhyAASjeK4z5kLqnicPvmfANC8jx6pE7hGA/exec';
+            const messageDiv = document.getElementById('formMessage');
             
-            // Create form data
-            const formData = new FormData();
-            formData.append('email', email);
-            formData.append('phone', phone);
-            formData.append('g-recaptcha-response', recaptchaResponse);
-
+            // Validation
+            if (type === 'newsletter' || type === 'both') {
+                if (!email) {
+                    showMessage('Please enter your email address', 'error');
+                    return;
+                }
+                if (!validateEmail(email)) {
+                    showMessage('Please enter a valid email address', 'error');
+                    return;
+                }
+            }
+            
+            if (type === 'text' || type === 'both') {
+                if (!phone) {
+                    showMessage('Please enter your phone number', 'error');
+                    return;
+                }
+            }
+            
+            // Prepare data
+            const formData = {
+                email: type === 'text' ? '' : email,
+                phone: type === 'newsletter' ? '' : phone,
+                type: type === 'newsletter' ? 'Newsletter' : type === 'text' ? 'Text Alerts' : 'Both'
+            };
+            
+            // Show loading state
+            showMessage('Signing you up...', 'loading');
+            
             try {
+                // Send to Google Sheets
                 const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
-                    body: formData
+                    mode: 'no-cors', // Important for Google Apps Script
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
                 });
                 
-                const result = await response.json();
-
-                if (result.result === "success") {
-                    document.getElementById('form-container').classList.add('hidden');
-                    document.getElementById('success-message').classList.remove('hidden');
-                    
-                    // Close modal after 3 seconds
-                    setTimeout(() => closeModal(), 3000);
-                } else {
-                    throw new Error(result.message || 'Submission failed');
-                }
-
+                // Since we're using no-cors, we can't read the response
+                // But if the request completes without error, we assume success
+                showMessage('🎉 Welcome to the Sprint! Check your inbox soon.', 'success');
+                
+                // Clear form after 3 seconds and close modal
+                setTimeout(() => {
+                    document.getElementById('email').value = '';
+                    document.getElementById('tel').value = '';
+                    closeModal();
+                    hideMessage();
+                }, 3000);
+                
             } catch (error) {
                 console.error('Error:', error);
-                document.getElementById('form-container').classList.add('hidden');
-                document.getElementById('error-message').classList.remove('hidden');
-            } finally {
-                submitButton.disabled = false;
-                buttonText.textContent = 'Subscribe';
-                if (submitButton.contains(spinner)) {
-                    submitButton.removeChild(spinner);
-                }
+                showMessage('Something went wrong. Please try again or email us directly.', 'error');
             }
+        }
+        
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+        
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('formMessage');
+            messageDiv.textContent = message;
+            messageDiv.className = 'mt-4 p-4 rounded-md text-center';
+            
+            if (type === 'success') {
+                messageDiv.classList.add('bg-green-100', 'text-green-800');
+            } else if (type === 'error') {
+                messageDiv.classList.add('bg-red-100', 'text-red-800');
+            } else if (type === 'loading') {
+                messageDiv.classList.add('bg-blue-100', 'text-blue-800');
+            }
+            
+            messageDiv.classList.remove('hidden');
+        }
+        
+        function hideMessage() {
+            const messageDiv = document.getElementById('formMessage');
+            messageDiv.classList.add('hidden');
+            messageDiv.className = 'hidden mt-4 p-4 rounded-md text-center';
+        }
+
+        // --- Marginalia Toggle ---
+        function toggleMarginalia(button) {
+            const content = button.nextElementSibling;
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                button.innerHTML = '‡ Hide Marginalia';
+            } else {
+                content.classList.add('hidden');
+                button.innerHTML = '‡ Show Marginalia';
+            }
+        }
+
+        // --- Filter Functionality ---
+        function filterEntries(filter) {
+            const entries = document.querySelectorAll('#entries-grid .entry-card');
+            const buttons = document.querySelectorAll('#filter-bar .filter-btn');
+
+            buttons.forEach(button => {
+                if (button.innerText.toLowerCase().includes(filter) || (filter === 'all' && button.innerText.toLowerCase() === 'all')) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+
+            entries.forEach(entry => {
+                if (filter === 'all' || entry.dataset.type === filter) {
+                    entry.style.display = 'block';
+                } else {
+                    entry.style.display = 'none';
+                }
+            });
         }
     </script>
 </body>
 </html>
-
