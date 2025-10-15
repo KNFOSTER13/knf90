@@ -1,26 +1,679 @@
 {
   "version": "https://jsonfeed.org/version/1",
-  "title": "Kimberly’s Creative Sprint",
-  "home_page_url": "https://knf.kim/90",
-  "feed_url": "https://knf.kim/90/feed.json",
+  "title": "Kimberly's Creative Sprint",
+  "home_page_url": "https://knfoster13.github.io/knf90/",
+  "feed_url": "https://knfoster13.github.io/knf90/feed.json",
+  "description": "A 90-day sprint through ideas, images, and inquiry",
   "items": [
     {
-      "id": "day-012",
-      "title": "Unreliable Narrators",
-      "url": "https://knf.kim/drops/unreliable-narrators",
-      "content_text": "A short reflection on the fallibility of memory and how we reconstruct the past.",
-      "image": "https://knf.kim/images/day012.jpg",
-      "type": "audio",
-      "date_published": "2025-10-27T09:00:00Z"
+      "id": "personal_site-https://kimberlynicolefoster.co/p/im-back-lets-talk-conservative-gen",
+      "title": "I'm Back! Let's Talk Conservative Gen Zers, Dating Disasters & an Unfortunate Scandal...",
+      "url": "https://kimberlynicolefoster.co/p/im-back-lets-talk-conservative-gen",
+      "content_html": "I have thoughts on everything from dating disasters to that Uncle Nearest whiskey scandal. &#128156;",
+      "content_text": "I have thoughts on everything from dating disasters to that Uncle Nearest whiskey scandal. 💜",
+      "date_published": "2025-08-25T23:04:25.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/im-back-lets-talk-conservative-gen",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://substackcdn.com/image/youtube/w_728,c_limit/JKjggnmdWZM"
     },
     {
-      "id": "day-013",
-      "title": "Memory & The Archive",
-      "url": "https://knf.kim/drops/memory-and-the-archive",
-      "content_text": "A discussion on what we choose to record and what we lose to time.",
-      "image": "https://knf.kim/images/day013.jpg",
-      "type": "livestream",
-      "date_published": "2025-10-26T09:00:00Z"
+      "id": "youtube_main-watch?v=JKjggnmdWZM",
+      "title": "Conservative Gen Z Men, Dating Disasters & The Uncle Nearest Scandal | Instagram Roulette",
+      "url": "https://www.youtube.com/watch?v=JKjggnmdWZM",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-08-25T23:00:30.000Z",
+      "external_url": "https://www.youtube.com/watch?v=JKjggnmdWZM",
+      "author": {
+        "name": "KIMBERLY HAS THOUGHTS 💜"
+      },
+      "_source": "youtube_main"
+    },
+    {
+      "id": "youtube_channel_2-watch?v=vjIeui-4o6U",
+      "title": "Girl! What's Going On?!! | Mess, Rants & Headlines",
+      "url": "https://www.youtube.com/watch?v=vjIeui-4o6U",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-07-01T06:43:27.000Z",
+      "external_url": "https://www.youtube.com/watch?v=vjIeui-4o6U",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "youtube_channel_2"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/is-sabrina-carpenter-selling-out",
+      "title": "Is Sabrina Carpenter Selling Out or Trolling the Culture War?",
+      "url": "https://kimberlynicolefoster.co/p/is-sabrina-carpenter-selling-out",
+      "content_html": "Let&#8217;s talk about the album cover that made the internet implode.",
+      "content_text": "Let’s talk about the album cover that made the internet implode.",
+      "date_published": "2025-06-16T18:20:59.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/is-sabrina-carpenter-selling-out",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://substackcdn.com/image/fetch/$s_!43-G!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F39013dea-f166-44af-8b75-1af6fde0829e_2048x2043.webp"
+    },
+    {
+      "id": "youtube_channel_2-JNi490kGfUY",
+      "title": "We obviously do NOT live in a “gynocracy.” 😂",
+      "url": "https://www.youtube.com/shorts/JNi490kGfUY",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-06-13T01:23:00.000Z",
+      "external_url": "https://www.youtube.com/shorts/JNi490kGfUY",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "youtube_channel_2"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/hamilton-is-still-so-good-sorry-not",
+      "title": "Hamilton is Still So Good. Sorry Not Sorry. 🤷🏾‍♀️",
+      "url": "https://kimberlynicolefoster.co/p/hamilton-is-still-so-good-sorry-not",
+      "content_html": "Yes, I cried at the reunion.",
+      "content_text": "Yes, I cried at the reunion.",
+      "date_published": "2025-06-12T19:47:58.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/hamilton-is-still-so-good-sorry-not",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://substackcdn.com/image/youtube/w_728,c_limit/jKhGfm0iLy0"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/why-tf-was-miss-tinas-memoir-so-good",
+      "title": "Why TF Was Miss Tina's Memoir So Good?!",
+      "url": "https://kimberlynicolefoster.co/p/why-tf-was-miss-tinas-memoir-so-good",
+      "content_html": "A tad bit messier than I was expecting!",
+      "content_text": "A tad bit messier than I was expecting!",
+      "date_published": "2025-06-12T03:14:46.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/why-tf-was-miss-tinas-memoir-so-good",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://substack-video.s3.amazonaws.com/video_upload/post/165758148/13db38ad-b38a-4e86-857f-f0dd15cb6baa/transcoded-1749698006.png"
+    },
+    {
+      "id": "youtube_channel_2-watch?v=jKhGfm0iLy0",
+      "title": "Cynthia Erivo Owned the Tonys, Sabrina Carpenter Drags A ‘Manchild’ & More — LIVE at 1 PM!",
+      "url": "https://www.youtube.com/watch?v=jKhGfm0iLy0",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-06-10T19:12:49.000Z",
+      "external_url": "https://www.youtube.com/watch?v=jKhGfm0iLy0",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "youtube_channel_2"
+    },
+    {
+      "id": "rss_app_1-d65daaf055b7a3cdacc109566b190dbc",
+      "title": "Give Halle Grace",
+      "url": "https://www.tiktok.com/@kimberlynfoster/video/7512615160830315818",
+      "content_html": "<div><img src=\"https://p16-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/oUREOPAEExi6g6CBpArK9AikB0A4VIwABIaQz~tplv-tiktokx-origin.image?dr=9636&x-expires=1760716800&x-signature=YSv9O5ojYVn03bok6nhMMJg46zw%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5\" style=\"width: 100%;\" /><div>Give Halle Grace  ♬ original sound - Kimberly Nicole Foster</div></div>",
+      "content_text": "Give Halle Grace  ♬ original sound - Kimberly Nicole Foster",
+      "date_published": "2025-06-05T23:44:17.000Z",
+      "external_url": "https://www.tiktok.com/@kimberlynfoster/video/7512615160830315818",
+      "author": {
+        "name": "@kimberlynfoster"
+      },
+      "_source": "rss_app_1"
+    },
+    {
+      "id": "youtube_main-0euWuvLrV9I",
+      "title": "Give Halle Grace",
+      "url": "https://www.youtube.com/shorts/0euWuvLrV9I",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-06-05T22:52:10.000Z",
+      "external_url": "https://www.youtube.com/shorts/0euWuvLrV9I",
+      "author": {
+        "name": "KIMBERLY HAS THOUGHTS 💜"
+      },
+      "_source": "youtube_main"
+    },
+    {
+      "id": "youtube_main-watch?v=0ZyCz_zjayg",
+      "title": "An Emergency Halle/DDG Livestream",
+      "url": "https://www.youtube.com/watch?v=0ZyCz_zjayg",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-06-05T01:08:28.000Z",
+      "external_url": "https://www.youtube.com/watch?v=0ZyCz_zjayg",
+      "author": {
+        "name": "KIMBERLY HAS THOUGHTS 💜"
+      },
+      "_source": "youtube_main"
+    },
+    {
+      "id": "youtube_main-watch?v=NvPbDVSYJ2w",
+      "title": "Gender Wars Are TikTok for Black Folks Old Enough to Know Better",
+      "url": "https://www.youtube.com/watch?v=NvPbDVSYJ2w",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-05-28T17:47:46.000Z",
+      "external_url": "https://www.youtube.com/watch?v=NvPbDVSYJ2w",
+      "author": {
+        "name": "KIMBERLY HAS THOUGHTS 💜"
+      },
+      "_source": "youtube_main"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/diddy-chris-tory-more-mess-and-headlines",
+      "title": "Diddy, Chris, Tory + More | Mess & Headlines | 05.15.25",
+      "url": "https://kimberlynicolefoster.co/p/diddy-chris-tory-more-mess-and-headlines",
+      "content_html": "This is overdue! My bad!",
+      "content_text": "This is overdue! My bad!",
+      "date_published": "2025-05-23T18:14:01.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/diddy-chris-tory-more-mess-and-headlines",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://substack-video.s3.amazonaws.com/video_upload/post/164256941/e81bb7b3-e927-4941-b33f-4b2c6ccc3d4a/transcoded-1748023530.png"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/visibility-always-comes-with-a-cost",
+      "title": "Visibility Always Comes With a Cost: Angel Reese, Misogynoir, and the WNBA’s Big Moment",
+      "url": "https://kimberlynicolefoster.co/p/visibility-always-comes-with-a-cost",
+      "content_html": "The Angel Reese backlash proves how little has changed.",
+      "content_text": "The Angel Reese backlash proves how little has changed.",
+      "date_published": "2025-05-23T15:36:08.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/visibility-always-comes-with-a-cost",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://api.substack.com/feed/podcast/164242466/7c0c82a61d3aa98c5b75242aa4115ee2.mp3"
+    },
+    {
+      "id": "youtube_main-watch?v=h7bRiq_JKAc",
+      "title": "Don’t Let Them Gaslight You. Angel Reese Has Been Treated Like Trash.",
+      "url": "https://www.youtube.com/watch?v=h7bRiq_JKAc",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-05-23T13:43:23.000Z",
+      "external_url": "https://www.youtube.com/watch?v=h7bRiq_JKAc",
+      "author": {
+        "name": "KIMBERLY HAS THOUGHTS 💜"
+      },
+      "_source": "youtube_main"
+    },
+    {
+      "id": "youtube_channel_3-watch?v=dYGWzGtkjEo",
+      "title": "How Men's Insecurities Turned the Gold Digger Into A Villain",
+      "url": "https://www.youtube.com/watch?v=dYGWzGtkjEo",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-05-22T01:00:06.000Z",
+      "external_url": "https://www.youtube.com/watch?v=dYGWzGtkjEo",
+      "author": {
+        "name": "For Harriet"
+      },
+      "_source": "youtube_channel_3"
+    },
+    {
+      "id": "rss_app_1-32f74b90c465032f2bebe190e9658257",
+      "title": "Y’all let a college dropout convince people not to be proud of having a PhD?? Be serious. Say “doctor” with your whole chest. 🫡📚",
+      "url": "https://www.tiktok.com/@kimberlynfoster/video/7506252554070674730",
+      "content_html": "<div><img src=\"https://p16-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/os4UvpyIgRoioQuzEkMwC1aWiByurjANBI8EB~tplv-tiktokx-origin.image?dr=9636&x-expires=1760716800&x-signature=1LI%2F6cBmFuq1%2FhmNlGPcbhy2%2Fts%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5\" style=\"width: 100%;\" /><div>Y’all let a college dropout convince people not to be proud of having a PhD?? Be serious. Say “doctor” with your whole chest. 🫡📚  ♬ original sound - Kimberly Nicole Foster</div></div>",
+      "content_text": "Y’all let a college dropout convince people not to be proud of having a PhD?? Be serious. Say “doctor” with your whole chest. 🫡📚  ♬ original sound - Kimberly Nicole Foster",
+      "date_published": "2025-05-19T20:14:09.000Z",
+      "external_url": "https://www.tiktok.com/@kimberlynfoster/video/7506252554070674730",
+      "author": {
+        "name": "@kimberlynfoster"
+      },
+      "_source": "rss_app_1"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/late-night-convo-gender-wars-are",
+      "title": "Late Night Convo: Gender Wars Are for Stupid People & Other Dramas",
+      "url": "https://kimberlynicolefoster.co/p/late-night-convo-gender-wars-are",
+      "content_html": "Misogyny is a disease. Get well soon.",
+      "content_text": "Misogyny is a disease. Get well soon.",
+      "date_published": "2025-05-13T21:40:33.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/late-night-convo-gender-wars-are",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://substack-video.s3.amazonaws.com/video_upload/post/163491507/107ed184-be4f-473c-aa29-763302fff218/transcoded-1747166050.png"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/can-hasan-piker-save-the-democrats",
+      "title": "Can Hasan Piker Save the Democrats, or Is He Just a Hot Distraction?",
+      "url": "https://kimberlynicolefoster.co/p/can-hasan-piker-save-the-democrats",
+      "content_html": "What the left's &#8220;bro whisperer&#8221; moment tells us.",
+      "content_text": "What the left's “bro whisperer” moment tells us.",
+      "date_published": "2025-05-12T18:03:56.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/can-hasan-piker-save-the-democrats",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://api.substack.com/feed/podcast/163413027/edb31b8c21dc9fc34e4e6adb67ed7f51.mp3"
+    },
+    {
+      "id": "youtube_main-watch?v=79NLF7YxQv0",
+      "title": "Why Hasan Piker is the Left's New Favorite Bro Whisperer",
+      "url": "https://www.youtube.com/watch?v=79NLF7YxQv0",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-05-12T17:49:15.000Z",
+      "external_url": "https://www.youtube.com/watch?v=79NLF7YxQv0",
+      "author": {
+        "name": "KIMBERLY HAS THOUGHTS 💜"
+      },
+      "_source": "youtube_main"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/the-2025-met-gala-in-three-words",
+      "title": "The 2025 Met Gala Was an Impressive Yet Utterly Unsatisfying Spectacle",
+      "url": "https://kimberlynicolefoster.co/p/the-2025-met-gala-in-three-words",
+      "content_html": "I expected so much more.",
+      "content_text": "I expected so much more.",
+      "date_published": "2025-05-09T18:59:13.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/the-2025-met-gala-in-three-words",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://api.substack.com/feed/podcast/163179581/f639d5cc17de5f95027fe8bcc3c2782f.mp3"
+    },
+    {
+      "id": "youtube_main-watch?v=ReNIah4rDCc",
+      "title": "The 2025 Met Gala Looks Were Very Beautiful and Very Boring.",
+      "url": "https://www.youtube.com/watch?v=ReNIah4rDCc",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-05-08T22:03:17.000Z",
+      "external_url": "https://www.youtube.com/watch?v=ReNIah4rDCc",
+      "author": {
+        "name": "KIMBERLY HAS THOUGHTS 💜"
+      },
+      "_source": "youtube_main"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/was-cowboy-carter-stage-ready-shannon",
+      "title": "Was Cowboy Carter Stage-Ready? + Shannon Sharpe Is Over Party",
+      "url": "https://kimberlynicolefoster.co/p/was-cowboy-carter-stage-ready-shannon",
+      "content_html": "I, honestly, wasn't expecting soooo many American flags!",
+      "content_text": "I, honestly, wasn't expecting soooo many American flags!",
+      "date_published": "2025-05-05T20:46:04.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/was-cowboy-carter-stage-ready-shannon",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://substack-video.s3.amazonaws.com/video_upload/post/162920508/09212e8b-3a85-4216-b689-bc5a6230abb3/transcoded-1746481132.png"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/will-we-still-want-to-think-hard",
+      "title": "Will We Still Want to Think Hard After AI Makes Everything Easy?",
+      "url": "https://kimberlynicolefoster.co/p/will-we-still-want-to-think-hard",
+      "content_html": "What happens to our minds when thinking becomes optional?",
+      "content_text": "What happens to our minds when thinking becomes optional?",
+      "date_published": "2025-05-05T15:08:08.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/will-we-still-want-to-think-hard",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://api.substack.com/feed/podcast/162734681/db6ad5056b5ab292346023e30313bae1.mp3"
+    },
+    {
+      "id": "youtube_main-watch?v=FWYMyY9Guiw",
+      "title": "Will I Know ChatGPT Is Killing My Creativity Before It’s Too Late?",
+      "url": "https://www.youtube.com/watch?v=FWYMyY9Guiw",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-05-03T00:42:41.000Z",
+      "external_url": "https://www.youtube.com/watch?v=FWYMyY9Guiw",
+      "author": {
+        "name": "KIMBERLY HAS THOUGHTS 💜"
+      },
+      "_source": "youtube_main"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/ig-live-rewind-peak-misogyny-gen",
+      "title": "IG Live Rewind: Peak Misogyny? + Gen Z Turns on Trump + AI Panic + \"Useless Degrees\"",
+      "url": "https://kimberlynicolefoster.co/p/ig-live-rewind-peak-misogyny-gen",
+      "content_html": "In Case You Missed It!",
+      "content_text": "In Case You Missed It!",
+      "date_published": "2025-05-01T19:13:57.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/ig-live-rewind-peak-misogyny-gen",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://substackcdn.com/image/youtube/w_728,c_limit/969g3BPxU3Q"
+    },
+    {
+      "id": "youtube_main-watch?v=969g3BPxU3Q",
+      "title": "IG Live Rewind: Peak Misogyny? + Gen Z Turned on Trump + AI Panic + \"Useless Degrees\"",
+      "url": "https://www.youtube.com/watch?v=969g3BPxU3Q",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-05-01T19:00:15.000Z",
+      "external_url": "https://www.youtube.com/watch?v=969g3BPxU3Q",
+      "author": {
+        "name": "KIMBERLY HAS THOUGHTS 💜"
+      },
+      "_source": "youtube_main"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/tracee-ellis-ross-and-the-crisis",
+      "title": "Tracee Ellis Ross and the Crisis of Male Status Envy",
+      "url": "https://kimberlynicolefoster.co/p/tracee-ellis-ross-and-the-crisis",
+      "content_html": "How status anxiety drives misogyny in Gender Wars discourse",
+      "content_text": "How status anxiety drives misogyny in Gender Wars discourse",
+      "date_published": "2025-04-28T19:40:04.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/tracee-ellis-ross-and-the-crisis",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://substackcdn.com/image/youtube/w_728,c_limit/x7a-s3IaCFI"
+    },
+    {
+      "id": "youtube_main-watch?v=x7a-s3IaCFI",
+      "title": "Why Powerful Women Like Tracee Ellis Ross \"Trigger\" Weaker Men",
+      "url": "https://www.youtube.com/watch?v=x7a-s3IaCFI",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-04-28T19:19:47.000Z",
+      "external_url": "https://www.youtube.com/watch?v=x7a-s3IaCFI",
+      "author": {
+        "name": "KIMBERLY HAS THOUGHTS 💜"
+      },
+      "_source": "youtube_main"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/why-donald-trump-wont-be-able-to",
+      "title": "Why Donald Trump Won't Be Able to Bribe American Women Into Having More Babies",
+      "url": "https://kimberlynicolefoster.co/p/why-donald-trump-wont-be-able-to",
+      "content_html": "A baby bonus won't fix a broken economy or rising despair.",
+      "content_text": "A baby bonus won't fix a broken economy or rising despair.",
+      "date_published": "2025-04-26T18:05:23.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/why-donald-trump-wont-be-able-to",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://api.substack.com/feed/podcast/162203744/b42681c0ddd383b5c775993ee558e861.mp3"
+    },
+    {
+      "id": "youtube_channel_3-watch?v=h8qYimAhCzk",
+      "title": "Who’d Bring Kids Into This?: Why Birth Rates Are Down For Good 🤰🏾",
+      "url": "https://www.youtube.com/watch?v=h8qYimAhCzk",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-04-25T18:35:02.000Z",
+      "external_url": "https://www.youtube.com/watch?v=h8qYimAhCzk",
+      "author": {
+        "name": "For Harriet"
+      },
+      "_source": "youtube_channel_3"
+    },
+    {
+      "id": "youtube_channel_3-watch?v=ffEWDLR2BSo",
+      "title": "Why So Many Women Are Opting Out of Marriage",
+      "url": "https://www.youtube.com/watch?v=ffEWDLR2BSo",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-04-23T01:29:52.000Z",
+      "external_url": "https://www.youtube.com/watch?v=ffEWDLR2BSo",
+      "author": {
+        "name": "For Harriet"
+      },
+      "_source": "youtube_channel_3"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/the-girls-are-tired-of-celebrity",
+      "title": "The Girls Are Tired of Celebrity Feminists Playing In Our Faces!",
+      "url": "https://kimberlynicolefoster.co/p/the-girls-are-tired-of-celebrity",
+      "content_html": "Women don't need inspiration porn. They need help.",
+      "content_text": "Women don't need inspiration porn. They need help.",
+      "date_published": "2025-04-22T02:33:42.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/the-girls-are-tired-of-celebrity",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://api.substack.com/feed/podcast/161851869/32c95d28df33e1948638c444b280a368.mp3"
+    },
+    {
+      "id": "youtube_channel_3-watch?v=UP08MJMY6yA",
+      "title": "If Degrees Don’t Matter, Why Did Trump Send All His Kids to College?",
+      "url": "https://www.youtube.com/watch?v=UP08MJMY6yA",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-04-22T00:35:45.000Z",
+      "external_url": "https://www.youtube.com/watch?v=UP08MJMY6yA",
+      "author": {
+        "name": "For Harriet"
+      },
+      "_source": "youtube_channel_3"
+    },
+    {
+      "id": "youtube_channel_3-watch?v=CgdKzQNicvU",
+      "title": "I'm Done With Katy Perry and the Hollow Spectacle of Celebrity Feminism",
+      "url": "https://www.youtube.com/watch?v=CgdKzQNicvU",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-04-21T22:59:26.000Z",
+      "external_url": "https://www.youtube.com/watch?v=CgdKzQNicvU",
+      "author": {
+        "name": "For Harriet"
+      },
+      "_source": "youtube_channel_3"
+    },
+    {
+      "id": "rss_app_1-c9687d8c084e55bd63203e4a21b55a24",
+      "title": "They think patriarchy = freedom. But patriarchy is rules, duty, and pressure — just enforced by other men. You’re not mad at women. You’re mad the game you worship isn’t rigged in your favor. #Patriarchy #FeminismExplained #ForHarriet #ManosphereLogic #GenderWars #BlackFeministTikTok #YouWantThePerksNotThePressure",
+      "url": "https://www.tiktok.com/@kimberlynfoster/video/7495796548673195310",
+      "content_html": "<div><img src=\"https://p16-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/ocJRgBEAHAWrDGS3E9twaMgEDfA4FDAeECAomI~tplv-tiktokx-origin.image?dr=9636&x-expires=1760716800&x-signature=M8eDR%2Bgvznt6zhYFL1u2yUgOO4U%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5\" style=\"width: 100%;\" /><div>They think patriarchy = freedom. But patriarchy is rules, duty, and pressure — just enforced by other men. You’re not mad at women. You’re mad the game you worship isn’t rigged in your favor. #Patriarchy #FeminismExplained #ForHarriet #ManosphereLogic #GenderWars #BlackFeministTikTok #YouWantThePerksNotThePressure  ♬ original sound - Kimberly Nicole Foster</div></div>",
+      "content_text": "They think patriarchy = freedom. But patriarchy is rules, duty, and pressure — just enforced by other men. You’re not mad at women. You’re mad the game you worship isn’t rigged in your favor. #Patriarchy #FeminismExplained #ForHarriet #ManosphereLogic #GenderWars #BlackFeministTikTok #YouWantThePerk",
+      "date_published": "2025-04-21T15:59:45.000Z",
+      "external_url": "https://www.tiktok.com/@kimberlynfoster/video/7495796548673195310",
+      "author": {
+        "name": "@kimberlynfoster"
+      },
+      "_source": "rss_app_1"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/the-gender-war-bros-defend-a-white",
+      "title": "Gender War Bros Defend a System Built to Control Them Too",
+      "url": "https://kimberlynicolefoster.co/p/the-gender-war-bros-defend-a-white",
+      "content_html": "They think patriarchy = freedom. NOPE.",
+      "content_text": "They think patriarchy = freedom. NOPE.",
+      "date_published": "2025-04-20T23:11:55.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/the-gender-war-bros-defend-a-white",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://substackcdn.com/image/youtube/w_728,c_limit/cDjqWEMAYCk"
+    },
+    {
+      "id": "youtube_main-watch?v=cDjqWEMAYCk",
+      "title": "How Gender War Bros Defend a Patriarchy They Can't Compete In | Kimberly Nicole Foster",
+      "url": "https://www.youtube.com/watch?v=cDjqWEMAYCk",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-04-20T20:19:09.000Z",
+      "external_url": "https://www.youtube.com/watch?v=cDjqWEMAYCk",
+      "author": {
+        "name": "KIMBERLY HAS THOUGHTS 💜"
+      },
+      "_source": "youtube_main"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/apparently-rich-parents-only-want",
+      "title": "Apparently, Rich Parents Only Want Girl Babies Now. ",
+      "url": "https://kimberlynicolefoster.co/p/apparently-rich-parents-only-want",
+      "content_html": "Is it feminism or eugenics? You decide!",
+      "content_text": "Is it feminism or eugenics? You decide!",
+      "date_published": "2025-04-18T17:01:31.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/apparently-rich-parents-only-want",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://substack-video.s3.amazonaws.com/video_upload/post/161618871/ca08a4d9-debf-4363-8ad1-37f7074c022d/transcoded-1745005970.png"
+    },
+    {
+      "id": "youtube_main-watch?v=-ZMD6JBqkM8",
+      "title": "Romance Has Become a Luxury Good in Today’s Dating Economy | Kimberly Nicole Foster",
+      "url": "https://www.youtube.com/watch?v=-ZMD6JBqkM8",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-04-16T22:21:06.000Z",
+      "external_url": "https://www.youtube.com/watch?v=-ZMD6JBqkM8",
+      "author": {
+        "name": "KIMBERLY HAS THOUGHTS 💜"
+      },
+      "_source": "youtube_main"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/why-romance-has-become-a-luxury-in",
+      "title": "Romance Has Become a Luxury in Today’s Toxic Dating Culture",
+      "url": "https://kimberlynicolefoster.co/p/why-romance-has-become-a-luxury-in",
+      "content_html": "Connection feels harder, rarer, and more expensive than ever.",
+      "content_text": "Connection feels harder, rarer, and more expensive than ever.",
+      "date_published": "2025-04-16T22:12:53.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/why-romance-has-become-a-luxury-in",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://api.substack.com/feed/podcast/161431444/e3807215fe22c7b7efbf121f046d763a.mp3"
+    },
+    {
+      "id": "youtube_channel_2-watch?v=9-oYMEZFXSs",
+      "title": "It's Finally Time to Admit Taylor Swift is A Genius",
+      "url": "https://www.youtube.com/watch?v=9-oYMEZFXSs",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-04-12T20:45:03.000Z",
+      "external_url": "https://www.youtube.com/watch?v=9-oYMEZFXSs",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "youtube_channel_2"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/reckoning-with-the-rise-power-and",
+      "title": "Reckoning With the Rise, Power, & Genius of Taylor Swift",
+      "url": "https://kimberlynicolefoster.co/p/reckoning-with-the-rise-power-and",
+      "content_html": "Together We Can Defeat Taylor Derangement Syndrome",
+      "content_text": "Together We Can Defeat Taylor Derangement Syndrome",
+      "date_published": "2025-04-12T20:40:34.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/reckoning-with-the-rise-power-and",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://api.substack.com/feed/podcast/161197624/35981bde7d69ab70d51fd785a0b2961a.mp3"
+    },
+    {
+      "id": "youtube_main-watch?v=QgoX7HyfwAs",
+      "title": "How Mark Zuckerberg Broke the Internet—and Got Away With It | Kimberly Nicole Foster",
+      "url": "https://www.youtube.com/watch?v=QgoX7HyfwAs",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-04-10T23:30:34.000Z",
+      "external_url": "https://www.youtube.com/watch?v=QgoX7HyfwAs",
+      "author": {
+        "name": "KIMBERLY HAS THOUGHTS 💜"
+      },
+      "_source": "youtube_main"
+    },
+    {
+      "id": "personal_site-https://kimberlynicolefoster.co/p/mark-zuckerbergs-cowardice-built",
+      "title": "Mark Zuckerberg’s Cowardice Built the Internet’s Worst Era",
+      "url": "https://kimberlynicolefoster.co/p/mark-zuckerbergs-cowardice-built",
+      "content_html": "The algorithms won, and we know who to blame.",
+      "content_text": "The algorithms won, and we know who to blame.",
+      "date_published": "2025-04-10T23:29:10.000Z",
+      "external_url": "https://kimberlynicolefoster.co/p/mark-zuckerbergs-cowardice-built",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "personal_site",
+      "image": "https://api.substack.com/feed/podcast/161055423/967573f7c2abde24a6ac05ecdfe72b36.mp3"
+    },
+    {
+      "id": "youtube_main-watch?v=J2jvN9di9jA",
+      "title": "Most People Never Gave A Crap About Art | ChatGPT & Ghibli | Kimberly Nicole Foster",
+      "url": "https://www.youtube.com/watch?v=J2jvN9di9jA",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-04-08T14:15:03.000Z",
+      "external_url": "https://www.youtube.com/watch?v=J2jvN9di9jA",
+      "author": {
+        "name": "KIMBERLY HAS THOUGHTS 💜"
+      },
+      "_source": "youtube_main"
+    },
+    {
+      "id": "youtube_main-watch?v=Gzzl_BBnpR0",
+      "title": "You Don't Really Know These People! | Kimberly Nicole Foster",
+      "url": "https://www.youtube.com/watch?v=Gzzl_BBnpR0",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-04-02T19:22:01.000Z",
+      "external_url": "https://www.youtube.com/watch?v=Gzzl_BBnpR0",
+      "author": {
+        "name": "KIMBERLY HAS THOUGHTS 💜"
+      },
+      "_source": "youtube_main"
+    },
+    {
+      "id": "youtube_channel_3-watch?v=9LwfGcGy3qc",
+      "title": "Why Aren’t Black Men Going to College?",
+      "url": "https://www.youtube.com/watch?v=9LwfGcGy3qc",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-04-01T02:02:58.000Z",
+      "external_url": "https://www.youtube.com/watch?v=9LwfGcGy3qc",
+      "author": {
+        "name": "For Harriet"
+      },
+      "_source": "youtube_channel_3"
+    },
+    {
+      "id": "rss_app_1-e6105271126013a7484def9eec49d05c",
+      "title": "She was a teenager. The world told her she wasn’t enough. And the adults around her agreed. I don’t blame Kylie. I blame the culture—and the people who cashed in on her insecurity.",
+      "url": "https://www.tiktok.com/@kimberlynfoster/video/7485418915674328363",
+      "content_html": "<div><img src=\"https://p16-common-sign.tiktokcdn-us.com/tos-useast5-p-0068-tx/oInASThyYCVEYAFReD8IMRjAA4EGg9fD80jDEb~tplv-tiktokx-origin.image?dr=9636&x-expires=1760716800&x-signature=HEmddVvVJhPFxqXJ111Xx69weN0%3D&t=4d5b0474&ps=13740610&shp=81f88b70&shcp=43f4a2f9&idc=useast5\" style=\"width: 100%;\" /><div>She was a teenager. The world told her she wasn’t enough. And the adults around her agreed. I don’t blame Kylie. I blame the culture—and the people who cashed in on her insecurity.  ♬ original sound - Kimberly Nicole Foster</div></div>",
+      "content_text": "She was a teenager. The world told her she wasn’t enough. And the adults around her agreed. I don’t blame Kylie. I blame the culture—and the people who cashed in on her insecurity.  ♬ original sound - Kimberly Nicole Foster",
+      "date_published": "2025-03-24T16:49:29.000Z",
+      "external_url": "https://www.tiktok.com/@kimberlynfoster/video/7485418915674328363",
+      "author": {
+        "name": "@kimberlynfoster"
+      },
+      "_source": "rss_app_1"
+    },
+    {
+      "id": "youtube_channel_2-S-rloSQgBrw",
+      "title": "Kylie Jenner Never Stood a Chance",
+      "url": "https://www.youtube.com/shorts/S-rloSQgBrw",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-03-24T16:45:11.000Z",
+      "external_url": "https://www.youtube.com/shorts/S-rloSQgBrw",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "youtube_channel_2"
     }
   ]
 }
