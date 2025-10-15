@@ -172,6 +172,33 @@
         #countdown-timer .opacity-70 {
             opacity: 0.6;
         }
+        
+        /* --- Enhancement 2: Animated Gradient Text --- */
+        .animated-gradient-text {
+            background: linear-gradient(90deg, var(--grad-start), var(--grad-mid), var(--grad-end), var(--grad-start));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            animation: gradient-flow 10s ease-in-out infinite;
+        }
+
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* --- Enhancement 3: Interactive Icon Glow --- */
+        .icon-container {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .icon-container:hover {
+            transform: translateY(-5px);
+            filter: drop-shadow(0 0 15px var(--grad-mid)); 
+        }
 
         /* Animations */
         @keyframes pulse {
@@ -254,7 +281,8 @@
         <section class="relative text-center flex flex-col items-center justify-center pt-12 pb-20 lg:pt-16 lg:pb-32 overflow-hidden" style="min-height: calc(90vh - 80px);">
             
             <div class="container mx-auto px-4 z-20 relative">
-                <div class="fade-in" style="animation-delay: 100ms;">
+                <!-- Enhancement 1: Added ID for parallax effect -->
+                <div id="hero-image-container" class="fade-in" style="animation-delay: 100ms;">
                     <img src="https://knfoster13.github.io/knf90/images/knf90-header-cropped.png" alt="Stylized text reading 90 in 90" class="w-full max-w-2xl mx-auto mb-6" loading="eager">
                 </div>
 
@@ -297,7 +325,8 @@
                 <div class="mt-16 lg:mt-24 max-w-3xl mx-auto fade-in" style="animation-delay: 600ms;">
                     <p id="weekly-theme-label" class="text-lg uppercase tracking-widest" style="color: var(--accent-peach); font-family: 'Instrument Serif', serif;">This Week's Theme</p>
                     <div class="w-48 h-1 mx-auto my-4" style="background: linear-gradient(90deg, transparent, var(--grad-mid), transparent); opacity: 0.6;"></div>
-                    <h2 id="weekly-theme-title" class="font-display text-7xl md:text-8xl leading-tight" style="color: var(--accent-rose);">Narratives,<br>Myths, & Lives.</h2>
+                    <!-- Enhancement 2: Added animated-gradient-text class and updated text -->
+                    <h2 id="weekly-theme-title" class="font-display text-7xl md:text-8xl leading-tight animated-gradient-text">Narrative,<br>Myths, & Lies.</h2>
                     <p id="weekly-theme-description" class="mt-4 text-lg text-cream/80">Exploring the stories we tell to survive, sell, and sanctify.</p>
                 </div>
             </div>
@@ -321,21 +350,24 @@
                      <p class="mt-4 text-lg text-cream/80 max-w-3xl mx-auto">This is a space for experimentation, not perfection. A commitment to showing up, day after day, to explore the connections between ideas, images, and inquiry.</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8 md:gap-12">
-                    <div class="text-center">
+                    <!-- Enhancements 3 & 4: Added icon-container class and staggered animation delay -->
+                    <div class="text-center icon-container reveal-on-scroll" style="transition-delay: 100ms;">
                         <div class="flex justify-center items-center mb-4">
                             <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4L36.416 19.584L52 24L36.416 28.416L32 44L27.584 28.416L12 24L27.584 19.584L32 4Z" stroke="url(#paint0_linear_101_2)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="paint0_linear_101_2" x1="12" y1="24" x2="52" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
                         </div>
                         <h3 class="font-display text-2xl mb-2" style="color: var(--grad-start)">Join the Community</h3>
                         <p class="text-cream/80">Follow along daily and engage with the work. Sign up for updates to become part of a community of inquiry.</p>
                     </div>
-                    <div class="text-center">
+                     <!-- Enhancements 3 & 4: Added icon-container class and staggered animation delay -->
+                    <div class="text-center icon-container reveal-on-scroll" style="transition-delay: 250ms;">
                         <div class="flex justify-center items-center mb-4">
                             <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M52 4H12C9.79086 4 8 5.79086 8 8V56C8 58.2091 9.79086 60 12 60H52C54.2091 60 56 58.2091 56 56V8C56 5.79086 54.2091 4 52 4Z" stroke="url(#paint1_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 40L26 30L38 42" stroke="url(#paint2_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 40L38 34L56 52" stroke="url(#paint3_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 24C45.1046 24 46 23.1046 46 22C46 20.8954 45.1046 20 44 20C42.8954 20 42 20.8954 42 22C42 23.1046 42.8954 24 44 24Z" stroke="url(#paint4_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="paint1_linear_101_3" x1="8" y1="32" x2="56" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint2_linear_101_3" x1="16" y1="36" x2="38" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint3_linear_101_3" x1="32" y1="43" x2="56" y2="43" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint4_linear_101_3" x1="42" y1="22" x2="46" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
                         </div>
                         <h3 class="font-display text-2xl mb-2" style="color: var(--grad-mid)">Create Alongside</h3>
                         <p class="text-cream/80">Use the weekly themes as inspiration for your own work. This is a space for experimentation, not perfection.</p>
                     </div>
-                    <div class="text-center">
+                     <!-- Enhancements 3 & 4: Added icon-container class and staggered animation delay -->
+                    <div class="text-center icon-container reveal-on-scroll" style="transition-delay: 400ms;">
                          <div class="flex justify-center items-center mb-4">
                              <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M48 24V52H16" stroke="url(#paint5_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M56 16V44H24" stroke="url(#paint6_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 8V36H40V8H8Z" stroke="url(#paint7_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="paint5_linear_101_4" x1="16" y1="38" x2="48" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint6_linear_101_4" x1="24" y1="30" x2="56" y2="30" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint7_linear_101_4" x1="8" y1="22" x2="40" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
                          </div>
@@ -413,18 +445,28 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- Enhanced Parallax Effect ---
+            // --- Parallax Effects ---
             const parallaxBg = document.getElementById('parallax-bg');
+            const heroImage = document.getElementById('hero-image-container'); // Enhancement 1
             let ticking = false;
             
             function updateParallax() {
                 const scrolled = window.pageYOffset;
-                const speed = 0.5;
-                const yPos = -(scrolled * speed);
                 
+                // Background parallax
+                const bgSpeed = 0.5;
+                const bgYPos = -(scrolled * bgSpeed);
                 if(parallaxBg) {
-                    parallaxBg.style.transform = `translateY(${yPos}px) translateZ(0)`;
+                    parallaxBg.style.transform = `translateY(${bgYPos}px) translateZ(0)`;
                 }
+
+                // --- Enhancement 1: Hero Image Parallax ---
+                const heroSpeed = 0.2; 
+                const heroYPos = -(scrolled * heroSpeed);
+                if (heroImage) {
+                    heroImage.style.transform = `translateY(${heroYPos}px)`;
+                }
+                
                 ticking = false;
             }
             
@@ -475,7 +517,7 @@
         });
 
         const weeklyThemes = [
-            { week: 1, title: "Narratives,<br>Myths, & Lives.", description: "Exploring the stories we tell to survive, sell, and sanctify." },
+            { week: 1, title: "Narrative,<br>Myths, & Lies.", description: "Exploring the stories we tell to survive, sell, and sanctify." },
             { week: 2, title: "The Body<br>The Archive", description: "On memory, physicality, and the records we keep." },
             { week: 3, title: "Ritual<br>Repetition", description: "Finding meaning in the patterns of daily practice." },
             { week: 4, title: "Public<br>Private", description: "Navigating the boundaries between personal and shared experience." },
@@ -512,7 +554,7 @@
             const title = document.getElementById('weekly-theme-title');
             const description = document.getElementById('weekly-theme-description');
             if (label) label.textContent = `This Week's Theme`;
-            if (title) title.innerHTML = theme.title;
+            if (title) title.innerHTML = theme.title; // Note: The weekly theme will be overridden by the first theme on load
             if (description) description.textContent = theme.description;
         }
 
@@ -703,4 +745,3 @@
     </script>
 </body>
 </html>
-
