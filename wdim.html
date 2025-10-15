@@ -4,42 +4,595 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What Did I Miss? - The Return of Kimberly Nicole Foster</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Karla:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --bg-dark-purple: #1B0628;
-            --text-warm-white: #FFF0E1;
-            --btn-color: #5c174d;
-            --btn-hover: #7d2e68;
-            --accent-lavender: #C6B6F7;
+            --bg: #2C0838;
+            --bg-darker: #1B0628;
+            --bg-darkest: #120518;
+            --cream: #FFF8F2;
+            --gold: #E6C98C;
+            --accent-peach: #FFD9C0;
+            --accent-rose: #FEDBD5;
+            --grad-start: #FFD9C0;
+            --grad-mid: #C6B6F7;
+            --grad-end: #EED5A5;
         }
 
         body {
-            background-color: var(--bg-dark-purple);
-            color: var(--text-warm-white);
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .bg-radial-gradient {
-             background: radial-gradient(circle at top, rgba(92, 23, 77, 0.4) 0%, transparent 50%);
+            font-family: 'Karla', sans-serif;
+            background: var(--bg);
+            color: var(--cream);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
 
+        /* Background with radial gradient matching index.html */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at top, #4B1C5C, #2C0838 50%, #20062C);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Floating particles background */
+        #parallax-bg {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            z-index: -1;
+            pointer-events: none;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(198, 182, 247, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 217, 192, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(238, 213, 165, 0.05) 0%, transparent 50%);
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate3d(0, 0, 0); }
+            33% { transform: translate3d(-30px, -50px, 0); }
+            66% { transform: translate3d(30px, -30px, 0); }
+        }
+
+        /* Typography */
         .font-display {
             font-family: 'DM Serif Display', serif;
-        }
-        
-        .font-mono {
-            font-family: 'Roboto Mono', monospace;
+            font-style: italic;
         }
 
-        /* Animation for header reveal */
-        @keyframes fadeUpIn {
+        .font-serif {
+            font-family: 'Instrument Serif', serif;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Section */
+        .header-section {
+            text-align: center;
+            padding: 4rem 0 2rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .event-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--grad-start), var(--grad-mid));
+            color: var(--bg-darker);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+
+        .main-title {
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--accent-peach) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent-peach);
+            opacity: 0.9;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .host-name {
+            font-size: 1.125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Sale Section */
+        .sale-section {
+            margin: 4rem 0 5rem;
+            padding: 3rem 0;
+            position: relative;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .sale-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 800px;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(230, 201, 140, 0.1), transparent 70%);
+            pointer-events: none;
+        }
+
+        .sale-container {
+            text-align: center;
+            position: relative;
+        }
+
+        .sale-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--gold), var(--accent-peach), var(--grad-mid));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .sale-subtitle {
+            color: rgba(255, 248, 242, 0.7);
+            font-size: 1.125rem;
+            font-style: italic;
+            margin-bottom: 3rem;
+        }
+
+        .sale-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .sale-item {
+            background: rgba(255, 248, 242, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(230, 201, 140, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .sale-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(230, 201, 140, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .sale-item:hover::before {
+            left: 100%;
+        }
+
+        .sale-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 40px rgba(230, 201, 140, 0.2);
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--accent-peach));
+            color: var(--bg-darker);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .sale-item-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--cream);
+        }
+
+        .sale-item-desc {
+            color: rgba(255, 248, 242, 0.6);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .sale-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .sale-link:hover {
+            color: var(--accent-peach);
+            transform: translateX(5px);
+        }
+
+        /* Program Section */
+        .program-section {
+            margin: 5rem 0;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--grad-start), var(--grad-mid), var(--grad-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .section-subtitle {
+            color: rgba(255, 248, 242, 0.7);
+            font-size: 1.125rem;
+            font-style: italic;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, var(--grad-mid), transparent);
+            opacity: 0.3;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+            animation: fadeInLeft 0.8s ease both;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+            animation: fadeInRight 0.8s ease both;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+
+        .timeline-content {
+            flex: 1;
+            padding: 1.5rem 2rem;
+            background: rgba(255, 248, 242, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 248, 242, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(198, 182, 247, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .timeline-content:hover::before {
+            left: 100%;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 248, 242, 0.05);
+            box-shadow: 0 10px 40px rgba(198, 182, 247, 0.2);
+        }
+
+        .timeline-time {
+            background: linear-gradient(135deg, var(--gold), var(--accent-peach));
+            color: var(--bg-darker);
+            padding: 0.375rem 0.875rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.375rem;
+            font-weight: 600;
+            color: var(--cream);
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: var(--grad-mid);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px var(--bg), 0 0 0 6px rgba(198, 182, 247, 0.3);
+            z-index: 1;
+        }
+
+        .timeline-spacer {
+            flex: 1;
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            text-align: center;
+            padding: 4rem 0;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .knf90-badge {
+            display: inline-block;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            transition: transform 0.3s ease;
+        }
+
+        .knf90-badge:hover {
+            transform: scale(1.1);
+        }
+
+        .countdown-label {
+            color: var(--accent-peach);
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .countdown-item {
+            background: linear-gradient(135deg, rgba(255, 248, 242, 0.03), rgba(198, 182, 247, 0.03));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 248, 242, 0.1);
+            border-radius: 20px;
+            padding: 1.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            transform: scale(1.05) translateY(-5px);
+            background: rgba(198, 182, 247, 0.05);
+            border-color: var(--grad-mid);
+        }
+
+        .countdown-value {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--cream), var(--accent-peach));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            line-height: 1;
+        }
+
+        .countdown-unit {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255, 248, 242, 0.6);
+            margin-top: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 4rem 0;
+            animation: fadeInUp 1s ease 0.9s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--accent-peach));
+            color: var(--bg-darker);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 248, 242, 0.05);
+            backdrop-filter: blur(20px);
+            color: var(--cream);
+            border-color: rgba(255, 248, 242, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(230, 201, 140, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--accent-peach), var(--gold));
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 248, 242, 0.1);
+            border-color: var(--gold);
+        }
+
+        /* Big CTA */
+        .big-cta {
+            text-align: center;
+            margin: 5rem 0 3rem;
+            animation: fadeInUp 1s ease 1.2s both;
+        }
+
+        .big-cta-btn {
+            display: inline-block;
+            padding: 1.25rem 2.5rem;
+            background: linear-gradient(135deg, #FFFDF5, #e8d5b5, #cb98e1);
+            color: var(--bg-darker);
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 700;
+            border-radius: 60px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(203, 152, 225, 0.15), 0 0 20px rgba(255, 250, 222, 0.2);
+        }
+
+        .big-cta-btn:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 10px 30px rgba(203, 152, 225, 0.3), 0 0 30px rgba(255, 250, 222, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(to bottom, transparent, var(--bg-darker) 30%, var(--bg-darkest));
+            animation: fadeInUp 1s ease 1.5s both;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 248, 242, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 248, 242, 0.1);
+            border-radius: 50%;
+            color: var(--cream);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--gold), var(--accent-peach));
+            color: var(--bg-darker);
+            transform: translateY(-5px) rotate(10deg);
+            border-color: transparent;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(-30px);
             }
             to {
                 opacity: 1;
@@ -47,197 +600,302 @@
             }
         }
 
-        .animate-fade-up-in {
-            animation: fadeUpIn 1s ease-out 0.2s forwards;
-            opacity: 0;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .btn {
-            background-color: var(--btn-color);
-            color: var(--text-warm-white);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem; /* 12px */
-            padding: 0.75rem 1.5rem; /* 12px 24px */
-            border-radius: 0.5rem; /* 8px */
-            font-weight: 600;
-            text-decoration: none;
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        .btn:hover {
-            background-color: var(--btn-hover);
-            transform: translateY(-2px);
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        .program-item {
-            background-color: rgba(92, 23, 77, 0.3);
-            border: 1px solid rgba(92, 23, 77, 0.6);
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-        
-        .program-item:hover {
-            background-color: rgba(92, 23, 77, 0.5);
-            border-color: rgba(125, 46, 104, 0.8);
-        }
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .timeline::before {
+                display: none;
+            }
 
-        /* New Countdown Styles */
-        #countdown-container .time-unit {
-            text-align: center;
-        }
-        #countdown-container .time-value {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 2.25rem; /* 36px */
-            line-height: 2.5rem; /* 40px */
-            font-weight: 500;
-        }
-        #countdown-container .time-label {
-            font-size: 0.75rem; /* 12px */
-            line-height: 1rem; /* 16px */
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-warm-white);
-            opacity: 0.7;
-        }
+            .timeline-item {
+                flex-direction: column !important;
+                margin-bottom: 2rem;
+            }
 
-        .join-link {
-            display: inline-block;
-            background-color: var(--btn-color);
-            padding: 1rem 2rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            font-size: 1.125rem; /* 18px */
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
+            .timeline-item:nth-child(even) {
+                flex-direction: column !important;
+            }
 
-        .join-link:hover {
-            background-color: var(--btn-hover);
-            transform: translateY(-2px);
-        }
-        
-        .logo-font {
-            font-family: 'DM Serif Display', serif;
-            letter-spacing: -1px;
+            .timeline-dot {
+                display: none;
+            }
+
+            .timeline-spacer {
+                display: none;
+            }
+
+            .countdown-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-section {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 0 1rem;
+            }
+
+            .btn {
+                justify-content: center;
+            }
+
+            .main-title {
+                font-size: 3.5rem;
+            }
         }
     </style>
 </head>
-<body class="antialiased flex flex-col min-h-screen items-center justify-center p-6">
-    <div class="absolute inset-0 bg-radial-gradient"></div>
+<body>
+    <!-- Animated Background matching index.html -->
+    <div id="parallax-bg"></div>
 
-    <main class="relative z-10 container mx-auto text-center flex flex-col items-center max-w-2xl w-full">
-        
-        <header class="w-full mb-8 px-4 animate-fade-up-in">
-            <img src="https://knfoster13.github.io/knf90/images/wdim-header-2.png" alt="What Did I Miss? Header" class="w-full max-w-lg mx-auto">
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header-section">
+            <img src="https://knfoster13.github.io/files/images/wdim-cropped-logo-1.webp" 
+                 alt="What Did I Miss? - The Return" 
+                 class="hero-logo"
+                 style="max-width: 100%; width: 600px; height: auto; margin: 2rem auto;">
+            <p class="host-name">Kimberly Nicole Foster</p>
         </header>
 
-        <section class="w-full my-8 text-center">
-            <h2 class="font-display text-4xl mb-2">Program</h2>
-            <p class="text-lg text-cream/80 mb-6">An Orderly Hot Take Dump</p>
-            <div class="space-y-3 w-full">
-                <div class="program-item flex items-center justify-between p-4 rounded-lg">
-                    <span class="font-mono text-warm-white/80">8:00 PM</span>
-                    <span class="font-semibold">Beyoncé’s Surprise Album</span>
-                </div>
-                <div class="program-item flex items-center justify-between p-4 rounded-lg">
-                    <span class="font-mono text-warm-white/80">8:30 PM</span>
-                    <span class="font-semibold">Kendrick’s Hottest Verse</span>
-                </div>
-                <div class="program-item flex items-center justify-between p-4 rounded-lg">
-                    <span class="font-mono text-warm-white/80">9:00 PM</span>
-                    <span class="font-semibold">Women in Coaching</span>
+        <!-- Sale Banner Section -->
+        <section class="sale-section">
+            <div class="sale-container">
+                <h2 class="sale-title font-display">"I'm super sorry that I ghosted y'all"</h2>
+                <p class="sale-subtitle">My bad. Let me make it up to you.</p>
+                <div class="sale-grid">
+                    <div class="sale-item">
+                        <div class="discount-badge">50% OFF</div>
+                        <h3 class="sale-item-title">Yearly Substack</h3>
+                        <p class="sale-item-desc">Full year of exclusive content</p>
+                        <a href="https://kimberlynicolefoster.co/subscribe" class="sale-link">Subscribe Now →</a>
+                    </div>
+                    <div class="sale-item">
+                        <div class="discount-badge">25% OFF</div>
+                        <h3 class="sale-item-title">All Merch</h3>
+                        <p class="sale-item-desc">Tees, totes, and more</p>
+                        <a href="https://shopknf.com/" class="sale-link">Shop Collection →</a>
+                    </div>
+                    <div class="sale-item">
+                        <div class="discount-badge">20% OFF</div>
+                        <h3 class="sale-item-title">Event Tickets</h3>
+                        <p class="sale-item-desc">Join us for WDIM live</p>
+                        <a href="https://www.kimberlynfoster.com/experiences" class="sale-link">Get Tickets →</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <div class="w-full my-12 text-center">
-            <a href="https://knf.kim/90" target="_blank" rel="noopener noreferrer" class="inline-block mb-4 transition-opacity hover:opacity-80">
-                <img src="https://knfoster13.github.io/knf90/images/knf90-logo-glow-gradient.png" alt="KNF90 Logo" class="h-12 w-auto">
-            </a>
-            <p class="text-warm-white/80 mb-6">A new 90-day creative sprint begins in:</p>
-            <div id="countdown-container" class="grid grid-cols-4 gap-4 max-w-sm mx-auto">
-                <div class="time-unit">
-                    <div id="days" class="time-value">00</div>
-                    <div class="time-label">Days</div>
+        <!-- Program Section -->
+        <section class="program-section">
+            <div class="section-header">
+                <h2 class="font-display section-title">Tonight's Program</h2>
+                <p class="section-subtitle font-serif">An Orderly Hot Take Dump</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-time">8:00 PM</span>
+                        <h3 class="timeline-title">Beyoncé's Surprise Album</h3>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-spacer"></div>
                 </div>
-                <div class="time-unit">
-                    <div id="hours" class="time-value">00</div>
-                    <div class="time-label">Hours</div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-spacer"></div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-time">8:30 PM</span>
+                        <h3 class="timeline-title">Kendrick's Hottest Verse</h3>
+                    </div>
                 </div>
-                <div class="time-unit">
-                    <div id="minutes" class="time-value">00</div>
-                    <div class="time-label">Minutes</div>
-                </div>
-                <div class="time-unit">
-                    <div id="seconds" class="time-value">00</div>
-                    <div class="time-label">Seconds</div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-time">9:00 PM</span>
+                        <h3 class="timeline-title">Women in Coaching</h3>
+                    </div>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-spacer"></div>
                 </div>
             </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section class="countdown-section">
+            <a href="https://knf.kim/90" target="_blank" rel="noopener noreferrer" class="knf90-badge">
+                <img src="https://knfoster13.github.io/knf90/images/knf90-logo-gradient-1.png" alt="KNF90 Logo" style="height: 60px;">
+            </a>
+            
+            <p class="countdown-label">A new creative sprint begins in:</p>
+            
+            <div class="countdown-grid" id="countdown-container">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">00</span>
+                    <span class="countdown-unit">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-unit">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-unit">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">00</span>
+                    <span class="countdown-unit">Seconds</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Buttons -->
+        <div class="cta-section">
+            <a href="https://www.kimberlynfoster.com/experiences" class="btn btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 6V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2"/>
+                    <path d="M6 12h12"/>
+                    <path d="m15 9 3 3-3 3"/>
+                </svg>
+                Friendsgiving
+            </a>
+            <a href="https://kimberlynicolefoster.co/subscribe" class="btn btn-secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="#2C0838" stroke-width="2" fill="none"/>
+                    <circle cx="9" cy="9" r="1" fill="#2C0838"/>
+                    <circle cx="15" cy="9" r="1" fill="#2C0838"/>
+                </svg>
+                Join Newsletter
+            </a>
+            <a href="https://shopknf.com/" class="btn btn-secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="9" cy="21" r="1"/>
+                    <circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                Shop Merch
+            </a>
         </div>
 
-
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 w-full mb-12">
-            <a href="#" class="btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-2"/><path d="M6 12h12"/><path d="m15 9 3 3-3 3"/><path d="M22 12h-2"/></svg>
-                <span>Get Tickets</span>
-            </a>
-            <a href="#" class="btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.62 20.81c-.34.12-.9.38-1.15.42-.22.03-.44.04-.67.04-.28 0-.55-.01-.83-.04a5.04 5.04 0 0 1-1.27-.31c-.31-.1-.6-.24-.87-.4-.44-.27-.83-.6-1.17-1-.34-.4-.62-.86-.81-1.37-.19-.51-.29-1.05-.29-1.61 0-.56.1-1.1.29-1.61.19-.51.47-1 .8-1.4.34-.4.73-.73 1.18-1 .27-.16.56-.3.87-.4.42-.16.85-.26 1.3-.32.28-.04.56-.06.84-.07.23 0 .46.01.69.04.24.04.8.28 1.15.42 2.92 1.19 4.28 4.61 3.58 7.62-.57 2.45-3.1 4.1-5.69 4.14z"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                <span>Join Membership</span>
-            </a>
-            <a href="#" class="btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-                <span>Shop Merch</span>
+        <!-- Big CTA -->
+        <div class="big-cta">
+            <a href="https://knf.kim/90" target="_blank" rel="noopener noreferrer" class="big-cta-btn">
+                What's next? Preview KNF90 ✦
             </a>
         </div>
 
-        <footer class="w-full mt-12">
-            <a href="https://knf.kim/90" target="_blank" rel="noopener noreferrer" class="join-link">What's next? Get a preview of KNF90 &rarr;</a>
-            <div class="flex justify-center items-center gap-6 mt-8">
-                <a href="#" class="text-warm-white/70 hover:text-warm-white"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17Z"/><path d="m10 15 5-3-5-3z"/></svg></a>
-                <a href="#" class="text-warm-white/70 hover:text-warm-white"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
-                <a href="#" class="text-warm-white/70 hover:text-warm-white"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3C2.57 3 1 4.57 1 6.5v11C1 19.43 2.57 21 4.5 21h4.21c.47 0 .86-.34.98-.8l.68-2.7c.1-.41-.16-.83-.54-1.01l-1.12-.52c-.3-.14-.42-.51-.28-.81l1.37-2.88c.14-.3.51-.42.81-.28l1.12.52c.38.18.8.18 1.18 0l1.12-.52c.3-.14.67-.02.81.28l1.37 2.88c.14.3-.02.67-.28.81l-1.12.52c-.38.18-.64.6-.54 1.01l.68 2.7c.12.46.51.8.98.8h4.21c1.93 0 3.5-1.57 3.5-3.5v-11C23 4.57 21.43 3 19.5 3z"/></svg></a>
+        <!-- Footer -->
+        <footer>
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="YouTube">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17Z"/>
+                        <path d="m10 15 5-3-5-3z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                    </svg>
+                </a>
             </div>
         </footer>
-    </main>
+    </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set countdown target time for KNF90 Launch
-            const targetDate = new Date("2025-10-15T15:13:00").getTime();
+        // Countdown Timer
+        const targetDate = new Date("2025-10-18T15:13:00").getTime();
 
-            const timerInterval = setInterval(() => {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
-                const countdownContainer = document.getElementById("countdown-container");
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
 
-                if (distance < 0) {
-                    clearInterval(timerInterval);
-                    if (countdownContainer) {
-                        countdownContainer.innerHTML = "<div class='text-2xl font-semibold'>Launched!</div>";
-                    }
-                    return;
-                }
+            if (distance < 0) {
+                document.getElementById("countdown-container").innerHTML = 
+                    '<div style="grid-column: 1/-1; font-size: 2rem; font-weight: 700;">✦ Sprint Launched! ✦</div>';
+                return;
+            }
 
-                // Time calculations
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                // Update elements
-                const daysEl = document.getElementById("days");
-                const hoursEl = document.getElementById("hours");
-                const minutesEl = document.getElementById("minutes");
-                const secondsEl = document.getElementById("seconds");
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                if(daysEl) daysEl.innerText = days.toString().padStart(2, '0');
-                if(hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
-                if(minutesEl) minutesEl.innerText = minutes.toString().padStart(2, '0');
-                if(secondsEl) secondsEl.innerText = seconds.toString().padStart(2, '0');
+            document.getElementById("days").textContent = days.toString().padStart(2, '0');
+            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+        };
 
-            }, 1000);
-        });
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Parallax effect on scroll
+        const parallaxBg = document.getElementById('parallax-bg');
+        let ticking = false;
+
+        function handleScroll() {
+            const scrolled = window.pageYOffset;
+            const speed = 0.5;
+            const yPos = -(scrolled * speed);
+            
+            if(parallaxBg) {
+                parallaxBg.style.transform = `translateY(${yPos}px) translateZ(0)`;
+            }
+            
+            ticking = false;
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                window.requestAnimationFrame(handleScroll);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestTick);
     </script>
 </body>
 </html>
