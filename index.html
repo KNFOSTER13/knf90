@@ -208,6 +208,17 @@
             background: linear-gradient(to bottom, rgba(255, 248, 242, 0.02), rgba(255, 248, 242, 0.05), rgba(255, 248, 242, 0.02));
             position: relative;
         }
+
+        /* Fix for browser autofill styles on form inputs */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-text-fill-color: var(--header) !important;
+            -webkit-box-shadow: 0 0 0 30px var(--cream) inset !important;
+            box-shadow: 0 0 0 30px var(--cream) inset !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -579,23 +590,30 @@
             }
             
             // --- Prepare and Send Data ---
-            const formData = {
+            const dataToSend = {
                 email: wantsNewsletter ? email : '',
                 phone: wantsTexts ? phone : '',
                 type: type,
                 timestamp: new Date().toISOString()
             };
+
+            // This format is more compatible with standard Google Apps Script configurations
+            const urlEncodedData = new URLSearchParams(dataToSend).toString();
         
             showMessage('Joining the sprint...', 'loading');
             submitBtn.disabled = true;
             submitBtn.textContent = 'Please Wait...';
         
             try {
+                // Using 'no-cors' mode but sending data as x-www-form-urlencoded
+                // This is more compatible with basic Google Apps Script doPost(e) functions
                 await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: urlEncodedData
                 });
                 
                 showMessage('🎉 Welcome! You\'re on the list.', 'success');
@@ -685,3 +703,4 @@
     </script>
 </body>
 </html>
+
