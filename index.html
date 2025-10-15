@@ -172,6 +172,33 @@
         #countdown-timer .opacity-70 {
             opacity: 0.6;
         }
+        
+        /* --- Enhancement 2: Animated Gradient Text --- */
+        .animated-gradient-text {
+            background: linear-gradient(90deg, var(--grad-start), var(--grad-mid), var(--grad-end), var(--grad-start));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            animation: gradient-flow 10s ease-in-out infinite;
+        }
+
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* --- Enhancement 3: Interactive Icon Glow --- */
+        .icon-container {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .icon-container:hover {
+            transform: translateY(-5px);
+            filter: drop-shadow(0 0 15px var(--grad-mid)); 
+        }
 
         /* Animations */
         @keyframes pulse {
@@ -208,6 +235,17 @@
             background: linear-gradient(to bottom, rgba(255, 248, 242, 0.02), rgba(255, 248, 242, 0.05), rgba(255, 248, 242, 0.02));
             position: relative;
         }
+
+        /* Fix for browser autofill styles on form inputs */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-text-fill-color: var(--header) !important;
+            -webkit-box-shadow: 0 0 0 30px var(--cream) inset !important;
+            box-shadow: 0 0 0 30px var(--cream) inset !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -241,9 +279,10 @@
 
     <main>
         <section class="relative text-center flex flex-col items-center justify-center pt-12 pb-20 lg:pt-16 lg:pb-32 overflow-hidden" style="min-height: calc(90vh - 80px);">
-             
+            
             <div class="container mx-auto px-4 z-20 relative">
-                <div class="fade-in" style="animation-delay: 100ms;">
+                <!-- Enhancement 1: Added ID for parallax effect -->
+                <div id="hero-image-container" class="fade-in" style="animation-delay: 100ms;">
                     <img src="https://knfoster13.github.io/knf90/images/knf90-header-cropped.png" alt="Stylized text reading 90 in 90" class="w-full max-w-2xl mx-auto mb-6" loading="eager">
                 </div>
 
@@ -286,10 +325,21 @@
                 <div class="mt-16 lg:mt-24 max-w-3xl mx-auto fade-in" style="animation-delay: 600ms;">
                     <p id="weekly-theme-label" class="text-lg uppercase tracking-widest" style="color: var(--accent-peach); font-family: 'Instrument Serif', serif;">This Week's Theme</p>
                     <div class="w-48 h-1 mx-auto my-4" style="background: linear-gradient(90deg, transparent, var(--grad-mid), transparent); opacity: 0.6;"></div>
-                    <h2 id="weekly-theme-title" class="font-display text-7xl md:text-8xl leading-tight" style="color: var(--accent-rose);">Narratives,<br>Myths, & Lives.</h2>
+                    <!-- Enhancement 2: Added animated-gradient-text class and updated text -->
+                    <h2 id="weekly-theme-title" class="font-display text-7xl md:text-8xl leading-tight animated-gradient-text">Narrative,<br>Myths, & Lies.</h2>
                     <p id="weekly-theme-description" class="mt-4 text-lg text-cream/80">Exploring the stories we tell to survive, sell, and sanctify.</p>
                 </div>
             </div>
+        </section>
+
+        <section class="bg-[#1B0628]/80 backdrop-blur-sm py-8 text-center border-t border-[#E6C98C]/20">
+          <h2 class="font-serif text-2xl mb-3">Stay in the Loop ✦</h2>
+          <p class="text-cream/80 mb-4">Weekly reflections, behind-the-scenes notes, and upcoming drops from the 90-day sprint.</p>
+          <form id="cta-form" onsubmit="handleCtaSignup(event)" class="flex flex-col sm:flex-row items-center justify-center gap-2 max-w-md mx-auto px-4">
+            <input id="cta-email" type="email" name="email" placeholder="Enter your email" required class="rounded-full px-4 py-2 text-[#2C0838] w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-[#C6B6F7] transition">
+            <button id="cta-submit-btn" type="submit" class="btn-luminous uppercase w-full sm:w-auto">Subscribe</button>
+          </form>
+           <p id="cta-form-message" class="text-sm mt-3 h-5"></p>
         </section>
 
         <section class="py-24 bg-[#FFF8F2] text-[#2C0838] text-center">
@@ -310,21 +360,24 @@
                      <p class="mt-4 text-lg text-cream/80 max-w-3xl mx-auto">This is a space for experimentation, not perfection. A commitment to showing up, day after day, to explore the connections between ideas, images, and inquiry.</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8 md:gap-12">
-                    <div class="text-center">
+                    <!-- Enhancements 3 & 4: Added icon-container class and staggered animation delay -->
+                    <div class="text-center icon-container reveal-on-scroll" style="transition-delay: 100ms;">
                         <div class="flex justify-center items-center mb-4">
                             <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4L36.416 19.584L52 24L36.416 28.416L32 44L27.584 28.416L12 24L27.584 19.584L32 4Z" stroke="url(#paint0_linear_101_2)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="paint0_linear_101_2" x1="12" y1="24" x2="52" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
                         </div>
                         <h3 class="font-display text-2xl mb-2" style="color: var(--grad-start)">Join the Community</h3>
                         <p class="text-cream/80">Follow along daily and engage with the work. Sign up for updates to become part of a community of inquiry.</p>
                     </div>
-                    <div class="text-center">
+                     <!-- Enhancements 3 & 4: Added icon-container class and staggered animation delay -->
+                    <div class="text-center icon-container reveal-on-scroll" style="transition-delay: 250ms;">
                         <div class="flex justify-center items-center mb-4">
                             <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M52 4H12C9.79086 4 8 5.79086 8 8V56C8 58.2091 9.79086 60 12 60H52C54.2091 60 56 58.2091 56 56V8C56 5.79086 54.2091 4 52 4Z" stroke="url(#paint1_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 40L26 30L38 42" stroke="url(#paint2_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 40L38 34L56 52" stroke="url(#paint3_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 24C45.1046 24 46 23.1046 46 22C46 20.8954 45.1046 20 44 20C42.8954 20 42 20.8954 42 22C42 23.1046 42.8954 24 44 24Z" stroke="url(#paint4_linear_101_3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="paint1_linear_101_3" x1="8" y1="32" x2="56" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint2_linear_101_3" x1="16" y1="36" x2="38" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint3_linear_101_3" x1="32" y1="43" x2="56" y2="43" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint4_linear_101_3" x1="42" y1="22" x2="46" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
                         </div>
                         <h3 class="font-display text-2xl mb-2" style="color: var(--grad-mid)">Create Alongside</h3>
                         <p class="text-cream/80">Use the weekly themes as inspiration for your own work. This is a space for experimentation, not perfection.</p>
                     </div>
-                    <div class="text-center">
+                     <!-- Enhancements 3 & 4: Added icon-container class and staggered animation delay -->
+                    <div class="text-center icon-container reveal-on-scroll" style="transition-delay: 400ms;">
                          <div class="flex justify-center items-center mb-4">
                              <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M48 24V52H16" stroke="url(#paint5_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M56 16V44H24" stroke="url(#paint6_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 8V36H40V8H8Z" stroke="url(#paint7_linear_101_4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="paint5_linear_101_4" x1="16" y1="38" x2="48" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint6_linear_101_4" x1="24" y1="30" x2="56" y2="30" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient><linearGradient id="paint7_linear_101_4" x1="8" y1="22" x2="40" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
                          </div>
@@ -350,8 +403,9 @@
         </div>
     </footer>
 
+    <!-- MODAL -->
     <div class="modal-overlay hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 items-center justify-center p-4" id="modalOverlay">
-        <div class="modal bg-cream text-header rounded-lg shadow-2xl p-8 md:p-12 max-w-2xl w-full relative" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalSubtitle">
+        <div class="modal bg-cream text-header rounded-lg shadow-2xl p-8 md:p-12 max-w-lg w-full relative" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalSubtitle">
             <button class="modal-close absolute top-4 right-4 text-header/50 hover:text-header transition-colors" onclick="closeModal()">
                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
@@ -360,19 +414,38 @@
                 <p id="modalSubtitle" class="text-header/70 mt-2">Stay in the flow. Get daily drops and weekly reflections.</p>
             </div>
             
-            <div class="mt-8 grid md:grid-cols-2 gap-8">
-                <div class="modal-column">
-                    <h3 class="font-display text-xl mb-2">Newsletter</h3>
-                    <input class="w-full bg-header/5 p-3 rounded-md border border-header/10 focus:ring-2 focus:ring-grad-mid focus:border-grad-mid outline-none" type="email" placeholder="Your email address">
-                    <button class="w-full mt-3 bg-header text-cream font-semibold p-3 rounded-md hover:bg-opacity-90 transition-all transform hover:scale-105">Subscribe</button>
+            <!-- UPDATED FORM -->
+            <form id="sprint-form" class="mt-8 text-left" onsubmit="event.preventDefault(); handleSignup();">
+                <div class="space-y-4">
+                    <div>
+                        <label for="email" class="font-semibold text-header/80 text-sm block mb-1">Email Address</label>
+                        <input id="email" name="email" class="w-full bg-white/80 text-header p-3 rounded-md border border-header/10 focus:ring-2 focus:ring-[#a08fd5] focus:border-[#a08fd5] outline-none transition-all" type="email" placeholder="you@domain.com">
+                    </div>
+                    <div>
+                        <label for="tel" class="font-semibold text-header/80 text-sm block mb-1">Phone Number</label>
+                        <input id="tel" name="tel" class="w-full bg-white/80 text-header p-3 rounded-md border border-header/10 focus:ring-2 focus:ring-[#a08fd5] focus:border-[#a08fd5] outline-none transition-all" type="tel" placeholder="(555) 123-4567">
+                    </div>
                 </div>
-                
-                <div class="modal-column">
-                    <h3 class="font-display text-xl mb-2">Text Alerts</h3>
-                    <input class="w-full bg-header/5 p-3 rounded-md border border-header/10 focus:ring-2 focus:ring-grad-mid focus:border-grad-mid outline-none" type="tel" placeholder="Your phone number">
-                    <button class="w-full mt-3 bg-header text-cream font-semibold p-3 rounded-md hover:bg-opacity-90 transition-all transform hover:scale-105">Get Alerts</button>
+                <div class="mt-6 space-y-3">
+                    <p class="font-semibold text-header/80 text-sm">I'd like to receive:</p>
+                    <label for="signup-newsletter" class="flex items-center space-x-3 p-3 rounded-md bg-header/5 cursor-pointer hover:bg-header/10 transition-colors">
+                        <input type="checkbox" id="signup-newsletter" name="signup-type" value="newsletter" checked class="h-5 w-5 rounded border-gray-300 text-[#a08fd5] focus:ring-[#a08fd5] accent-[#4B1C5C]">
+                        <span class="text-header/90 select-none">Daily Newsletter</span>
+                    </label>
+                    <label for="signup-texts" class="flex items-center space-x-3 p-3 rounded-md bg-header/5 cursor-pointer hover:bg-header/10 transition-colors">
+                        <input type="checkbox" id="signup-texts" name="signup-type" value="text" class="h-5 w-5 rounded border-gray-300 text-[#a08fd5] focus:ring-[#a08fd5] accent-[#4B1C5C]">
+                        <span class="text-header/90 select-none">Occasional Text Alerts</span>
+                    </label>
                 </div>
-            </div>
+            
+                <!-- This div will hold any form messages (success, error, etc.) -->
+                <div id="formMessage" class="hidden mt-4 p-3 rounded-md text-center text-sm font-semibold"></div>
+            
+                <button type="submit" id="form-submit-btn" class="w-full mt-6 bg-header text-cream font-bold py-3.5 px-4 rounded-full hover:bg-opacity-90 transition-all transform hover:scale-[1.02] active:scale-[0.99] text-lg uppercase tracking-wider font-serif disabled:opacity-70 disabled:cursor-not-allowed">
+                    Join the Sprint
+                </button>
+            </form>
+            <!-- END UPDATED FORM -->
             
             <div class="text-center mt-8 text-xs text-header/50">
                 ✦ No spam. Only sparks of thought.
@@ -382,18 +455,28 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- Enhanced Parallax Effect ---
+            // --- Parallax Effects ---
             const parallaxBg = document.getElementById('parallax-bg');
+            const heroImage = document.getElementById('hero-image-container'); // Enhancement 1
             let ticking = false;
             
             function updateParallax() {
                 const scrolled = window.pageYOffset;
-                const speed = 0.5;
-                const yPos = -(scrolled * speed);
                 
+                // Background parallax
+                const bgSpeed = 0.5;
+                const bgYPos = -(scrolled * bgSpeed);
                 if(parallaxBg) {
-                    parallaxBg.style.transform = `translateY(${yPos}px) translateZ(0)`;
+                    parallaxBg.style.transform = `translateY(${bgYPos}px) translateZ(0)`;
                 }
+
+                // --- Enhancement 1: Hero Image Parallax ---
+                const heroSpeed = 0.2; 
+                const heroYPos = -(scrolled * heroSpeed);
+                if (heroImage) {
+                    heroImage.style.transform = `translateY(${heroYPos}px)`;
+                }
+                
                 ticking = false;
             }
             
@@ -444,7 +527,7 @@
         });
 
         const weeklyThemes = [
-            { week: 1, title: "Narratives,<br>Myths, & Lives.", description: "Exploring the stories we tell to survive, sell, and sanctify." },
+            { week: 1, title: "Narrative,<br>Myths, & Lies.", description: "Exploring the stories we tell to survive, sell, and sanctify." },
             { week: 2, title: "The Body<br>The Archive", description: "On memory, physicality, and the records we keep." },
             { week: 3, title: "Ritual<br>Repetition", description: "Finding meaning in the patterns of daily practice." },
             { week: 4, title: "Public<br>Private", description: "Navigating the boundaries between personal and shared experience." },
@@ -519,82 +602,100 @@
             } 
         });
 
-        // --- Google Sheets Form Handler ---
-        // IMPORTANT: Replace this with your actual Google Apps Script Web App URL
+        // --- UPDATED GOOGLE SHEETS FORM HANDLER (Modal) ---
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwmF94sTYqna54prNWWFB0JvmWTbWsBqq1cO--n6EteWV80_yrjlhYASpPB3ZYW_NSo/exec';
         
-        async function handleSignup(type) {
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('tel').value;
-            const messageDiv = document.getElementById('formMessage');
-            
-            // Validation
-            if (type === 'newsletter' || type === 'both') {
-                if (!email) {
-                    showMessage('Please enter your email address', 'error');
-                    return;
-                }
-                if (!validateEmail(email)) {
-                    showMessage('Please enter a valid email address', 'error');
-                    return;
-                }
+        async function handleSignup() {
+            const form = document.getElementById('sprint-form');
+            const wantsNewsletter = document.getElementById('signup-newsletter').checked;
+            const wantsTexts = document.getElementById('signup-texts').checked;
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('tel');
+            const email = emailInput.value;
+            const phone = phoneInput.value;
+            const submitBtn = document.getElementById('form-submit-btn');
+        
+            let type = '';
+            if (wantsNewsletter && wantsTexts) type = 'Both';
+            else if (wantsNewsletter) type = 'Newsletter';
+            else if (wantsTexts) type = 'Text Alerts';
+        
+            // --- Validation ---
+            if (!wantsNewsletter && !wantsTexts) {
+                showMessage('Please select at least one subscription option.', 'error');
+                return;
+            }
+            if (wantsNewsletter && !email) {
+                showMessage('Please enter your email for the newsletter.', 'error');
+                emailInput.focus();
+                return;
+            }
+            if (wantsNewsletter && email && !validateEmail(email)) {
+                showMessage('Please enter a valid email address.', 'error');
+                emailInput.focus();
+                return;
+            }
+            if (wantsTexts && !phone) {
+                showMessage('Please enter your phone number for text alerts.', 'error');
+                phoneInput.focus();
+                return;
             }
             
-            if (type === 'text' || type === 'both') {
-                if (!phone) {
-                    showMessage('Please enter your phone number', 'error');
-                    return;
-                }
-            }
-            
-            // Prepare data
-            const formData = {
-                email: type === 'text' ? '' : email,
-                phone: type === 'newsletter' ? '' : phone,
-                type: type === 'newsletter' ? 'Newsletter' : type === 'text' ? 'Text Alerts' : 'Both'
+            // --- Prepare and Send Data ---
+            const dataToSend = {
+                email: wantsNewsletter ? email : '',
+                phone: wantsTexts ? phone : '',
+                type: type,
+                timestamp: new Date().toISOString()
             };
-            
-            // Show loading state
-            showMessage('Signing you up...', 'loading');
-            
+
+            const urlEncodedData = new URLSearchParams(dataToSend).toString();
+        
+            showMessage('Joining the sprint...', 'loading');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Please Wait...';
+        
             try {
-                // Send to Google Sheets
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
-                    mode: 'no-cors', // Important for Google Apps Script
+                    mode: 'no-cors',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/x-www-form-urlencoded',
                     },
-                    body: JSON.stringify(formData)
+                    body: urlEncodedData
                 });
                 
-                // Since we're using no-cors, we can't read the response
-                // But if the request completes without error, we assume success
-                showMessage('🎉 Welcome to the Sprint! Check your inbox soon.', 'success');
+                showMessage('🎉 Welcome! You\'re on the list.', 'success');
                 
-                // Clear form after 3 seconds and close modal
                 setTimeout(() => {
-                    document.getElementById('email').value = '';
-                    document.getElementById('tel').value = '';
                     closeModal();
-                    hideMessage();
+                    setTimeout(() => {
+                        hideMessage();
+                        form.reset();
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Join the Sprint';
+                    }, 500);
                 }, 3000);
                 
             } catch (error) {
-                console.error('Error:', error);
-                showMessage('Something went wrong. Please try again or email us directly.', 'error');
+                console.error('Signup Error:', error);
+                showMessage('An error occurred. Please try again.', 'error');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Join the Sprint';
             }
         }
         
         function validateEmail(email) {
             const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
+            return re.test(String(email).toLowerCase());
         }
         
         function showMessage(message, type) {
             const messageDiv = document.getElementById('formMessage');
+            if (!messageDiv) return;
+            
             messageDiv.textContent = message;
-            messageDiv.className = 'mt-4 p-4 rounded-md text-center';
+            messageDiv.className = 'mt-4 p-3 rounded-md text-center text-sm font-semibold';
             
             if (type === 'success') {
                 messageDiv.classList.add('bg-green-100', 'text-green-800');
@@ -609,8 +710,57 @@
         
         function hideMessage() {
             const messageDiv = document.getElementById('formMessage');
-            messageDiv.classList.add('hidden');
-            messageDiv.className = 'hidden mt-4 p-4 rounded-md text-center';
+            if (messageDiv) {
+                messageDiv.classList.add('hidden');
+            }
+        }
+
+        // --- NEW: Google Sheets Form Handler (CTA Band) ---
+        const CTA_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyCA9pBu17QBEyZX8tJcW2hHpfoygdIINxd1-ViEeOlou37WQWHShT1kiZ9rNyBLiX1/exec';
+
+        async function handleCtaSignup(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('cta-form');
+            const emailInput = document.getElementById('cta-email');
+            const submitBtn = document.getElementById('cta-submit-btn');
+            const messageEl = document.getElementById('cta-form-message');
+            
+            const email = emailInput.value;
+            if (!email || !validateEmail(email)) {
+                messageEl.textContent = 'Please enter a valid email address.';
+                messageEl.style.color = 'var(--accent-rose)';
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Subscribing...';
+            messageEl.textContent = '';
+            
+            const formData = new FormData(form);
+
+            try {
+                await fetch(CTA_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    body: formData
+                });
+                
+                messageEl.textContent = '🎉 Thank you for subscribing!';
+                messageEl.style.color = 'var(--grad-mid)';
+                form.reset();
+                
+            } catch (error) {
+                console.error('CTA Signup Error:', error);
+                messageEl.textContent = 'An error occurred. Please try again.';
+                messageEl.style.color = 'var(--accent-rose)';
+            } finally {
+                 setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Subscribe';
+                    messageEl.textContent = '';
+                }, 4000);
+            }
         }
 
         // --- Marginalia Toggle ---
