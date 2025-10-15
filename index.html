@@ -134,20 +134,6 @@
             filter: drop-shadow(0 0 15px var(--grad-mid)); 
         }
 
-        /* 3. Luminous Button Style */
-        .btn-luminous {
-            background: linear-gradient(135deg, #FFFDF5, #e8d5b5, #cb98e1);
-            color: #330948; border-radius: 9999px;
-            box-shadow: 0 4px 15px rgba(203, 152, 225, 0.15), 0 0 20px rgba(255, 250, 222, 0.2), inset 0 1px 2px rgba(248, 233, 212, 0.5);
-            font-weight: 700; border: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            padding: 0.75rem 1.75rem;
-        }
-        .btn-luminous:hover:not(:disabled) {
-            transform: scale(1.05) translateY(-2px);
-            animation: pulse 1.2s ease-in-out infinite alternate;
-        }
-
         /* 4. Modal Animation */
         @keyframes modal-appear {
             from {
@@ -199,6 +185,22 @@
         .section-alt {
             background: linear-gradient(to bottom, rgba(255, 248, 242, 0.02), rgba(255, 248, 242, 0.05), rgba(255, 248, 242, 0.02));
             position: relative;
+        }
+        .spinner {
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #330948;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -309,7 +311,7 @@
                             <svg class="h-16 w-16" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M32 4L36.416 19.584L52 24L36.416 28.416L32 44L27.584 28.416L12 24L27.584 19.584L32 4Z" stroke="url(#paint0_linear_101_2)" stroke-width="2" stroke-linejoin="round"/><defs><linearGradient id="paint0_linear_101_2" x1="12" y1="24" x2="52" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD9C0"/><stop offset="0.5" stop-color="#C6B6F7"/><stop offset="1" stop-color="#EED5A5"/></linearGradient></defs></svg>
                         </div>
                         <h3 class="font-display text-2xl mb-2" style="color: var(--grad-start)">Join the Community</h3>
-                        <p class="text-cream/80">Follow along daily and engage with the work. Sign up for updates to become part of a community of inquiry.</p>
+                        <p class="text-cream/80">Follow along daily and engage with the. Sign up for updates to become part of a community of inquiry.</p>
                     </div>
                     <div class="text-center reveal-on-scroll icon-container" style="transition-delay: 250ms;">
                         <div class="flex justify-center items-center mb-4">
@@ -369,14 +371,15 @@
                         </div>
                     </div>
                     
-                    <!-- Add reCAPTCHA element here -->
                     <div class="flex justify-center my-4">
                         <div class="g-recaptcha" data-sitekey="6Lern-orAAAAAL1gRUTtf0rxz0CXmwSLKdJqUYol"></div>
                     </div>
 
                     <p id="form-error" class="text-red-600 text-sm hidden h-5 mb-2"></p>
                     
-                    <button type="submit" class="w-full bg-header text-cream font-semibold p-3 rounded-md hover:bg-opacity-90 transition-all transform hover:scale-105">Subscribe</button>
+                    <button type="submit" class="w-full bg-header text-cream font-semibold p-3 rounded-md hover:bg-opacity-90 transition-all transform hover:scale-105 flex justify-center items-center">
+                        <span class="button-text">Subscribe</span>
+                    </button>
 
                     <div class="text-center mt-6 text-xs text-header/50">
                         ✦ No spam. Only sparks of thought.
@@ -561,15 +564,19 @@
         async function handleFormSubmit(event) {
             event.preventDefault();
             const form = event.target;
-            const formData = new FormData(form);
             const submitButton = form.querySelector('button[type="submit"]');
+            const buttonText = submitButton.querySelector('.button-text');
             const errorElement = document.getElementById('form-error');
 
-            // --- Client-side validation ---
+            // Clear previous errors
             errorElement.textContent = '';
             errorElement.classList.add('hidden');
 
-            const email = formData.get('email');
+            // Get form values
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('tel').value;
+
+            // Validation
             if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
                 errorElement.textContent = 'Please enter a valid email address.';
                 errorElement.classList.remove('hidden');
@@ -583,33 +590,49 @@
                 return;
             }
 
+            // Show loading state
             submitButton.disabled = true;
-            submitButton.textContent = 'Submitting...';
+            buttonText.textContent = 'Submitting';
+            const spinner = document.createElement('div');
+            spinner.className = 'spinner';
+            submitButton.appendChild(spinner);
 
             const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwwssyesGyda11CzapioPkCOiYMOxVisyhyAASjeK4z5kLqnicPvmfANC8jx6pE7hGA/exec';
+            
+            // Create form data
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('phone', phone);
+            formData.append('g-recaptcha-response', recaptchaResponse);
 
             try {
                 const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     body: formData
                 });
+                
                 const result = await response.json();
 
                 if (result.result === "success") {
                     document.getElementById('form-container').classList.add('hidden');
                     document.getElementById('success-message').classList.remove('hidden');
+                    
+                    // Close modal after 3 seconds
                     setTimeout(() => closeModal(), 3000);
                 } else {
-                    throw new Error(result.message || 'Submission failed. Please try again.');
+                    throw new Error(result.message || 'Submission failed');
                 }
 
             } catch (error) {
-                console.error('Error submitting form:', error);
+                console.error('Error:', error);
                 document.getElementById('form-container').classList.add('hidden');
                 document.getElementById('error-message').classList.remove('hidden');
             } finally {
                 submitButton.disabled = false;
-                submitButton.textContent = 'Subscribe';
+                buttonText.textContent = 'Subscribe';
+                if (submitButton.contains(spinner)) {
+                    submitButton.removeChild(spinner);
+                }
             }
         }
     </script>
