@@ -564,7 +564,7 @@
             const title = document.getElementById('weekly-theme-title');
             const description = document.getElementById('weekly-theme-description');
             if (label) label.textContent = `This Week's Theme`;
-            if (title) title.innerHTML = theme.title;
+            if (title) title.innerHTML = theme.title; // Note: The weekly theme will be overridden by the first theme on load
             if (description) description.textContent = theme.description;
         }
 
@@ -602,7 +602,11 @@
             } 
         });
 
+<<<<<<< HEAD
         // --- UPDATED GOOGLE SHEETS FORM HANDLER (Modal) ---
+=======
+        // --- UPDATED GOOGLE SHEETS FORM HANDLER ---
+>>>>>>> 1e4be5e8f827bcd7018d70bfbfc94007fd4d5be6
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwmF94sTYqna54prNWWFB0JvmWTbWsBqq1cO--n6EteWV80_yrjlhYASpPB3ZYW_NSo/exec';
         
         async function handleSignup() {
@@ -649,6 +653,10 @@
                 timestamp: new Date().toISOString()
             };
 
+<<<<<<< HEAD
+=======
+            // This format is more compatible with standard Google Apps Script configurations
+>>>>>>> 1e4be5e8f827bcd7018d70bfbfc94007fd4d5be6
             const urlEncodedData = new URLSearchParams(dataToSend).toString();
         
             showMessage('Joining the sprint...', 'loading');
@@ -656,6 +664,11 @@
             submitBtn.textContent = 'Please Wait...';
         
             try {
+<<<<<<< HEAD
+=======
+                // Using 'no-cors' mode but sending data as x-www-form-urlencoded
+                // This is more compatible with basic Google Apps Script doPost(e) functions
+>>>>>>> 1e4be5e8f827bcd7018d70bfbfc94007fd4d5be6
                 await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
@@ -669,7 +682,11 @@
                 
                 setTimeout(() => {
                     closeModal();
+<<<<<<< HEAD
                     setTimeout(() => {
+=======
+                    setTimeout(() => { // delay reset to avoid visual glitch while closing
+>>>>>>> 1e4be5e8f827bcd7018d70bfbfc94007fd4d5be6
                         hideMessage();
                         form.reset();
                         submitBtn.disabled = false;
@@ -695,6 +712,10 @@
             if (!messageDiv) return;
             
             messageDiv.textContent = message;
+<<<<<<< HEAD
+=======
+            // Reset classes
+>>>>>>> 1e4be5e8f827bcd7018d70bfbfc94007fd4d5be6
             messageDiv.className = 'mt-4 p-3 rounded-md text-center text-sm font-semibold';
             
             if (type === 'success') {
@@ -713,6 +734,7 @@
             if (messageDiv) {
                 messageDiv.classList.add('hidden');
             }
+<<<<<<< HEAD
         }
 
         // --- NEW: Google Sheets Form Handler (CTA Band) ---
@@ -761,6 +783,8 @@
                     messageEl.textContent = '';
                 }, 4000);
             }
+=======
+>>>>>>> 1e4be5e8f827bcd7018d70bfbfc94007fd4d5be6
         }
 
         // --- Marginalia Toggle ---
