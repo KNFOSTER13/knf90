@@ -194,19 +194,6 @@
       "_source": "youtube_main"
     },
     {
-      "id": "youtube_channel_3-watch?v=dYGWzGtkjEo",
-      "title": "How Men's Insecurities Turned the Gold Digger Into A Villain",
-      "url": "https://www.youtube.com/watch?v=dYGWzGtkjEo",
-      "content_html": "",
-      "content_text": "",
-      "date_published": "2025-05-22T01:00:06.000Z",
-      "external_url": "https://www.youtube.com/watch?v=dYGWzGtkjEo",
-      "author": {
-        "name": "For Harriet"
-      },
-      "_source": "youtube_channel_3"
-    },
-    {
       "id": "personal_site-https://kimberlynicolefoster.co/p/late-night-convo-gender-wars-are",
       "title": "Late Night Convo: Gender Wars Are for Stupid People & Other Dramas",
       "url": "https://kimberlynicolefoster.co/p/late-night-convo-gender-wars-are",
@@ -384,32 +371,6 @@
       "image": "https://api.substack.com/feed/podcast/162203744/b42681c0ddd383b5c775993ee558e861.mp3"
     },
     {
-      "id": "youtube_channel_3-watch?v=h8qYimAhCzk",
-      "title": "Who’d Bring Kids Into This?: Why Birth Rates Are Down For Good 🤰🏾",
-      "url": "https://www.youtube.com/watch?v=h8qYimAhCzk",
-      "content_html": "",
-      "content_text": "",
-      "date_published": "2025-04-25T18:35:02.000Z",
-      "external_url": "https://www.youtube.com/watch?v=h8qYimAhCzk",
-      "author": {
-        "name": "For Harriet"
-      },
-      "_source": "youtube_channel_3"
-    },
-    {
-      "id": "youtube_channel_3-watch?v=ffEWDLR2BSo",
-      "title": "Why So Many Women Are Opting Out of Marriage",
-      "url": "https://www.youtube.com/watch?v=ffEWDLR2BSo",
-      "content_html": "",
-      "content_text": "",
-      "date_published": "2025-04-23T01:29:52.000Z",
-      "external_url": "https://www.youtube.com/watch?v=ffEWDLR2BSo",
-      "author": {
-        "name": "For Harriet"
-      },
-      "_source": "youtube_channel_3"
-    },
-    {
       "id": "personal_site-https://kimberlynicolefoster.co/p/the-girls-are-tired-of-celebrity",
       "title": "The Girls Are Tired of Celebrity Feminists Playing In Our Faces!",
       "url": "https://kimberlynicolefoster.co/p/the-girls-are-tired-of-celebrity",
@@ -422,32 +383,6 @@
       },
       "_source": "personal_site",
       "image": "https://api.substack.com/feed/podcast/161851869/32c95d28df33e1948638c444b280a368.mp3"
-    },
-    {
-      "id": "youtube_channel_3-watch?v=UP08MJMY6yA",
-      "title": "If Degrees Don’t Matter, Why Did Trump Send All His Kids to College?",
-      "url": "https://www.youtube.com/watch?v=UP08MJMY6yA",
-      "content_html": "",
-      "content_text": "",
-      "date_published": "2025-04-22T00:35:45.000Z",
-      "external_url": "https://www.youtube.com/watch?v=UP08MJMY6yA",
-      "author": {
-        "name": "For Harriet"
-      },
-      "_source": "youtube_channel_3"
-    },
-    {
-      "id": "youtube_channel_3-watch?v=CgdKzQNicvU",
-      "title": "I'm Done With Katy Perry and the Hollow Spectacle of Celebrity Feminism",
-      "url": "https://www.youtube.com/watch?v=CgdKzQNicvU",
-      "content_html": "",
-      "content_text": "",
-      "date_published": "2025-04-21T22:59:26.000Z",
-      "external_url": "https://www.youtube.com/watch?v=CgdKzQNicvU",
-      "author": {
-        "name": "For Harriet"
-      },
-      "_source": "youtube_channel_3"
     },
     {
       "id": "personal_site-https://kimberlynicolefoster.co/p/the-gender-war-bros-defend-a-white",
@@ -598,19 +533,6 @@
       "_source": "youtube_main"
     },
     {
-      "id": "youtube_channel_3-watch?v=9LwfGcGy3qc",
-      "title": "Why Aren’t Black Men Going to College?",
-      "url": "https://www.youtube.com/watch?v=9LwfGcGy3qc",
-      "content_html": "",
-      "content_text": "",
-      "date_published": "2025-04-01T02:02:58.000Z",
-      "external_url": "https://www.youtube.com/watch?v=9LwfGcGy3qc",
-      "author": {
-        "name": "For Harriet"
-      },
-      "_source": "youtube_channel_3"
-    },
-    {
       "id": "youtube_channel_2-S-rloSQgBrw",
       "title": "Kylie Jenner Never Stood a Chance",
       "url": "https://www.youtube.com/shorts/S-rloSQgBrw",
@@ -670,6 +592,84 @@
       "content_text": "",
       "date_published": "2025-02-26T21:32:10.000Z",
       "external_url": "https://www.youtube.com/watch?v=XiXzWVleeZw",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "youtube_channel_2"
+    },
+    {
+      "id": "youtube_channel_2-watch?v=Xr4BIiFe_OU",
+      "title": "KKKarla is Kancelled: Thoughts on How Disgusting Tweets Destroyed a Historic Oscar Run",
+      "url": "https://www.youtube.com/watch?v=Xr4BIiFe_OU",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2025-02-17T17:44:12.000Z",
+      "external_url": "https://www.youtube.com/watch?v=Xr4BIiFe_OU",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "youtube_channel_2"
+    },
+    {
+      "id": "youtube_channel_2-watch?v=R5WjSB-Q6_4",
+      "title": "Dating Is Bad on TV but It's Even Worse for Women IRL",
+      "url": "https://www.youtube.com/watch?v=R5WjSB-Q6_4",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2024-12-18T19:36:46.000Z",
+      "external_url": "https://www.youtube.com/watch?v=R5WjSB-Q6_4",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "youtube_channel_2"
+    },
+    {
+      "id": "youtube_channel_2-watch?v=nQm_KkHm_dQ",
+      "title": "I'm Finally Ready to Discuss the Ashley/Tyler #BlackLove Trainwreck",
+      "url": "https://www.youtube.com/watch?v=nQm_KkHm_dQ",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2024-12-18T01:34:03.000Z",
+      "external_url": "https://www.youtube.com/watch?v=nQm_KkHm_dQ",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "youtube_channel_2"
+    },
+    {
+      "id": "youtube_channel_2-watch?v=OrIfxTsieOk",
+      "title": "Ariana Grande v. The Body Shamers | Is It Concern or Concern Trolling?",
+      "url": "https://www.youtube.com/watch?v=OrIfxTsieOk",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2024-12-07T01:58:54.000Z",
+      "external_url": "https://www.youtube.com/watch?v=OrIfxTsieOk",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "youtube_channel_2"
+    },
+    {
+      "id": "youtube_channel_2-watch?v=Bzh4FdSNpxw",
+      "title": "How Gen Z Is Changing The Old, Outdated Rules of Fame And Motherhood",
+      "url": "https://www.youtube.com/watch?v=Bzh4FdSNpxw",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2024-11-19T23:05:45.000Z",
+      "external_url": "https://www.youtube.com/watch?v=Bzh4FdSNpxw",
+      "author": {
+        "name": "Kimberly Nicole Foster"
+      },
+      "_source": "youtube_channel_2"
+    },
+    {
+      "id": "youtube_channel_2-watch?v=evDERVUVips",
+      "title": "Lizzo Really Doesn't Wanna Discuss Her Legal Issues, But She Needs To./Love is Blind Rant",
+      "url": "https://www.youtube.com/watch?v=evDERVUVips",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2024-10-22T03:23:46.000Z",
+      "external_url": "https://www.youtube.com/watch?v=evDERVUVips",
       "author": {
         "name": "Kimberly Nicole Foster"
       },
