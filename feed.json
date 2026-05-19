@@ -6,6 +6,19 @@
   "description": "A 90-day sprint through ideas, images, and inquiry",
   "items": [
     {
+      "id": "youtube_main-watch?v=ePl77YeDFio",
+      "title": "Tucker Carlson Is Not Your Ally | Voting Rights, Emma Grede & Summer House",
+      "url": "https://www.youtube.com/watch?v=ePl77YeDFio",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2026-05-19T13:00:25.000Z",
+      "external_url": "https://www.youtube.com/watch?v=ePl77YeDFio",
+      "author": {
+        "name": "MARGINALIA by Kimberly Nicole Foster"
+      },
+      "_source": "youtube_main"
+    },
+    {
       "id": "youtube_main-watch?v=JKjggnmdWZM",
       "title": "Conservative Gen Z Men, Dating Disasters & The Uncle Nearest Scandal | Instagram Roulette",
       "url": "https://www.youtube.com/watch?v=JKjggnmdWZM",
@@ -299,19 +312,6 @@
       "content_text": "",
       "date_published": "2025-04-08T14:15:03.000Z",
       "external_url": "https://www.youtube.com/watch?v=J2jvN9di9jA",
-      "author": {
-        "name": "MARGINALIA by Kimberly Nicole Foster"
-      },
-      "_source": "youtube_main"
-    },
-    {
-      "id": "youtube_main-watch?v=Gzzl_BBnpR0",
-      "title": "You Don't Really Know These People! | Kimberly Nicole Foster",
-      "url": "https://www.youtube.com/watch?v=Gzzl_BBnpR0",
-      "content_html": "",
-      "content_text": "",
-      "date_published": "2025-04-02T19:22:01.000Z",
-      "external_url": "https://www.youtube.com/watch?v=Gzzl_BBnpR0",
       "author": {
         "name": "MARGINALIA by Kimberly Nicole Foster"
       },
