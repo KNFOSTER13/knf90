@@ -6,6 +6,19 @@
   "description": "A 90-day sprint through ideas, images, and inquiry",
   "items": [
     {
+      "id": "youtube_channel_3-watch?v=bEIp_Ch9TEQ",
+      "title": "I Took a Break Because the Internet Got Too Sad & Stupid",
+      "url": "https://www.youtube.com/watch?v=bEIp_Ch9TEQ",
+      "content_html": "",
+      "content_text": "",
+      "date_published": "2026-06-23T03:56:43.000Z",
+      "external_url": "https://www.youtube.com/watch?v=bEIp_Ch9TEQ",
+      "author": {
+        "name": "For Harriet"
+      },
+      "_source": "youtube_channel_3"
+    },
+    {
       "id": "youtube_main-watch?v=ePl77YeDFio",
       "title": "Tucker Carlson Is Not Your Ally | Voting Rights, Emma Grede & Summer House",
       "url": "https://www.youtube.com/watch?v=ePl77YeDFio",
@@ -559,19 +572,6 @@
       "content_text": "",
       "date_published": "2024-11-05T04:59:56.000Z",
       "external_url": "https://www.youtube.com/watch?v=BUfq8EjHLKM",
-      "author": {
-        "name": "For Harriet"
-      },
-      "_source": "youtube_channel_3"
-    },
-    {
-      "id": "youtube_channel_3-watch?v=m4CQR53r-uA",
-      "title": "The Bro Vote: Why Some Young Men Are Voting Trump",
-      "url": "https://www.youtube.com/watch?v=m4CQR53r-uA",
-      "content_html": "",
-      "content_text": "",
-      "date_published": "2024-11-02T06:16:52.000Z",
-      "external_url": "https://www.youtube.com/watch?v=m4CQR53r-uA",
       "author": {
         "name": "For Harriet"
       },
